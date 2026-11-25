@@ -6,7 +6,7 @@ import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const katex = require("../vendor/katex/katex.min.js");
 
-const FILES = [["terms", "data/terms-optimization.json"], ["terms", "data/terms-analysis.json"], ["terms", "data/terms-functional.json"], ["symbols", "data/symbols.json"], ["phrases", "data/phrases.json"]];
+const FILES = [["terms", "data/terms-optimization.json"], ["terms", "data/terms-analysis.json"], ["terms", "data/terms-functional.json"], ["terms", "data/terms-numerical.json"], ["symbols", "data/symbols.json"], ["phrases", "data/phrases.json"]];
 const NEED = {
   terms: ["id", "en", "pos", "vi", "gloss", "def", "ex"],
   symbols: ["id", "tex", "read", "vi"],

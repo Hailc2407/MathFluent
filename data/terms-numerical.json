@@ -1,0 +1,415 @@
+{
+  "module": "terms",
+  "field": "numerical",
+  "topics": [
+    {
+      "id": "errors", "emoji": "🎯",
+      "title": "Sai số và độ ổn định", "titleEn": "Errors and stability",
+      "desc": "Sai số tuyệt đối và tương đối, sai số làm tròn, sai số chặt cụt, epsilon máy, dấu phẩy động, số điều kiện, ổn định.",
+      "descEn": "Absolute and relative error, round-off and truncation error, machine epsilon, floating point, condition number, stability.",
+      "items": [
+        {
+          "id": "absolute-error", "en": "absolute error", "pos": "n", "ipa": "/ˈæbsəluːt ˈerə/",
+          "vi": "sai số tuyệt đối", "gloss": "the size of the difference between the approximation and the exact value",
+          "def": "If $\\tilde x$ approximates $x$, the {{absolute error}} is $|\\tilde x - x|$ and the relative error is $|\\tilde x - x|/|x|$ for $x \\ne 0$.",
+          "family": [["relative error", "n", "sai số tương đối"], ["error bound", "n", "cận sai số"], ["approximate", "v", "xấp xỉ"]],
+          "col": [["the absolute error is [[bounded]] by $\\varepsilon$", "sai số tuyệt đối bị chặn bởi $\\varepsilon$"], ["an [[upper]] bound on the error", "một cận trên của sai số"], ["estimate the [[error]]", "đánh giá sai số"]],
+          "ex": ["The absolute error of the approximation $\\pi \\approx 3.14$ is about $1.6 \\times 10^{-3}$.", "Sai số tuyệt đối của xấp xỉ $\\pi \\approx 3.14$ vào khoảng $1.6 \\times 10^{-3}$."],
+          "note": ["Nói “error of” hoặc “error in”: “the error in the approximation”. Sai số tương đối thường mới có ý nghĩa khi giá trị rất lớn hoặc rất nhỏ.", "Relative error is the meaningful measure for very large or very small values."]
+        },
+        {
+          "id": "roundoff-error", "en": "round-off error", "alt": ["roundoff error", "rounding error"], "pos": "n", "ipa": "/ˈraʊnd ɒf ˈerə/",
+          "vi": "sai số làm tròn", "gloss": "the error caused by representing numbers with finitely many digits",
+          "def": "{{Round-off error}} is the difference between a real number and its floating-point representation, caused by storing only finitely many digits.",
+          "family": [["round", "v", "làm tròn"], ["rounding", "n", "phép làm tròn"], ["truncation error", "n", "sai số chặt cụt"]],
+          "col": [["accumulate [[round-off]] errors", "tích lũy sai số làm tròn"], ["due [[to]] round-off error", "do sai số làm tròn"], ["rounding errors [[propagate]]", "sai số làm tròn lan truyền"]],
+          "ex": ["In finite-precision arithmetic, round-off errors can accumulate and destroy the accuracy of the computed solution.", "Trong số học độ chính xác hữu hạn, sai số làm tròn có thể tích lũy và làm hỏng độ chính xác của nghiệm tính được."],
+          "note": ["Chính tả: round-off, roundoff đều gặp. “Rounding error” cũng đúng và phổ biến.", "round-off, roundoff and rounding error all occur."]
+        },
+        {
+          "id": "truncation-error", "en": "truncation error", "pos": "n", "ipa": "/trʌŋˈkeɪʃn ˈerə/",
+          "vi": "sai số chặt cụt", "gloss": "the error from replacing an infinite or exact process with a finite one",
+          "def": "{{Truncation error}} arises when an infinite process, such as a Taylor series, is cut off after finitely many terms.",
+          "family": [["truncate", "v", "chặt cụt"], ["discretization error", "n", "sai số rời rạc hóa"], ["local truncation error", "n", "sai số chặt cụt địa phương"]],
+          "col": [["the truncation error is of [[order]] $h^2$", "sai số chặt cụt cấp $h^2$"], ["a truncation error [[estimate]]", "đánh giá sai số chặt cụt"], ["[[neglect]] the truncation error", "bỏ qua sai số chặt cụt"]],
+          "ex": ["The truncation error of the central difference formula is $O(h^2)$.", "Sai số chặt cụt của công thức sai phân trung tâm là $O(h^2)$."],
+          "note": ["Đừng nhầm với sai số làm tròn: chặt cụt do thuật toán, làm tròn do biểu diễn số.", "Truncation comes from the method, round-off from the arithmetic."]
+        },
+        {
+          "id": "machine-epsilon", "en": "machine epsilon", "pos": "n", "ipa": "/məˈʃiːn ˈepsɪlɒn/",
+          "vi": "epsilon máy", "gloss": "the gap between 1 and the next floating-point number",
+          "def": "{{Machine epsilon}} $\\varepsilon_{\\mathrm{mach}}$ bounds the relative rounding error: $\\mathrm{fl}(x) = x(1 + \\delta)$ with $|\\delta| \\le \\varepsilon_{\\mathrm{mach}}$; in IEEE double precision it is about $2.2 \\times 10^{-16}$.",
+          "family": [["unit roundoff", "n", "đơn vị làm tròn"], ["double precision", "n", "độ chính xác kép"]],
+          "col": [["in double [[precision]]", "trong độ chính xác kép"], ["of the [[order]] of machine epsilon", "cỡ epsilon máy"], ["the [[unit]] roundoff", "đơn vị làm tròn"]],
+          "ex": ["The computed result is accurate up to a relative error of a few times machine epsilon.", "Kết quả tính được chính xác đến sai số tương đối cỡ vài lần epsilon máy."],
+          "note": ["Đọc /ˈepsɪlɒn/. Có hai quy ước khác nhau một hệ số 2 (epsilon máy và đơn vị làm tròn), nên đọc kỹ định nghĩa của tài liệu.", "Two conventions differ by a factor of 2: machine epsilon and unit roundoff."]
+        },
+        {
+          "id": "floating-point", "en": "floating-point arithmetic", "alt": ["floating point arithmetic", "floating-point"], "pos": "n", "ipa": "/ˈfləʊtɪŋ pɔɪnt əˈrɪθmətɪk/",
+          "vi": "số học dấu phẩy động", "gloss": "arithmetic on numbers stored as mantissa and exponent",
+          "def": "In {{floating-point arithmetic}}, a real number is stored as $\\pm m \\times \\beta^e$ with a finite mantissa $m$ and exponent $e$.",
+          "family": [["mantissa", "n", "phần định trị"], ["exponent", "n", "số mũ"], ["overflow", "n", "tràn số"], ["underflow", "n", "tràn dưới"]],
+          "col": [["in floating-point [[arithmetic]]", "trong số học dấu phẩy động"], ["a floating-point [[number]]", "một số dấu phẩy động"], ["IEEE [[double]] precision", "độ chính xác kép IEEE"]],
+          "ex": ["Addition in floating-point arithmetic is commutative but not associative.", "Phép cộng trong số học dấu phẩy động có tính giao hoán nhưng không có tính kết hợp."],
+          "note": ["Có gạch nối khi làm tính từ (floating-point number). Phân biệt “dấu phẩy động” (floating) và “dấu phẩy cố định” (fixed-point).", "Hyphenate before a noun."]
+        },
+        {
+          "id": "condition-number", "en": "condition number", "pos": "n", "ipa": "/kənˈdɪʃn ˈnʌmbə/",
+          "vi": "số điều kiện", "gloss": "a measure of how sensitive a problem is to perturbations of its data",
+          "def": "The {{condition number}} of an invertible matrix $A$ is $\\kappa(A) = \\|A\\|\\,\\|A^{-1}\\|$; it bounds the relative change of the solution of $Ax = b$ in terms of the relative change of the data.",
+          "family": [["ill-conditioned", "adj", "điều kiện xấu"], ["well-conditioned", "adj", "điều kiện tốt"], ["perturbation", "n", "nhiễu"]],
+          "col": [["an [[ill]]-conditioned matrix", "ma trận điều kiện xấu"], ["the condition number [[of]] $A$", "số điều kiện của $A$"], ["a large condition [[number]]", "số điều kiện lớn"]],
+          "ex": ["If the condition number of $A$ is large, small perturbations of $b$ may cause large changes in the solution of $Ax = b$.", "Nếu số điều kiện của $A$ lớn thì nhiễu nhỏ của $b$ có thể gây thay đổi lớn ở nghiệm của $Ax = b$."],
+          "note": ["Điều kiện (conditioning) là tính chất của bài toán, còn ổn định (stability) là tính chất của thuật toán. Đây là điểm hay bị lẫn.", "Conditioning belongs to the problem; stability belongs to the algorithm."]
+        },
+        {
+          "id": "numerical-stability", "en": "numerically stable", "alt": ["stable"], "pos": "adj", "ipa": "/njuːˈmerɪkli ˈsteɪbl/",
+          "vi": "ổn định (về mặt số)", "gloss": "not amplifying errors beyond what the problem's conditioning allows",
+          "def": "An algorithm is {{numerically stable}} if small errors made during the computation do not grow uncontrollably, so the computed result is the exact result for slightly perturbed data (backward stability).",
+          "family": [["stability", "n", "tính ổn định"], ["backward stable", "adj", "ổn định lùi"], ["unstable", "adj", "không ổn định"]],
+          "col": [["a backward [[stable]] algorithm", "thuật toán ổn định lùi"], ["numerically [[unstable]]", "không ổn định về mặt số"], ["the algorithm is stable [[with respect to]] perturbations", "thuật toán ổn định đối với nhiễu"]],
+          "ex": ["Gaussian elimination with partial pivoting is backward stable in practice.", "Phép khử Gauss với chọn trụ riêng phần thực tế là ổn định lùi."],
+          "note": ["Có hai kiểu: forward stability (sai số đầu ra) và backward stability (nghiệm là chính xác cho dữ liệu nhiễu).", "Forward vs backward stability."]
+        },
+        {
+          "id": "catastrophic-cancellation", "en": "catastrophic cancellation", "pos": "n", "ipa": "/ˌkætəˈstrɒfɪk ˌkænsəˈleɪʃn/",
+          "vi": "triệt tiêu thảm họa (mất chữ số có nghĩa)", "gloss": "a loss of significant digits when subtracting nearly equal numbers",
+          "def": "{{Catastrophic cancellation}} occurs when two nearly equal floating-point numbers are subtracted, so that most significant digits are lost.",
+          "family": [["significant digits", "n", "chữ số có nghĩa"], ["cancel", "v", "triệt tiêu"]],
+          "col": [["suffer from [[catastrophic]] cancellation", "chịu hiện tượng triệt tiêu thảm họa"], ["avoid cancellation by [[rewriting]] the formula", "tránh triệt tiêu bằng cách viết lại công thức"]],
+          "ex": ["Evaluating $\\sqrt{x + 1} - \\sqrt{x}$ for large $x$ suffers from catastrophic cancellation; use $1/(\\sqrt{x + 1} + \\sqrt{x})$ instead.", "Tính $\\sqrt{x + 1} - \\sqrt{x}$ với $x$ lớn bị triệt tiêu thảm họa; hãy dùng $1/(\\sqrt{x + 1} + \\sqrt{x})$."],
+          "note": ["Cách tránh điển hình: biến đổi tương đương trước khi tính.", "The standard cure is to rewrite the expression."]
+        },
+        {
+          "id": "order-of-accuracy", "en": "order of accuracy", "pos": "n", "ipa": "/ˈɔːdər əv ˈækjərəsi/",
+          "vi": "cấp chính xác", "gloss": "the power of the step size with which the error shrinks",
+          "def": "A method has {{order of accuracy}} $p$ if its error is $O(h^p)$ as the step size $h \\to 0$.",
+          "family": [["accurate", "adj", "chính xác"], ["second-order", "adj", "cấp hai"], ["accuracy", "n", "độ chính xác"]],
+          "col": [["a method of [[order]] $p$", "phương pháp cấp $p$"], ["second-order [[accurate]]", "chính xác cấp hai"], ["error [[of order]] $O(h^2)$", "sai số cấp $O(h^2)$"]],
+          "ex": ["Halving the step size reduces the error of a second-order method by a factor of about four.", "Giảm một nửa bước chia làm sai số của phương pháp cấp hai giảm khoảng bốn lần."],
+          "note": ["“accuracy” là độ chính xác (đại lượng), “precision” là độ chính xác của biểu diễn số. Hai từ này không thay thế nhau.", "accuracy ≠ precision."]
+        }
+      ]
+    },
+    {
+      "id": "linear-systems", "emoji": "🧱",
+      "title": "Hệ phương trình tuyến tính", "titleEn": "Linear systems",
+      "desc": "Khử Gauss, phân rã LU, chọn trụ, Cholesky, QR, phương pháp Jacobi, gradient liên hợp, phần dư.",
+      "descEn": "Gaussian elimination, LU factorization, pivoting, Cholesky and QR factorizations, the Jacobi method, conjugate gradients, residuals.",
+      "items": [
+        {
+          "id": "gaussian-elimination", "en": "Gaussian elimination", "pos": "n", "ipa": "/ˈɡaʊsiən ɪˌlɪmɪˈneɪʃn/",
+          "vi": "phép khử Gauss", "gloss": "reducing a linear system to triangular form by row operations",
+          "def": "{{Gaussian elimination}} solves $Ax = b$ by row operations that reduce $A$ to an upper triangular matrix, followed by back substitution.",
+          "family": [["back substitution", "n", "thế ngược"], ["forward substitution", "n", "thế xuôi"], ["upper triangular", "adj", "tam giác trên"]],
+          "col": [["solve a system by Gaussian [[elimination]]", "giải hệ bằng phép khử Gauss"], ["[[back]] substitution", "thế ngược"], ["the cost is $O(n^3)$ [[operations]]", "chi phí là $O(n^3)$ phép tính"]],
+          "ex": ["Gaussian elimination requires about $\\frac{2}{3}n^3$ floating-point operations for an $n \\times n$ matrix.", "Phép khử Gauss cần khoảng $\\frac{2}{3}n^3$ phép tính dấu phẩy động cho ma trận $n \\times n$."],
+          "note": ["Gauss đọc /ɡaʊs/. “Eliminate” là khử (một ẩn khỏi phương trình).", "Gauss is pronounced /ɡaʊs/."]
+        },
+        {
+          "id": "lu-factorization", "en": "LU factorization", "alt": ["LU decomposition"], "pos": "n", "ipa": "/el juː ˌfæktəraɪˈzeɪʃn/",
+          "vi": "phân rã LU", "gloss": "writing A as a product of lower and upper triangular matrices",
+          "def": "An {{LU factorization}} writes $A = LU$ with $L$ unit lower triangular and $U$ upper triangular; with row exchanges it becomes $PA = LU$.",
+          "family": [["factor", "v", "phân tích thành thừa số"], ["permutation matrix", "n", "ma trận hoán vị"], ["triangular", "adj", "tam giác"]],
+          "col": [["compute the LU [[factorization]] of $A$", "tính phân rã LU của $A$"], ["a [[lower]] triangular matrix", "ma trận tam giác dưới"], ["factor $A$ [[into]] $LU$", "phân tích $A$ thành $LU$"]],
+          "ex": ["Once $A = LU$ is computed, each new right-hand side requires only two triangular solves.", "Sau khi có $A = LU$, mỗi vế phải mới chỉ cần hai lần giải hệ tam giác."],
+          "note": ["“Factorization” và “decomposition” dùng thay nhau; cuốn sách số học thường dùng factorization.", "factorization and decomposition are interchangeable."]
+        },
+        {
+          "id": "partial-pivoting", "en": "partial pivoting", "pos": "n", "ipa": "/ˈpɑːʃl ˈpɪvətɪŋ/",
+          "vi": "chọn trụ riêng phần", "gloss": "swapping rows so the largest entry in the column is the pivot",
+          "def": "With {{partial pivoting}}, at each step of elimination the row with the largest entry in absolute value in the current column is swapped into the pivot position.",
+          "family": [["pivot", "n", "phần tử trụ"], ["complete pivoting", "n", "chọn trụ toàn phần"], ["growth factor", "n", "hệ số tăng trưởng"]],
+          "col": [["with partial [[pivoting]]", "với chọn trụ riêng phần"], ["choose the largest [[pivot]]", "chọn phần tử trụ lớn nhất"], ["swap [[rows]]", "đổi chỗ các hàng"]],
+          "ex": ["Without pivoting, Gaussian elimination can fail on a nonsingular matrix when a zero pivot appears.", "Không chọn trụ, phép khử Gauss có thể thất bại trên ma trận không suy biến khi xuất hiện phần tử trụ bằng không."],
+          "note": ["pivot (danh từ và động từ): “pivot on the largest entry”.", "pivot is both a noun and a verb."]
+        },
+        {
+          "id": "cholesky", "en": "Cholesky factorization", "alt": ["Cholesky decomposition"], "pos": "n", "ipa": "/tʃəˈlesk i ˌfæktəraɪˈzeɪʃn/",
+          "vi": "phân rã Cholesky", "gloss": "A = LLᵀ for a symmetric positive definite matrix",
+          "def": "The {{Cholesky factorization}} of a symmetric positive definite matrix $A$ is $A = LL^\\top$ with $L$ lower triangular with positive diagonal.",
+          "family": [["symmetric positive definite", "adj", "đối xứng xác định dương"], ["SPD", "adj", "(viết tắt)"]],
+          "col": [["the Cholesky [[factor]] of $A$", "nhân tử Cholesky của $A$"], ["a symmetric positive [[definite]] matrix", "ma trận đối xứng xác định dương"], ["half the [[cost]] of LU", "chi phí bằng một nửa LU"]],
+          "ex": ["For symmetric positive definite systems, the Cholesky factorization costs about half as much as LU.", "Với hệ đối xứng xác định dương, phân rã Cholesky tốn khoảng một nửa so với LU."],
+          "note": ["Cholesky đọc /tʃəˈlɛski/ hoặc /kəˈlɛski/. Không cần chọn trụ vì ổn định số học.", "No pivoting is needed."]
+        },
+        {
+          "id": "qr-factorization", "en": "QR factorization", "alt": ["QR decomposition"], "pos": "n", "ipa": "/kjuː ɑː ˌfæktəraɪˈzeɪʃn/",
+          "vi": "phân rã QR", "gloss": "A = QR with Q orthogonal and R upper triangular",
+          "def": "A {{QR factorization}} of $A \\in \\mathbb{R}^{m \\times n}$ is $A = QR$, where $Q$ has orthonormal columns and $R$ is upper triangular.",
+          "family": [["orthogonal matrix", "n", "ma trận trực giao"], ["Householder reflection", "n", "phép phản xạ Householder"], ["Gram–Schmidt process", "n", "quá trình Gram–Schmidt"]],
+          "col": [["compute a QR factorization [[via]] Householder reflections", "tính phân rã QR bằng phép phản xạ Householder"], ["$Q$ has [[orthonormal]] columns", "$Q$ có các cột trực chuẩn"]],
+          "ex": ["The least squares problem can be solved stably through the QR factorization of $A$.", "Bài toán bình phương tối thiểu có thể giải một cách ổn định thông qua phân rã QR của $A$."],
+          "note": ["Đọc “Q R factorization”. QR ổn định hơn giải phương trình chuẩn $A^\\top A x = A^\\top b$.", "QR is more stable than the normal equations."]
+        },
+        {
+          "id": "jacobi-method", "en": "Jacobi method", "alt": ["Jacobi iteration"], "pos": "n", "ipa": "/dʒəˈkəʊbi ˈmeθəd/",
+          "vi": "phương pháp lặp Jacobi", "gloss": "updating every unknown simultaneously from the previous iterate",
+          "def": "The {{Jacobi method}} solves $Ax = b$ by the iteration $x^{k+1} = D^{-1}\\big(b - (L + U)x^k\\big)$, where $A = D + L + U$.",
+          "family": [["Gauss–Seidel method", "n", "phương pháp Gauss–Seidel"], ["successive over-relaxation", "n", "quá giãn liên tiếp (SOR)"], ["diagonally dominant", "adj", "trội chéo"]],
+          "col": [["the Jacobi iteration [[converges]] if $A$ is strictly diagonally dominant", "lặp Jacobi hội tụ nếu $A$ trội chéo chặt"], ["a [[strictly]] diagonally dominant matrix", "ma trận trội chéo chặt"], ["the [[splitting]] $A = D + L + U$", "tách $A = D + L + U$"]],
+          "ex": ["The Jacobi method converges for every starting vector if $A$ is strictly diagonally dominant.", "Phương pháp Jacobi hội tụ với mọi vectơ khởi đầu nếu $A$ trội chéo chặt."],
+          "note": ["Jacobi (nhà toán học) cũng là tên của ma trận Jacobi trong vi phân; hai khái niệm khác nhau.", "Same mathematician as the Jacobian, different concept."]
+        },
+        {
+          "id": "conjugate-gradient", "en": "conjugate gradient method", "alt": ["conjugate gradients"], "pos": "n", "ipa": "/ˈkɒndʒʊɡət ˈɡreɪdiənt ˈmeθəd/",
+          "vi": "phương pháp gradient liên hợp", "gloss": "an iterative method for symmetric positive definite systems",
+          "def": "The {{conjugate gradient method}} solves $Ax = b$ for symmetric positive definite $A$ by minimizing $\\frac{1}{2}x^\\top A x - b^\\top x$ over successively larger Krylov subspaces.",
+          "family": [["Krylov subspace", "n", "không gian con Krylov"], ["preconditioner", "n", "tiền điều kiện"], ["conjugate directions", "n", "các hướng liên hợp"]],
+          "col": [["a preconditioned conjugate gradient [[method]]", "phương pháp gradient liên hợp có tiền điều kiện"], ["converge in at most $n$ [[iterations]]", "hội tụ trong tối đa $n$ bước lặp"], ["a [[Krylov]] subspace method", "phương pháp không gian con Krylov"]],
+          "ex": ["In exact arithmetic, the conjugate gradient method converges in at most $n$ iterations for an $n \\times n$ system.", "Trong số học chính xác, phương pháp gradient liên hợp hội tụ trong tối đa $n$ bước lặp với hệ $n \\times n$."],
+          "note": ["Viết tắt CG. Tốc độ hội tụ phụ thuộc $\\sqrt{\\kappa(A)}$; tiền điều kiện (preconditioning) dùng để giảm $\\kappa$.", "The rate depends on $\\sqrt{\\kappa(A)}$."]
+        },
+        {
+          "id": "residual", "en": "residual", "pos": "n", "ipa": "/rɪˈzɪdjuəl/",
+          "vi": "phần dư (vectơ dư)", "gloss": "the amount by which an approximate solution fails to satisfy the equation",
+          "def": "For an approximate solution $\\tilde x$ of $Ax = b$, the {{residual}} is $r = b - A\\tilde x$.",
+          "family": [["residual norm", "n", "chuẩn của phần dư"], ["error", "n", "sai số"], ["stopping criterion", "n", "tiêu chuẩn dừng"]],
+          "col": [["the residual [[norm]]", "chuẩn của phần dư"], ["stop when the residual is [[small]]", "dừng khi phần dư nhỏ"], ["a small residual does not [[imply]] a small error", "phần dư nhỏ chưa chắc kéo theo sai số nhỏ"]],
+          "ex": ["For an ill-conditioned matrix, a small residual does not imply a small error.", "Với ma trận điều kiện xấu, phần dư nhỏ không kéo theo sai số nhỏ."],
+          "note": ["Residual là $b - A\\tilde x$ (có thể tính được); error là $x - \\tilde x$ (không biết vì không biết nghiệm đúng).", "The residual is computable; the error is not."]
+        }
+      ]
+    },
+    {
+      "id": "approximation", "emoji": "📈",
+      "title": "Nghiệm phương trình, nội suy và xấp xỉ", "titleEn": "Root finding, interpolation and approximation",
+      "desc": "Phương pháp chia đôi, cát tuyến, cấp hội tụ, nội suy, đa thức Lagrange, spline bậc ba, nút Chebyshev, bình phương tối thiểu.",
+      "descEn": "Bisection, secant method, order of convergence, interpolation, Lagrange polynomials, cubic splines, Chebyshev nodes, least squares.",
+      "items": [
+        {
+          "id": "bisection", "en": "bisection method", "pos": "n", "ipa": "/baɪˈsekʃn ˈmeθəd/",
+          "vi": "phương pháp chia đôi", "gloss": "halving an interval that brackets a root",
+          "def": "The {{bisection method}} finds a root of a continuous $f$ on $[a, b]$ with $f(a)f(b) < 0$ by repeatedly halving the interval and keeping the half where the sign changes.",
+          "family": [["bracket", "v", "chặn (nghiệm)"], ["root", "n", "nghiệm"], ["intermediate value theorem", "n", "định lý giá trị trung gian"]],
+          "col": [["bracket a [[root]]", "chặn một nghiệm"], ["the interval is halved at [[each]] step", "khoảng được chia đôi ở mỗi bước"], ["the error is [[halved]] at each iteration", "sai số giảm một nửa ở mỗi bước lặp"]],
+          "ex": ["After $n$ steps, the bisection method locates the root within an interval of length $(b - a)/2^n$.", "Sau $n$ bước, phương pháp chia đôi xác định nghiệm trong một khoảng có độ dài $(b - a)/2^n$."],
+          "note": ["Hội tụ chắc chắn nhưng chậm (tuyến tính, hệ số $1/2$).", "Guaranteed but slow: linear with ratio $1/2$."]
+        },
+        {
+          "id": "secant-method", "en": "secant method", "pos": "n", "ipa": "/ˈsiːkənt ˈmeθəd/",
+          "vi": "phương pháp cát tuyến", "gloss": "Newton-like iteration using a finite-difference slope",
+          "def": "The {{secant method}} replaces the derivative in Newton's method by a finite-difference quotient: $x_{k+1} = x_k - f(x_k)\\,\\frac{x_k - x_{k-1}}{f(x_k) - f(x_{k-1})}$.",
+          "family": [["secant line", "n", "đường cát tuyến"], ["derivative-free", "adj", "không cần đạo hàm"], ["regula falsi", "n", "phương pháp dây cung"]],
+          "col": [["a derivative-[[free]] method", "phương pháp không cần đạo hàm"], ["the secant [[line]] through two points", "đường cát tuyến qua hai điểm"], ["requires two starting [[values]]", "cần hai giá trị khởi đầu"]],
+          "ex": ["The secant method needs no derivative and converges superlinearly with order $(1 + \\sqrt{5})/2 \\approx 1.618$.", "Phương pháp cát tuyến không cần đạo hàm và hội tụ siêu tuyến tính với cấp $(1 + \\sqrt{5})/2 \\approx 1.618$."],
+          "note": ["Cấp hội tụ là tỉ lệ vàng. Cát tuyến (secant) khác tiếp tuyến (tangent).", "The order is the golden ratio."]
+        },
+        {
+          "id": "order-of-convergence", "en": "order of convergence", "pos": "n", "ipa": "/ˈɔːdər əv kənˈvɜːdʒəns/",
+          "vi": "cấp hội tụ", "gloss": "the exponent describing how fast the error shrinks per iteration",
+          "def": "An iteration has {{order of convergence}} $p$ if $|x_{k+1} - x^*| \\le C\\,|x_k - x^*|^p$ for some $C > 0$; $p = 1$ is linear (with $C < 1$) and $p = 2$ is quadratic.",
+          "family": [["linear convergence", "n", "hội tụ tuyến tính"], ["superlinear", "adj", "siêu tuyến tính"], ["quadratic convergence", "n", "hội tụ bậc hai"], ["asymptotic error constant", "n", "hằng số sai số tiệm cận"]],
+          "col": [["converge [[quadratically]]", "hội tụ bậc hai"], ["the convergence is of [[order]] $p$", "hội tụ cấp $p$"], ["the asymptotic error [[constant]]", "hằng số sai số tiệm cận"]],
+          "ex": ["Newton's method converges quadratically near a simple root.", "Phương pháp Newton hội tụ bậc hai gần một nghiệm đơn."],
+          "note": ["Bậc hai: số chữ số đúng xấp xỉ gấp đôi sau mỗi bước.", "Quadratic: the number of correct digits roughly doubles."]
+        },
+        {
+          "id": "interpolation", "en": "interpolation", "pos": "n", "ipa": "/ɪnˌtɜːpəˈleɪʃn/",
+          "vi": "nội suy", "gloss": "constructing a function that passes through given data points",
+          "def": "{{Interpolation}} constructs a function $p$ with $p(x_i) = y_i$ for given data $(x_i, y_i)$, $i = 0, \\dots, n$.",
+          "family": [["interpolate", "v", "nội suy"], ["extrapolation", "n", "ngoại suy"], ["interpolation node", "n", "nút nội suy"]],
+          "col": [["polynomial [[interpolation]]", "nội suy đa thức"], ["interpolate the data [[at]] the nodes", "nội suy dữ liệu tại các nút"], ["the interpolation [[error]]", "sai số nội suy"]],
+          "ex": ["Given $n + 1$ distinct nodes, there is a unique polynomial of degree at most $n$ that interpolates the data.", "Với $n + 1$ nút phân biệt, có duy nhất một đa thức bậc không quá $n$ nội suy dữ liệu."],
+          "note": ["Nội suy (nằm trong khoảng dữ liệu) khác ngoại suy (extrapolation, nằm ngoài). Nhấn: in-TER-po-LAY-tion.", "interpolation ≠ extrapolation."]
+        },
+        {
+          "id": "lagrange-polynomial", "en": "Lagrange polynomial", "alt": ["Lagrange interpolation"], "pos": "n", "ipa": "/ləˈɡrɑːndʒ ˌpɒlɪˈnəʊmiəl/",
+          "vi": "đa thức Lagrange", "gloss": "the interpolating polynomial written with basis polynomials ℓᵢ",
+          "def": "The {{Lagrange polynomial}} through $(x_i, y_i)$ is $p(x) = \\sum_{i=0}^n y_i\\, \\ell_i(x)$ with $\\ell_i(x) = \\prod_{j \\ne i} \\frac{x - x_j}{x_i - x_j}$.",
+          "family": [["Newton form", "n", "dạng Newton"], ["divided differences", "n", "sai phân chia"], ["basis polynomial", "n", "đa thức cơ sở"]],
+          "col": [["the Lagrange [[basis]] polynomials", "các đa thức cơ sở Lagrange"], ["the interpolation error [[formula]]", "công thức sai số nội suy"], ["a polynomial of [[degree]] at most $n$", "đa thức bậc không quá $n$"]],
+          "ex": ["The error of polynomial interpolation is $f(x) - p(x) = \\frac{f^{(n+1)}(\\xi)}{(n+1)!} \\prod_{i=0}^n (x - x_i)$ for some $\\xi$.", "Sai số của nội suy đa thức là $f(x) - p(x) = \\frac{f^{(n+1)}(\\xi)}{(n+1)!} \\prod_{i=0}^n (x - x_i)$ với một $\\xi$ nào đó."],
+          "note": ["Lagrange đọc /ləˈɡrɑːndʒ/. Đa thức nội suy là duy nhất; Lagrange và Newton chỉ là hai cách viết.", "Lagrange and Newton forms are two ways of writing the same polynomial."]
+        },
+        {
+          "id": "cubic-spline", "en": "cubic spline", "pos": "n", "ipa": "/ˈkjuːbɪk splaɪn/",
+          "vi": "spline bậc ba", "gloss": "a piecewise cubic function with continuous first and second derivatives",
+          "def": "A {{cubic spline}} is a piecewise cubic polynomial on the intervals $[x_{i-1}, x_i]$ that is twice continuously differentiable at the knots $x_i$.",
+          "family": [["knot", "n", "nút"], ["piecewise", "adv", "từng khúc"], ["natural spline", "n", "spline tự nhiên"]],
+          "col": [["a piecewise [[polynomial]]", "đa thức từng khúc"], ["a natural cubic [[spline]]", "spline bậc ba tự nhiên"], ["the spline is $C^2$ at the [[knots]]", "spline thuộc $C^2$ tại các nút"]],
+          "ex": ["A cubic spline avoids the oscillations of high-degree polynomial interpolation.", "Spline bậc ba tránh được hiện tượng dao động của nội suy đa thức bậc cao."],
+          "note": ["Đọc /splaɪn/. Hiện tượng dao động ở nội suy bậc cao với nút cách đều gọi là hiện tượng Runge.", "The oscillation is called the Runge phenomenon."]
+        },
+        {
+          "id": "chebyshev-nodes", "en": "Chebyshev nodes", "pos": "n", "ipa": "/ˈtʃebɪʃɒf nəʊdz/",
+          "vi": "nút Chebyshev", "gloss": "interpolation points clustered near the ends of the interval",
+          "def": "The {{Chebyshev nodes}} on $[-1, 1]$ are $x_k = \\cos\\frac{(2k + 1)\\pi}{2(n + 1)}$, $k = 0, \\dots, n$; they nearly minimize the worst-case interpolation error.",
+          "family": [["Runge phenomenon", "n", "hiện tượng Runge"], ["equispaced", "adj", "cách đều"], ["Chebyshev polynomial", "n", "đa thức Chebyshev"]],
+          "col": [["equispaced [[nodes]]", "các nút cách đều"], ["interpolate at Chebyshev [[nodes]]", "nội suy tại các nút Chebyshev"], ["the Runge [[phenomenon]]", "hiện tượng Runge"]],
+          "ex": ["Interpolating at Chebyshev nodes instead of equispaced nodes avoids the Runge phenomenon.", "Nội suy tại các nút Chebyshev thay vì các nút cách đều tránh được hiện tượng Runge."],
+          "note": ["Chebyshev đọc /ˈtʃebɪʃɒf/. Cách viết khác: Tchebycheff, Chebychev.", "Alternative spellings exist."]
+        },
+        {
+          "id": "least-squares", "en": "least squares", "alt": ["least-squares"], "pos": "n", "ipa": "/liːst skweəz/",
+          "vi": "bình phương tối thiểu", "gloss": "minimizing the sum of squared residuals",
+          "def": "The {{least squares}} problem is $\\min_x \\|Ax - b\\|_2^2$; its solutions satisfy the normal equations $A^\\top A x = A^\\top b$.",
+          "family": [["normal equations", "n", "phương trình chuẩn"], ["overdetermined", "adj", "quá xác định"], ["pseudoinverse", "n", "nghịch đảo suy rộng"]],
+          "col": [["a linear least squares [[problem]]", "bài toán bình phương tối thiểu tuyến tính"], ["an overdetermined [[system]]", "hệ quá xác định"], ["solve the normal [[equations]]", "giải các phương trình chuẩn"]],
+          "ex": ["In the least squares sense, the best fit minimizes the sum of the squares of the residuals.", "Theo nghĩa bình phương tối thiểu, hàm khớp tốt nhất cực tiểu hóa tổng bình phương các phần dư."],
+          "note": ["Tính từ có gạch nối: a least-squares fit. Đừng giải bằng phương trình chuẩn nếu $A$ điều kiện xấu; dùng QR hoặc SVD.", "Prefer QR or SVD over normal equations for ill-conditioned $A$."]
+        }
+      ]
+    },
+    {
+      "id": "calculus", "emoji": "∫",
+      "title": "Tích phân và phương trình vi phân", "titleEn": "Quadrature and ODEs",
+      "desc": "Cầu phương, quy tắc hình thang, Simpson, Gauss, phương pháp Euler, Runge–Kutta, sai số địa phương, bài toán cứng.",
+      "descEn": "Quadrature, the trapezoidal and Simpson rules, Gaussian quadrature, Euler and Runge–Kutta methods, local error, stiffness.",
+      "items": [
+        {
+          "id": "quadrature", "en": "numerical quadrature", "alt": ["quadrature"], "pos": "n", "ipa": "/njuːˈmerɪkl ˈkwɒdrətʃə/",
+          "vi": "cầu phương số (tích phân số)", "gloss": "approximating an integral by a weighted sum of function values",
+          "def": "{{Numerical quadrature}} approximates $\\int_a^b f(x)\\,dx \\approx \\sum_{i=0}^n w_i f(x_i)$ with nodes $x_i$ and weights $w_i$.",
+          "family": [["quadrature rule", "n", "công thức cầu phương"], ["weights and nodes", "n", "trọng số và nút"], ["composite rule", "n", "công thức hợp"]],
+          "col": [["a quadrature [[rule]]", "một công thức cầu phương"], ["integrate [[numerically]]", "tính tích phân bằng số"], ["the degree of [[exactness]]", "bậc chính xác"]],
+          "ex": ["A quadrature rule has degree of exactness $m$ if it integrates every polynomial of degree at most $m$ exactly.", "Một công thức cầu phương có bậc chính xác $m$ nếu nó tính đúng tích phân của mọi đa thức bậc không quá $m$."],
+          "note": ["“Quadrature” là thuật ngữ truyền thống cho tính tích phân xác định bằng số.", "“Quadrature” is the traditional word for numerical integration."]
+        },
+        {
+          "id": "trapezoidal-rule", "en": "trapezoidal rule", "alt": ["trapezoid rule"], "pos": "n", "ipa": "/ˌtræpɪˈzɔɪdl ruːl/",
+          "vi": "quy tắc hình thang", "gloss": "integrating the linear interpolant on each subinterval",
+          "def": "The composite {{trapezoidal rule}} with step $h = (b - a)/n$ is $T_h = h\\big[\\tfrac12 f(x_0) + f(x_1) + \\dots + f(x_{n-1}) + \\tfrac12 f(x_n)\\big]$, with error $O(h^2)$.",
+          "family": [["Simpson's rule", "n", "quy tắc Simpson"], ["midpoint rule", "n", "quy tắc điểm giữa"], ["Romberg integration", "n", "tích phân Romberg"]],
+          "col": [["the composite trapezoidal [[rule]]", "quy tắc hình thang hợp"], ["the [[error]] is $O(h^2)$", "sai số là $O(h^2)$"], ["[[apply]] the trapezoidal rule", "áp dụng quy tắc hình thang"]],
+          "ex": ["For a periodic analytic integrand, the trapezoidal rule converges exponentially fast.", "Với hàm dưới dấu tích phân giải tích tuần hoàn, quy tắc hình thang hội tụ nhanh theo hàm mũ."],
+          "note": ["Anh–Mỹ: trapezoid; Anh–Anh: trapezium. Trong ngữ cảnh này cả hai (trapezoidal) đều dùng được.", "US: trapezoid; UK: trapezium."]
+        },
+        {
+          "id": "simpsons-rule", "en": "Simpson's rule", "pos": "n", "ipa": "/ˈsɪmpsnz ruːl/",
+          "vi": "quy tắc Simpson", "gloss": "integrating the quadratic interpolant over pairs of subintervals",
+          "def": "{{Simpson's rule}} on $[a, b]$ is $\\frac{b - a}{6}\\big[f(a) + 4 f\\big(\\tfrac{a + b}{2}\\big) + f(b)\\big]$; its composite version has error $O(h^4)$.",
+          "family": [["composite Simpson's rule", "n", "quy tắc Simpson hợp"], ["degree of exactness", "n", "bậc chính xác"]],
+          "col": [["the composite Simpson's [[rule]]", "quy tắc Simpson hợp"], ["exact for polynomials of degree [[three]]", "chính xác với đa thức bậc ba"], ["an error of [[order]] $h^4$", "sai số cấp $h^4$"]],
+          "ex": ["Simpson's rule is exact for all polynomials of degree at most three.", "Quy tắc Simpson cho kết quả đúng với mọi đa thức bậc không quá ba."],
+          "note": ["Số chia khoảng $n$ phải chẵn trong công thức hợp.", "The composite version needs an even number of subintervals."]
+        },
+        {
+          "id": "gaussian-quadrature", "en": "Gaussian quadrature", "pos": "n", "ipa": "/ˈɡaʊsiən ˈkwɒdrətʃə/",
+          "vi": "cầu phương Gauss", "gloss": "choosing nodes and weights to maximize the degree of exactness",
+          "def": "{{Gaussian quadrature}} with $n$ nodes chooses the nodes (roots of the Legendre polynomial $P_n$) and weights so that the rule is exact for all polynomials of degree at most $2n - 1$.",
+          "family": [["Legendre polynomial", "n", "đa thức Legendre"], ["orthogonal polynomials", "n", "đa thức trực giao"], ["Gauss–Legendre", "n", "Gauss–Legendre"]],
+          "col": [["an $n$-point Gaussian [[quadrature]]", "cầu phương Gauss $n$ điểm"], ["exact for polynomials of [[degree]] up to $2n - 1$", "chính xác với đa thức đến bậc $2n - 1$"], ["the roots of the Legendre [[polynomial]]", "các nghiệm của đa thức Legendre"]],
+          "ex": ["An $n$-point Gaussian quadrature rule integrates polynomials of degree up to $2n - 1$ exactly.", "Một công thức cầu phương Gauss $n$ điểm tính đúng tích phân của đa thức đến bậc $2n - 1$."],
+          "note": ["Đây là bậc chính xác cao nhất có thể với $n$ nút.", "This is the highest possible degree for $n$ nodes."]
+        },
+        {
+          "id": "euler-method", "en": "Euler's method", "alt": ["Euler method", "forward Euler method"], "pos": "n", "ipa": "/ˈɔɪləz ˈmeθəd/",
+          "vi": "phương pháp Euler", "gloss": "advancing an ODE solution by a step along the current slope",
+          "def": "{{Euler's method}} for $y' = f(t, y)$ computes $y_{n+1} = y_n + h\\, f(t_n, y_n)$ with step size $h$.",
+          "family": [["backward Euler method", "n", "phương pháp Euler lùi"], ["explicit method", "n", "phương pháp hiện"], ["implicit method", "n", "phương pháp ẩn"]],
+          "col": [["the explicit Euler [[method]]", "phương pháp Euler hiện"], ["take a step of [[size]] $h$", "thực hiện một bước cỡ $h$"], ["the implicit [[backward]] Euler method", "phương pháp Euler lùi ẩn"]],
+          "ex": ["Euler's method is first-order accurate: halving the step size roughly halves the global error.", "Phương pháp Euler có cấp chính xác một: giảm một nửa bước chia thì sai số toàn cục giảm khoảng một nửa."],
+          "note": ["Euler đọc /ˈɔɪlə/ (giống “oiler”). Phương pháp ẩn cần giải một phương trình ở mỗi bước nhưng ổn định hơn.", "Euler is pronounced “OY-ler”."]
+        },
+        {
+          "id": "runge-kutta", "en": "Runge–Kutta method", "pos": "n", "ipa": "/ˌrʊŋə ˈkʊtɑː ˈmeθəd/",
+          "vi": "phương pháp Runge–Kutta", "gloss": "a family of one-step methods using several slope evaluations per step",
+          "def": "A {{Runge–Kutta method}} advances $y_{n+1} = y_n + h \\sum_{i=1}^s b_i k_i$, where each stage $k_i$ is an evaluation of $f$ at an intermediate point; the classical four-stage method has order 4.",
+          "family": [["stage", "n", "bước trung gian"], ["Butcher tableau", "n", "bảng Butcher"], ["adaptive step size", "n", "cỡ bước thích nghi"]],
+          "col": [["the classical fourth-[[order]] Runge–Kutta method", "phương pháp Runge–Kutta cổ điển cấp bốn"], ["a one-[[step]] method", "phương pháp một bước"], ["an embedded Runge–Kutta [[pair]]", "cặp Runge–Kutta lồng"]],
+          "ex": ["The classical Runge–Kutta method has local truncation error $O(h^5)$ and global error $O(h^4)$.", "Phương pháp Runge–Kutta cổ điển có sai số chặt cụt địa phương $O(h^5)$ và sai số toàn cục $O(h^4)$."],
+          "note": ["Runge–Kutta: dùng gạch nối dài (en dash). Đọc “RUNG-uh KUT-ah”.", "Use an en dash."]
+        },
+        {
+          "id": "local-truncation-error", "en": "local truncation error", "pos": "n", "ipa": "/ˈləʊkl trʌŋˈkeɪʃn ˈerə/",
+          "vi": "sai số chặt cụt địa phương", "gloss": "the error committed in one step assuming the previous value is exact",
+          "def": "The {{local truncation error}} of a one-step method is the error made in a single step when the starting value is exact; the global error accumulates these over all steps.",
+          "family": [["global error", "n", "sai số toàn cục"], ["consistency", "n", "tính nhất quán"], ["local error", "n", "sai số địa phương"]],
+          "col": [["the local truncation [[error]] is $O(h^{p+1})$", "sai số chặt cụt địa phương là $O(h^{p+1})$"], ["the global error [[accumulates]]", "sai số toàn cục tích lũy"], ["a method of [[order]] $p$", "phương pháp cấp $p$"]],
+          "ex": ["A one-step method with local truncation error $O(h^{p+1})$ has global error $O(h^p)$ on a fixed interval.", "Một phương pháp một bước có sai số chặt cụt địa phương $O(h^{p+1})$ thì sai số toàn cục là $O(h^p)$ trên một khoảng cố định."],
+          "note": ["Cấp của phương pháp là $p$ khi sai số địa phương là $O(h^{p+1})$: sai số toàn cục kém sai số địa phương một cấp.", "Local error $O(h^{p+1})$ gives global error $O(h^p)$."]
+        },
+        {
+          "id": "stiff", "en": "stiff equation", "alt": ["stiff problem", "stiff"], "pos": "n", "ipa": "/stɪf ɪˈkweɪʒn/",
+          "vi": "phương trình cứng", "gloss": "an ODE for which explicit methods need tiny steps to stay stable",
+          "def": "A {{stiff equation}} is a differential equation whose solution has components decaying at very different rates, so explicit methods require extremely small steps for stability.",
+          "family": [["stiffness", "n", "tính cứng"], ["A-stable", "adj", "A-ổn định"], ["stability region", "n", "miền ổn định"]],
+          "col": [["a stiff [[system]]", "hệ cứng"], ["use an implicit [[method]] for stiff problems", "dùng phương pháp ẩn cho bài toán cứng"], ["the stability [[region]]", "miền ổn định"]],
+          "ex": ["For stiff problems, implicit methods such as backward Euler allow much larger step sizes than explicit methods.", "Với bài toán cứng, các phương pháp ẩn như Euler lùi cho phép cỡ bước lớn hơn nhiều so với phương pháp hiện."],
+          "note": ["“Stiff” ở đây là “cứng”, không phải “khó”. Nguyên nhân do ổn định, không do độ chính xác.", "Stiffness is about stability, not accuracy."]
+        }
+      ]
+    },
+    {
+      "id": "pde", "emoji": "🧊",
+      "title": "Phương trình đạo hàm riêng và rời rạc hóa", "titleEn": "PDEs and discretization",
+      "desc": "Sai phân hữu hạn, phần tử hữu hạn, lưới, Galerkin, nhất quán, ổn định, điều kiện CFL, định lý tương đương Lax.",
+      "descEn": "Finite differences, finite elements, meshes, Galerkin methods, consistency, stability, the CFL condition, the Lax equivalence theorem.",
+      "items": [
+        {
+          "id": "finite-difference", "en": "finite difference method", "alt": ["finite differences"], "pos": "n", "ipa": "/ˈfaɪnaɪt ˈdɪfrəns ˈmeθəd/",
+          "vi": "phương pháp sai phân hữu hạn", "gloss": "replacing derivatives by difference quotients on a grid",
+          "def": "The {{finite difference method}} replaces derivatives by difference quotients on a grid, e.g. $u''(x) \\approx \\frac{u(x + h) - 2u(x) + u(x - h)}{h^2}$.",
+          "family": [["difference quotient", "n", "thương sai phân"], ["central difference", "n", "sai phân trung tâm"], ["forward difference", "n", "sai phân tiến"]],
+          "col": [["approximate the derivative [[by]] a difference quotient", "xấp xỉ đạo hàm bằng thương sai phân"], ["a [[central]] difference", "sai phân trung tâm"], ["a second-order [[scheme]]", "lược đồ cấp hai"]],
+          "ex": ["The central difference approximation of $u''$ has truncation error $O(h^2)$.", "Xấp xỉ sai phân trung tâm của $u''$ có sai số chặt cụt $O(h^2)$."],
+          "note": ["“Scheme” (lược đồ) là cách gọi cho một công thức rời rạc hoàn chỉnh: finite difference scheme.", "A “scheme” is a complete discrete formula."]
+        },
+        {
+          "id": "finite-element", "en": "finite element method", "alt": ["finite elements"], "pos": "n", "ipa": "/ˈfaɪnaɪt ˈelɪmənt ˈmeθəd/",
+          "vi": "phương pháp phần tử hữu hạn", "gloss": "solving the weak form on a space of piecewise polynomials",
+          "def": "The {{finite element method}} approximates the weak solution of a PDE by piecewise polynomial functions on a mesh, leading to a linear system for the coefficients.",
+          "family": [["weak formulation", "n", "dạng yếu"], ["basis function", "n", "hàm cơ sở"], ["stiffness matrix", "n", "ma trận độ cứng"]],
+          "col": [["the finite element [[space]]", "không gian phần tử hữu hạn"], ["a piecewise [[linear]] basis function", "hàm cơ sở tuyến tính từng khúc"], ["assemble the stiffness [[matrix]]", "lắp ráp ma trận độ cứng"]],
+          "ex": ["The finite element method seeks $u_h \\in V_h$ with $a(u_h, v_h) = f(v_h)$ for all $v_h \\in V_h$.", "Phương pháp phần tử hữu hạn tìm $u_h \\in V_h$ sao cho $a(u_h, v_h) = f(v_h)$ với mọi $v_h \\in V_h$."],
+          "note": ["Viết tắt FEM. Đây là phương pháp Galerkin với không gian con hữu hạn chiều gồm đa thức từng khúc.", "FEM is a Galerkin method with piecewise polynomials."]
+        },
+        {
+          "id": "galerkin", "en": "Galerkin method", "pos": "n", "ipa": "/ɡəˈlɜːkɪn ˈmeθəd/",
+          "vi": "phương pháp Galerkin", "gloss": "projecting a variational problem onto a finite-dimensional subspace",
+          "def": "The {{Galerkin method}} replaces $a(u, v) = f(v)$ for all $v \\in V$ by the same condition on a finite-dimensional subspace $V_h \\subset V$.",
+          "family": [["Céa's lemma", "n", "bổ đề Céa"], ["Galerkin orthogonality", "n", "tính trực giao Galerkin"], ["Petrov–Galerkin", "n", "Petrov–Galerkin"]],
+          "col": [["a Galerkin [[approximation]]", "một xấp xỉ Galerkin"], ["Galerkin [[orthogonality]]", "tính trực giao Galerkin"], ["a finite-dimensional [[subspace]]", "một không gian con hữu hạn chiều"]],
+          "ex": ["By Céa's lemma, the Galerkin solution is quasi-optimal: it is within a constant factor of the best approximation in $V_h$.", "Theo bổ đề Céa, nghiệm Galerkin là tựa tối ưu: sai khác một hằng số so với xấp xỉ tốt nhất trong $V_h$."],
+          "note": ["Galerkin đọc /ɡəˈlɜːkɪn/. Gốc là bài toán biến phân (Lax–Milgram bảo đảm nghiệm).", "Existence comes from Lax–Milgram."]
+        },
+        {
+          "id": "mesh", "en": "mesh", "alt": ["grid"], "pos": "n", "ipa": "/meʃ/",
+          "vi": "lưới (chia)", "gloss": "the set of points or cells used to discretize a domain",
+          "def": "A {{mesh}} is a partition of the domain into elements (intervals, triangles, …) with mesh size $h$ equal to the largest element diameter.",
+          "family": [["mesh size", "n", "cỡ lưới"], ["refine", "v", "làm mịn"], ["uniform mesh", "n", "lưới đều"], ["adaptive refinement", "n", "làm mịn thích nghi"]],
+          "col": [["refine the [[mesh]]", "làm mịn lưới"], ["a uniform [[grid]] of mesh size $h$", "lưới đều với cỡ lưới $h$"], ["as the mesh size [[tends]] to zero", "khi cỡ lưới tiến về không"]],
+          "ex": ["As the mesh is refined, the finite element solution converges to the exact solution.", "Khi lưới được làm mịn, nghiệm phần tử hữu hạn hội tụ về nghiệm chính xác."],
+          "note": ["“Mesh” thường dùng cho lưới phần tử hữu hạn, “grid” cho lưới sai phân.", "mesh for FEM, grid for finite differences."]
+        },
+        {
+          "id": "consistency", "en": "consistency", "pos": "n", "ipa": "/kənˈsɪstənsi/",
+          "vi": "tính nhất quán", "gloss": "the discrete equations approach the continuous ones as h → 0",
+          "def": "A numerical scheme is {{consistent}} if its truncation error tends to zero as the mesh size $h \\to 0$; it is consistent of order $p$ if the truncation error is $O(h^p)$.",
+          "family": [["consistent", "adj", "nhất quán"], ["inconsistent", "adj", "không nhất quán"], ["truncation error", "n", "sai số chặt cụt"]],
+          "col": [["consistent [[with]] the differential equation", "nhất quán với phương trình vi phân"], ["consistent of [[order]] $p$", "nhất quán cấp $p$"], ["[[check]] the consistency of the scheme", "kiểm tra tính nhất quán của lược đồ"]],
+          "ex": ["The scheme is consistent with the heat equation, with truncation error $O(k + h^2)$.", "Lược đồ nhất quán với phương trình nhiệt, với sai số chặt cụt $O(k + h^2)$."],
+          "note": ["Nhất quán không đủ để hội tụ: cần thêm ổn định (xem định lý Lax).", "Consistency alone does not give convergence."]
+        },
+        {
+          "id": "scheme-stability", "en": "stability of a scheme", "alt": ["stability"], "pos": "n", "ipa": "/stəˈbɪləti əv ə skiːm/",
+          "vi": "tính ổn định (của lược đồ)", "gloss": "errors do not grow without bound as the computation proceeds",
+          "def": "A scheme is {{stable}} if the numerical solution depends continuously on the initial data uniformly in $h$ and $k$, i.e. perturbations are not amplified without bound.",
+          "family": [["von Neumann stability analysis", "n", "phân tích ổn định von Neumann"], ["conditionally stable", "adj", "ổn định có điều kiện"], ["unconditionally stable", "adj", "ổn định vô điều kiện"]],
+          "col": [["unconditionally [[stable]]", "ổn định vô điều kiện"], ["stable under the [[condition]] $k \\le h^2/2$", "ổn định với điều kiện $k \\le h^2/2$"], ["a von Neumann [[stability]] analysis", "phân tích ổn định von Neumann"]],
+          "ex": ["The explicit scheme for the heat equation is stable only if $k \\le h^2/2$.", "Lược đồ hiện cho phương trình nhiệt chỉ ổn định khi $k \\le h^2/2$."],
+          "note": ["Điều kiện kiểu $k \\le h^2/2$ gọi là điều kiện ổn định; lược đồ ẩn thường ổn định vô điều kiện.", "Implicit schemes are often unconditionally stable."]
+        },
+        {
+          "id": "cfl", "en": "CFL condition", "alt": ["Courant–Friedrichs–Lewy condition"], "pos": "n", "ipa": "/ˌsiː ef ˈel kənˈdɪʃn/",
+          "vi": "điều kiện CFL", "gloss": "a stability condition linking the time step to the mesh size",
+          "def": "The {{CFL condition}} (Courant–Friedrichs–Lewy) requires that the numerical domain of dependence contain the physical one; for the upwind scheme for $u_t + c u_x = 0$ it reads $c k / h \\le 1$.",
+          "family": [["Courant number", "n", "số Courant"], ["domain of dependence", "n", "miền phụ thuộc"], ["upwind scheme", "n", "lược đồ ngược dòng"]],
+          "col": [["satisfy the CFL [[condition]]", "thỏa mãn điều kiện CFL"], ["the Courant [[number]]", "số Courant"], ["restrict the time step [[by]] the CFL condition", "hạn chế bước thời gian bởi điều kiện CFL"]],
+          "ex": ["The CFL condition restricts the time step in terms of the mesh size and the wave speed.", "Điều kiện CFL hạn chế bước thời gian theo cỡ lưới và vận tốc sóng."],
+          "note": ["Đọc từng chữ “C-F-L”. CFL là điều kiện cần, không phải lúc nào cũng đủ.", "CFL is necessary, not always sufficient."]
+        },
+        {
+          "id": "lax-equivalence", "en": "Lax equivalence theorem", "pos": "n", "ipa": "/læks ɪˈkwɪvələns ˈθɪərəm/",
+          "vi": "định lý tương đương Lax", "gloss": "for consistent schemes, convergence is equivalent to stability",
+          "def": "The {{Lax equivalence theorem}} states that for a consistent finite difference scheme for a well-posed linear initial value problem, stability is necessary and sufficient for convergence.",
+          "family": [["well-posed", "adj", "đặt đúng"], ["convergence", "n", "sự hội tụ"], ["Lax–Richtmyer theorem", "n", "định lý Lax–Richtmyer"]],
+          "col": [["by the Lax equivalence [[theorem]]", "theo định lý tương đương Lax"], ["a [[well]]-posed problem", "bài toán đặt đúng"], ["stability is necessary [[and]] sufficient for convergence", "ổn định là điều kiện cần và đủ cho hội tụ"]],
+          "ex": ["By the Lax equivalence theorem, it suffices to prove consistency and stability to conclude convergence.", "Theo định lý tương đương Lax, chỉ cần chứng minh tính nhất quán và ổn định để kết luận hội tụ."],
+          "note": ["Công thức dễ nhớ: nhất quán + ổn định ⇔ hội tụ. Chỉ áp dụng cho bài toán tuyến tính đặt đúng.", "Consistency + stability ⇔ convergence, for linear well-posed problems."]
+        }
+      ]
+    }
+  ]
+}

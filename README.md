@@ -12,6 +12,7 @@ Web tĩnh chạy trên GitHub Pages. Không cần tài khoản, không có backe
 | 📖 Thuật ngữ & collocation | 48 thuật ngữ Optimization trong 6 chủ đề: định nghĩa (LaTeX), phiên âm, họ từ, collocation, câu ví dụ, ghi chú | chọn nghĩa, đoán thuật ngữ từ định nghĩa, nghe chọn từ, điền collocation, gõ thuật ngữ |
 | 📐 Thuật ngữ Giải tích | 39 thuật ngữ Giải tích toán học trong 5 chủ đề (dãy và giới hạn, liên tục và tô-pô, vi phân, tích phân, chuỗi), cùng định dạng và bài tập như module trên | như trên |
 | 🌐 Thuật ngữ Giải tích hàm | 40 thuật ngữ trong 5 chủ đề (không gian Banach/Hilbert, toán tử tuyến tính, đối ngẫu và tô-pô yếu, các định lý nền tảng, toán tử phi tuyến và điểm bất động), cùng định dạng và bài tập | như trên |
+| 🧮 Thuật ngữ Giải tích số | 40 thuật ngữ trong 5 chủ đề (sai số và ổn định, hệ tuyến tính, nội suy và xấp xỉ, cầu phương và ODE, PDE và rời rạc hóa), cùng định dạng và bài tập | như trên |
 | ∑ Đọc ký hiệu | 45 ký hiệu trong 5 nhóm, mỗi ký hiệu có cách đọc chuẩn và cách đọc khác | công thức → cách đọc, nghe → công thức, tự đọc to rồi tự chấm |
 | ✍️ Mẫu câu viết paper | 40 mẫu câu trong 5 nhóm, câu ví dụ trong ngữ cảnh Optimization, lỗi người Việt hay mắc | chọn mẫu câu theo chức năng, chọn câu đúng, điền từ còn thiếu |
 
@@ -50,6 +51,7 @@ js/app.js      trang, bài học, bài tập, ôn ngắt quãng
 data/terms-optimization.json
 data/terms-analysis.json
 data/terms-functional.json
+data/terms-numerical.json
 data/symbols.json
 data/phrases.json
 tools/check.mjs   kiểm tra dữ liệu
