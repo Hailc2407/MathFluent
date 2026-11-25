@@ -6,7 +6,7 @@ import { createRequire } from "node:module";
 const require = createRequire(import.meta.url);
 const katex = require("../vendor/katex/katex.min.js");
 
-const FILES = { terms: "data/terms-optimization.json", symbols: "data/symbols.json", phrases: "data/phrases.json" };
+const FILES = [["terms", "data/terms-optimization.json"], ["terms", "data/terms-analysis.json"], ["symbols", "data/symbols.json"], ["phrases", "data/phrases.json"]];
 const NEED = {
   terms: ["id", "en", "pos", "vi", "gloss", "def", "ex"],
   symbols: ["id", "tex", "read", "vi"],
@@ -35,7 +35,7 @@ function checkText(where, s) {
 const gaps = (s) => (String(s).match(/\[\[[^\]]+\]\]/g) || []).length;
 const plain = (s) => String(s).replace(/\[\[([^\]|]+)(\|[^\]]*)?\]\]/g, "$1");
 
-for (const [mod, file] of Object.entries(FILES)) {
+for (const [mod, file] of FILES) {
   const data = JSON.parse(readFileSync(file, "utf8"));
   if (data.module !== mod) err(file, "module should be " + mod);
   const ids = new Set();
@@ -44,7 +44,7 @@ for (const [mod, file] of Object.entries(FILES)) {
     if (!t.items || t.items.length < 4) err(file + "#" + t.id, "a topic needs at least 4 items (for answer options)");
     for (const it of t.items) {
       count++;
-      const where = mod + "/" + t.id + "/" + it.id;
+      const where = file.replace(/^data\/|\.json$/g, "") + "/" + t.id + "/" + it.id;
       if (ids.has(it.id)) err(where, "duplicate id");
       ids.add(it.id);
       for (const k of NEED[mod]) if (it[k] == null || it[k] === "") err(where, "missing " + k);

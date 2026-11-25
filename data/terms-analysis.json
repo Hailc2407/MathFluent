@@ -1,0 +1,397 @@
+{
+  "module": "terms",
+  "field": "analysis",
+  "topics": [
+    {
+      "id": "sequences", "emoji": "🔢",
+      "title": "Dãy số và giới hạn", "titleEn": "Sequences and limits",
+      "desc": "Dãy, hội tụ, dãy Cauchy, bị chặn, đơn điệu, dãy con, điểm tụ, giới hạn trên.",
+      "descEn": "Sequences, convergence, Cauchy sequences, boundedness, monotonicity, subsequences, cluster points, limsup.",
+      "items": [
+        {
+          "id": "sequence", "en": "sequence", "pos": "n", "ipa": "/ˈsiːkwəns/",
+          "vi": "dãy (số)", "gloss": "an infinite ordered list of elements indexed by the natural numbers",
+          "def": "A {{sequence}} in a set $X$ is a map $\\mathbb{N} \\to X$, written $(x_n)_{n \\in \\mathbb{N}}$.",
+          "family": [["subsequence", "n", "dãy con"], ["sequential", "adj", "theo dãy"]],
+          "col": [["a [[bounded]] sequence", "một dãy bị chặn"], ["the sequence is [[indexed]] by $n$", "dãy được đánh chỉ số bởi $n$"], ["generate a [[sequence]] of iterates", "sinh ra một dãy điểm lặp"]],
+          "ex": ["Every bounded sequence of real numbers has a convergent subsequence.", "Mọi dãy số thực bị chặn đều có một dãy con hội tụ."],
+          "note": ["Dãy là $(x_n)$, còn “series” mới là chuỗi (tổng vô hạn). Đừng nhầm hai từ này.", "A sequence is $(x_n)$; a series is an infinite sum. Don't mix them up."]
+        },
+        {
+          "id": "converge", "en": "converge", "pos": "v", "ipa": "/kənˈvɜːdʒ/",
+          "vi": "hội tụ", "gloss": "to get arbitrarily close to a limit",
+          "def": "A sequence $(x_n)$ {{converges}} to $x$ if for every $\\varepsilon > 0$ there is $N$ such that $|x_n - x| < \\varepsilon$ for all $n \\ge N$.",
+          "family": [["convergence", "n", "sự hội tụ"], ["convergent", "adj", "hội tụ"], ["diverge", "v", "phân kỳ"]],
+          "col": [["converge [[to]] $x$", "hội tụ đến $x$"], ["converge [[weakly|strongly]]", "hội tụ yếu / mạnh"], ["converge [[uniformly]]", "hội tụ đều"]],
+          "ex": ["The sequence $x_n = 1/n$ converges to $0$ as $n$ tends to infinity.", "Dãy $x_n = 1/n$ hội tụ đến $0$ khi $n$ tiến ra vô cùng."],
+          "note": ["Giới từ là “to”: converge to $x$ (không phải “converge at” hay “converge about”).", "The preposition is “to”: converge to x."]
+        },
+        {
+          "id": "cauchy-sequence", "en": "Cauchy sequence", "pos": "n", "ipa": "/ˈkəʊʃi ˈsiːkwəns/",
+          "vi": "dãy Cauchy", "gloss": "a sequence whose terms eventually get arbitrarily close to each other",
+          "def": "$(x_n)$ is a {{Cauchy sequence}} if for every $\\varepsilon > 0$ there is $N$ with $|x_m - x_n| < \\varepsilon$ for all $m, n \\ge N$.",
+          "family": [["complete", "adj", "đầy đủ"], ["completeness", "n", "tính đầy đủ"]],
+          "col": [["a Cauchy sequence [[in]] $X$", "một dãy Cauchy trong $X$"], ["every Cauchy sequence [[converges]]", "mọi dãy Cauchy đều hội tụ"], ["a [[complete]] metric space", "không gian mêtric đầy đủ"]],
+          "ex": ["A metric space is complete if every Cauchy sequence in it converges.", "Một không gian mêtric đầy đủ nếu mọi dãy Cauchy trong nó đều hội tụ."],
+          "note": ["Đọc “KOH-shee”. Banach space = không gian định chuẩn đầy đủ; Hilbert space = không gian tích trong đầy đủ.", "Pronounced “KOH-shee”. A Banach space is a complete normed space."]
+        },
+        {
+          "id": "bounded", "en": "bounded", "pos": "adj", "ipa": "/ˈbaʊndɪd/",
+          "vi": "bị chặn", "gloss": "contained in some ball of finite radius",
+          "def": "A set $A$ is {{bounded}} if there is $M > 0$ with $\\|x\\| \\le M$ for all $x \\in A$.",
+          "family": [["boundedness", "n", "tính bị chặn"], ["unbounded", "adj", "không bị chặn"], ["bound", "n", "cận"]],
+          "col": [["bounded [[above|below]]", "bị chặn trên / dưới"], ["a [[uniform]] bound", "một cận đều"], ["an [[upper]] bound", "một cận trên"]],
+          "ex": ["Every convergent sequence is bounded.", "Mọi dãy hội tụ đều bị chặn."],
+          "note": ["Nói “bounded in $\\mathbb{R}^n$” hoặc “bounded in norm”. Cận trên đúng nhỏ nhất là supremum.", "The least upper bound is the supremum."]
+        },
+        {
+          "id": "monotone", "en": "monotone", "pos": "adj", "ipa": "/ˈmɒnətəʊn/",
+          "vi": "đơn điệu", "gloss": "never decreasing or never increasing",
+          "def": "A real sequence is {{monotone}} if it is nondecreasing ($x_n \\le x_{n+1}$ for all $n$) or nonincreasing ($x_n \\ge x_{n+1}$ for all $n$).",
+          "family": [["monotonicity", "n", "tính đơn điệu"], ["strictly monotone", "adj", "đơn điệu chặt"], ["nondecreasing", "adj", "không giảm"]],
+          "col": [["a monotone [[sequence]]", "một dãy đơn điệu"], ["monotone [[operator]]", "toán tử đơn điệu"], ["strictly [[increasing]]", "tăng ngặt"]],
+          "ex": ["A bounded monotone sequence of real numbers converges.", "Một dãy số thực đơn điệu và bị chặn thì hội tụ."],
+          "note": ["Tránh “increasing” mơ hồ: dùng nondecreasing (không giảm) hoặc strictly increasing (tăng ngặt).", "Avoid the ambiguous “increasing”: say nondecreasing or strictly increasing."]
+        },
+        {
+          "id": "subsequence", "en": "subsequence", "pos": "n", "ipa": "/ˈsʌbsiːkwəns/",
+          "vi": "dãy con", "gloss": "a sequence obtained by keeping only some terms in the original order",
+          "def": "A {{subsequence}} of $(x_n)$ is a sequence $(x_{n_k})_{k}$ with $n_1 < n_2 < \\cdots$.",
+          "family": [["extract", "v", "trích (dãy con)"], ["subsequential limit", "n", "giới hạn dãy con"]],
+          "col": [["extract a [[convergent]] subsequence", "trích một dãy con hội tụ"], ["pass to a [[subsequence]]", "chuyển sang một dãy con"], ["along a [[subsequence]]", "dọc theo một dãy con"]],
+          "ex": ["Passing to a subsequence if necessary, we may assume that $x_n \\rightharpoonup \\bar x$.", "Chuyển sang một dãy con nếu cần, ta có thể giả sử $x_n \\rightharpoonup \\bar x$."],
+          "note": ["Cụm “passing to a subsequence if necessary” rất phổ biến trong chứng minh.", "“Passing to a subsequence if necessary” is a staple of proofs."]
+        },
+        {
+          "id": "cluster-point", "en": "cluster point", "alt": ["accumulation point", "limit point"], "pos": "n", "ipa": "/ˈklʌstə pɔɪnt/",
+          "vi": "điểm tụ", "gloss": "a limit of some subsequence",
+          "def": "A point $\\bar x$ is a {{cluster point}} of $(x_n)$ if some subsequence of $(x_n)$ converges to $\\bar x$.",
+          "family": [["limit point", "n", "điểm giới hạn (đồng nghĩa)"], ["weak cluster point", "n", "điểm tụ yếu"]],
+          "col": [["a [[weak]] cluster point", "một điểm tụ yếu"], ["every cluster point [[belongs]] to $S$", "mọi điểm tụ đều thuộc $S$"], ["the set of cluster [[points]]", "tập các điểm tụ"]],
+          "ex": ["Every bounded sequence in $\\mathbb{R}^n$ has at least one cluster point.", "Mọi dãy bị chặn trong $\\mathbb{R}^n$ có ít nhất một điểm tụ."],
+          "note": ["Với dãy dùng cluster point; với tập, “accumulation point” có nghĩa hơi khác (mọi lân cận chứa điểm khác của tập).", "For sets, “accumulation point” has a slightly different meaning."]
+        },
+        {
+          "id": "limsup", "en": "limit superior", "alt": ["lim sup", "limsup"], "pos": "n", "ipa": "/ˈlɪmɪt suːˈpɪəriə(r)/",
+          "vi": "giới hạn trên", "gloss": "the largest cluster point of a sequence",
+          "def": "The {{limit superior}} of $(x_n)$ is $\\limsup_{n \\to \\infty} x_n = \\lim_{n \\to \\infty} \\sup_{k \\ge n} x_k$.",
+          "family": [["limit inferior", "n", "giới hạn dưới"], ["supremum", "n", "cận trên đúng"]],
+          "col": [["take the [[limit]] superior", "lấy giới hạn trên"], ["the limit superior is [[at most]] $\\ell$", "giới hạn trên không vượt quá $\\ell$"]],
+          "ex": ["A sequence converges if and only if its limit superior and limit inferior are equal and finite.", "Một dãy hội tụ khi và chỉ khi giới hạn trên và giới hạn dưới của nó bằng nhau và hữu hạn."],
+          "note": ["Đọc $\\limsup$ là “lim sup” hoặc “the limit superior of”. Số nhiều của superior không dùng; nói “limits superior” rất hiếm.", "Read $\\limsup$ as “lim sup”."]
+        }
+      ]
+    },
+    {
+      "id": "topology", "emoji": "🔵",
+      "title": "Liên tục và tô-pô", "titleEn": "Continuity and topology",
+      "desc": "Liên tục, liên tục đều, lân cận, tập mở, tập đóng, compact, biên, trù mật.",
+      "descEn": "Continuity, uniform continuity, neighborhoods, open and closed sets, compactness, boundary, density.",
+      "items": [
+        {
+          "id": "continuous", "en": "continuous", "pos": "adj", "ipa": "/kənˈtɪnjuəs/",
+          "vi": "liên tục", "gloss": "preserving limits: small changes in input give small changes in output",
+          "def": "$f$ is {{continuous}} at $x_0$ if for every $\\varepsilon > 0$ there is $\\delta > 0$ such that $|x - x_0| < \\delta$ implies $|f(x) - f(x_0)| < \\varepsilon$.",
+          "family": [["continuity", "n", "tính liên tục"], ["discontinuous", "adj", "gián đoạn"], ["continuously differentiable", "adj", "khả vi liên tục"]],
+          "col": [["continuous [[at]] a point", "liên tục tại một điểm"], ["continuous [[on]] a set", "liên tục trên một tập"], ["Lipschitz [[continuous]]", "liên tục Lipschitz"]],
+          "ex": ["A continuous function on a compact set attains its maximum and minimum.", "Một hàm liên tục trên một tập compact đạt giá trị lớn nhất và nhỏ nhất."],
+          "note": ["Giới từ: continuous at một điểm, continuous on một tập.", "Prepositions: continuous at a point, on a set."]
+        },
+        {
+          "id": "uniformly-continuous", "en": "uniformly continuous", "pos": "adj", "ipa": "/ˈjuːnɪfɔːmli kənˈtɪnjuəs/",
+          "vi": "liên tục đều", "gloss": "continuous with one δ that works for all points",
+          "def": "$f$ is {{uniformly continuous}} on $A$ if for every $\\varepsilon > 0$ there is $\\delta > 0$, independent of the point, such that $|x - y| < \\delta$ implies $|f(x) - f(y)| < \\varepsilon$ for all $x, y \\in A$.",
+          "family": [["uniform", "adj", "đều"], ["uniformly", "adv", "một cách đều"]],
+          "col": [["uniformly continuous [[on]] $A$", "liên tục đều trên $A$"], ["a [[uniform]] estimate", "một đánh giá đều"], ["[[independent]] of $x$", "không phụ thuộc vào $x$"]],
+          "ex": ["A continuous function on a compact set is uniformly continuous.", "Một hàm liên tục trên một tập compact thì liên tục đều."],
+          "note": ["“Đều” = không phụ thuộc điểm. $x \\mapsto x^2$ liên tục nhưng không liên tục đều trên $\\mathbb{R}$.", "$x \\mapsto x^2$ is continuous but not uniformly continuous on $\\mathbb{R}$."]
+        },
+        {
+          "id": "neighborhood", "en": "neighborhood", "alt": ["neighbourhood"], "pos": "n", "ipa": "/ˈneɪbəhʊd/",
+          "vi": "lân cận", "gloss": "a set containing an open set around a point",
+          "def": "A {{neighborhood}} of $x$ is a set containing an open set that contains $x$; for example the open ball $B(x, r)$.",
+          "family": [["neighbor", "n", "điểm lân cận"], ["locally", "adv", "địa phương"]],
+          "col": [["in a neighborhood [[of]] $x$", "trong một lân cận của $x$"], ["a [[sufficiently]] small neighborhood", "một lân cận đủ nhỏ"], ["an open [[ball]]", "hình cầu mở"]],
+          "ex": ["The function is bounded in some neighborhood of $x_0$.", "Hàm bị chặn trong một lân cận nào đó của $x_0$."],
+          "note": ["Anh–Mỹ viết neighborhood, Anh–Anh viết neighbourhood. Chọn một cách và dùng nhất quán.", "US: neighborhood; UK: neighbourhood."]
+        },
+        {
+          "id": "open-set", "en": "open set", "pos": "n", "ipa": "/ˈəʊpən set/",
+          "vi": "tập mở", "gloss": "a set that is a neighborhood of each of its points",
+          "def": "A set $U$ is an {{open set}} if for every $x \\in U$ there is $r > 0$ with $B(x, r) \\subseteq U$.",
+          "family": [["interior", "n", "phần trong"], ["open cover", "n", "phủ mở"]],
+          "col": [["an open [[cover]]", "một phủ mở"], ["open and [[closed]]", "vừa mở vừa đóng"], ["the [[interior]] of $A$", "phần trong của $A$"]],
+          "ex": ["The preimage of an open set under a continuous map is open.", "Tạo ảnh của một tập mở qua ánh xạ liên tục là tập mở."],
+          "note": ["preimage = tạo ảnh (ngược); “inverse image” cũng dùng.", "preimage = inverse image."]
+        },
+        {
+          "id": "closed-set", "en": "closed set", "pos": "n", "ipa": "/kləʊzd set/",
+          "vi": "tập đóng", "gloss": "a set containing all its limit points",
+          "def": "A set $C$ is a {{closed set}} if it contains the limits of all convergent sequences of its points; equivalently, its complement is open.",
+          "family": [["closure", "n", "bao đóng"], ["closedness", "n", "tính đóng"]],
+          "col": [["a closed [[subset]] of $H$", "một tập con đóng của $H$"], ["the [[closure]] of $A$", "bao đóng của $A$"], ["[[weakly]] closed", "đóng yếu"]],
+          "ex": ["A closed subset of a complete metric space is complete.", "Một tập con đóng của một không gian mêtric đầy đủ thì đầy đủ."],
+          "note": ["Đóng không phải là “không mở”: có tập vừa mở vừa đóng (ví dụ $\\mathbb{R}$), có tập không mở cũng không đóng.", "Closed does not mean “not open”."]
+        },
+        {
+          "id": "compact", "en": "compact", "pos": "adj", "ipa": "/kəmˈpækt/",
+          "vi": "compact", "gloss": "every open cover has a finite subcover",
+          "def": "A set $K$ is {{compact}} if every open cover of $K$ has a finite subcover; in $\\mathbb{R}^n$ this is equivalent to being closed and bounded.",
+          "family": [["compactness", "n", "tính compact"], ["relatively compact", "adj", "compact tương đối"], ["subcover", "n", "phủ con"]],
+          "col": [["a [[compact]] subset", "một tập con compact"], ["sequentially [[compact]]", "compact theo dãy"], ["a finite [[subcover]]", "một phủ con hữu hạn"]],
+          "ex": ["By the Heine–Borel theorem, a subset of $\\mathbb{R}^n$ is compact if and only if it is closed and bounded.", "Theo định lý Heine–Borel, một tập con của $\\mathbb{R}^n$ compact khi và chỉ khi nó đóng và bị chặn."],
+          "note": ["Tính từ compact đọc /kəmˈpækt/ (nhấn âm 2). Chỉ đúng “đóng và bị chặn” trong $\\mathbb{R}^n$, không đúng trong không gian vô hạn chiều.", "Closed and bounded suffices only in $\\mathbb{R}^n$."]
+        },
+        {
+          "id": "boundary", "en": "boundary", "pos": "n", "ipa": "/ˈbaʊndri/",
+          "vi": "biên", "gloss": "the points in the closure but not in the interior",
+          "def": "The {{boundary}} of $A$ is $\\partial A = \\overline{A} \\setminus \\operatorname{int} A$.",
+          "family": [["interior", "n", "phần trong"], ["closure", "n", "bao đóng"]],
+          "col": [["a point [[on]] the boundary", "một điểm nằm trên biên"], ["boundary [[conditions]]", "điều kiện biên"], ["the relative [[interior]]", "phần trong tương đối"]],
+          "ex": ["The boundary of the unit ball in $\\mathbb{R}^n$ is the unit sphere.", "Biên của hình cầu đơn vị trong $\\mathbb{R}^n$ là mặt cầu đơn vị."],
+          "note": ["$\\partial A$ ở đây là biên; đừng nhầm với dưới vi phân $\\partial f$ trong tối ưu.", "Don't confuse $\\partial A$ (boundary) with $\\partial f$ (subdifferential)."]
+        },
+        {
+          "id": "dense", "en": "dense", "pos": "adj", "ipa": "/dens/",
+          "vi": "trù mật", "gloss": "having closure equal to the whole space",
+          "def": "A subset $D \\subseteq X$ is {{dense}} in $X$ if $\\overline{D} = X$, i.e. every nonempty open set of $X$ meets $D$.",
+          "family": [["density", "n", "tính trù mật"], ["separable", "adj", "khả ly"]],
+          "col": [["dense [[in]] $X$", "trù mật trong $X$"], ["a dense [[subset]]", "một tập con trù mật"], ["the rationals are dense [[in]] the reals", "các số hữu tỉ trù mật trong tập số thực"]],
+          "ex": ["Polynomials are dense in the space of continuous functions on $[0, 1]$ with the uniform norm.", "Đa thức trù mật trong không gian các hàm liên tục trên $[0, 1]$ với chuẩn đều."],
+          "note": ["Đây là kết quả của định lý xấp xỉ Weierstrass. dense (trù mật) khác density (mật độ).", "This is the Weierstrass approximation theorem."]
+        }
+      ]
+    },
+    {
+      "id": "differentiation", "emoji": "📉",
+      "title": "Phép tính vi phân", "titleEn": "Differentiation",
+      "desc": "Đạo hàm, khả vi, quy tắc dây chuyền, định lý giá trị trung bình, khai triển Taylor, cực trị, Jacobi.",
+      "descEn": "Derivatives, differentiability, chain rule, mean value theorem, Taylor expansion, extrema, Jacobians.",
+      "items": [
+        {
+          "id": "derivative", "en": "derivative", "pos": "n", "ipa": "/dɪˈrɪvətɪv/",
+          "vi": "đạo hàm", "gloss": "the rate of change of a function at a point",
+          "def": "The {{derivative}} of $f$ at $x$ is $f'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$, when this limit exists.",
+          "family": [["differentiate", "v", "lấy đạo hàm"], ["differentiation", "n", "phép lấy đạo hàm"], ["differentiable", "adj", "khả vi"]],
+          "col": [["the derivative [[of]] $f$ at $x$", "đạo hàm của $f$ tại $x$"], ["take the derivative [[with respect to]] $x$", "lấy đạo hàm theo $x$"], ["a [[higher]]-order derivative", "đạo hàm bậc cao"]],
+          "ex": ["The derivative of $\\sin x$ is $\\cos x$.", "Đạo hàm của $\\sin x$ là $\\cos x$."],
+          "note": ["$f'(x)$ đọc “f prime of x”, $f''(x)$ đọc “f double prime of x”.", "Read $f'(x)$ as “f prime of x”."]
+        },
+        {
+          "id": "differentiable", "en": "differentiable", "pos": "adj", "ipa": "/ˌdɪfəˈrenʃiəbl/",
+          "vi": "khả vi", "gloss": "having a derivative",
+          "def": "$f$ is {{differentiable}} at $x$ if $f'(x)$ exists; $f$ is differentiable on $A$ if it is differentiable at every point of $A$.",
+          "family": [["differentiability", "n", "tính khả vi"], ["continuously differentiable", "adj", "khả vi liên tục ($C^1$)"], ["nondifferentiable", "adj", "không khả vi"]],
+          "col": [["differentiable [[at]] $x$", "khả vi tại $x$"], ["twice [[continuously]] differentiable", "khả vi liên tục hai lần"], ["[[nowhere]] differentiable", "không khả vi tại bất kỳ điểm nào"]],
+          "ex": ["Every differentiable function is continuous, but the converse is false: $|x|$ is not differentiable at $0$.", "Mọi hàm khả vi đều liên tục, nhưng chiều ngược lại sai: $|x|$ không khả vi tại $0$."],
+          "note": ["differentiable nhấn âm 3: dif-fer-EN-shi-a-ble.", "Stress: dif-fer-EN-shi-a-ble."]
+        },
+        {
+          "id": "chain-rule", "en": "chain rule", "pos": "n", "ipa": "/tʃeɪn ruːl/",
+          "vi": "quy tắc dây chuyền", "gloss": "the formula for the derivative of a composition",
+          "def": "By the {{chain rule}}, $(g \\circ f)'(x) = g'(f(x))\\, f'(x)$ whenever $f$ is differentiable at $x$ and $g$ is differentiable at $f(x)$.",
+          "family": [["composition", "n", "hàm hợp"], ["compose", "v", "hợp thành"]],
+          "col": [["[[apply]] the chain rule", "áp dụng quy tắc dây chuyền"], ["by the [[chain]] rule", "theo quy tắc dây chuyền"], ["the composition of $f$ [[with]] $g$", "hợp của $f$ với $g$"]],
+          "ex": ["Applying the chain rule, we obtain $\\nabla (f \\circ A)(x) = A^\\top \\nabla f(Ax)$.", "Áp dụng quy tắc dây chuyền, ta thu được $\\nabla (f \\circ A)(x) = A^\\top \\nabla f(Ax)$."],
+          "note": ["Tiếng Việt cũng nói “đạo hàm của hàm hợp”.", "Vietnamese also says “đạo hàm của hàm hợp”."]
+        },
+        {
+          "id": "mean-value-theorem", "en": "mean value theorem", "pos": "n", "ipa": "/miːn ˈvæljuː ˈθɪərəm/",
+          "vi": "định lý giá trị trung bình", "gloss": "a theorem relating the average slope to the derivative at some point",
+          "def": "The {{mean value theorem}} states that if $f$ is continuous on $[a, b]$ and differentiable on $(a, b)$, there is $c \\in (a, b)$ with $f(b) - f(a) = f'(c)(b - a)$.",
+          "family": [["Rolle's theorem", "n", "định lý Rolle"], ["intermediate value theorem", "n", "định lý giá trị trung gian"]],
+          "col": [["[[by]] the mean value theorem", "theo định lý giá trị trung bình"], ["there exists $c \\in (a, b)$ [[such]] that", "tồn tại $c \\in (a, b)$ sao cho"], ["apply the mean value theorem [[to]] $f$", "áp dụng định lý giá trị trung bình cho $f$"]],
+          "ex": ["By the mean value theorem, a function with zero derivative on an interval is constant.", "Theo định lý giá trị trung bình, một hàm có đạo hàm bằng không trên một khoảng thì là hàm hằng."],
+          "note": ["Tên đầy đủ: Lagrange's mean value theorem. Viết tắt MVT.", "Full name: Lagrange's mean value theorem (MVT)."]
+        },
+        {
+          "id": "taylor-expansion", "en": "Taylor expansion", "alt": ["Taylor's theorem", "Taylor series"], "pos": "n", "ipa": "/ˈteɪlər ɪkˈspænʃn/",
+          "vi": "khai triển Taylor", "gloss": "approximating a function near a point by a polynomial",
+          "def": "The first-order {{Taylor expansion}} of $f$ at $x$ is $f(x + d) = f(x) + \\nabla f(x)^\\top d + o(\\|d\\|)$ as $d \\to 0$.",
+          "family": [["remainder", "n", "phần dư"], ["expand", "v", "khai triển"]],
+          "col": [["a second-order Taylor [[expansion]]", "khai triển Taylor bậc hai"], ["Taylor expand $f$ [[around|about]] $x$", "khai triển Taylor $f$ quanh $x$"], ["the [[remainder]] term", "số hạng dư"]],
+          "ex": ["Using a second-order Taylor expansion of $f$ around $\\bar x$, we obtain a lower bound on the quadratic term.", "Dùng khai triển Taylor bậc hai của $f$ quanh $\\bar x$, ta thu được một cận dưới cho số hạng bậc hai."],
+          "note": ["Taylor series (chuỗi Taylor) là chuỗi vô hạn; Taylor expansion/ theorem nói chung là xấp xỉ có phần dư.", "A Taylor series is infinite; Taylor's theorem gives a finite approximation with remainder."]
+        },
+        {
+          "id": "local-extremum", "en": "local extremum", "alt": ["local extrema"], "pos": "n", "ipa": "/ˈləʊkl ɪkˈstriːməm/",
+          "vi": "cực trị địa phương", "gloss": "a local maximum or a local minimum",
+          "def": "A {{local extremum}} of $f$ is a point that is a local maximizer or a local minimizer of $f$.",
+          "family": [["extrema", "n (pl.)", "số nhiều của extremum"], ["critical point", "n", "điểm tới hạn"]],
+          "col": [["a local [[maximum]]", "cực đại địa phương"], ["at a local extremum the derivative [[vanishes]]", "tại cực trị địa phương đạo hàm bằng không"], ["a global [[extremum]]", "cực trị toàn cục"]],
+          "ex": ["If $f$ is differentiable and has a local extremum at $x$, then $f'(x) = 0$.", "Nếu $f$ khả vi và đạt cực trị địa phương tại $x$ thì $f'(x) = 0$."],
+          "note": ["Đây là quy tắc Fermat. Số nhiều của extremum là extrema.", "This is Fermat's rule. The plural of extremum is extrema."]
+        },
+        {
+          "id": "jacobian", "en": "Jacobian", "pos": "n", "ipa": "/dʒəˈkəʊbiən/",
+          "vi": "ma trận Jacobi", "gloss": "the matrix of first partial derivatives of a vector-valued map",
+          "def": "For $F\\colon \\mathbb{R}^n \\to \\mathbb{R}^m$, the {{Jacobian}} $J_F(x)$ is the $m \\times n$ matrix with entries $\\frac{\\partial F_i}{\\partial x_j}(x)$.",
+          "family": [["Jacobian matrix", "n", "ma trận Jacobi"], ["Jacobian determinant", "n", "định thức Jacobi"]],
+          "col": [["the Jacobian [[matrix]]", "ma trận Jacobi"], ["the Jacobian [[determinant]]", "định thức Jacobi"], ["the Jacobian of $F$ [[at]] $x$", "ma trận Jacobi của $F$ tại $x$"]],
+          "ex": ["Newton's method for solving $F(x) = 0$ requires the Jacobian of $F$ at every iterate.", "Phương pháp Newton giải $F(x) = 0$ cần ma trận Jacobi của $F$ tại mỗi điểm lặp."],
+          "note": ["Đọc /dʒəˈkəʊbiən/. Jacobian của hàm giá trị vô hướng là gradient (dạng hàng).", "For scalar functions the Jacobian is the gradient (as a row)."]
+        }
+      ]
+    },
+    {
+      "id": "integration", "emoji": "∫",
+      "title": "Phép tính tích phân", "titleEn": "Integration",
+      "desc": "Tích phân Riemann, khả tích, nguyên hàm, định lý cơ bản, tích phân suy rộng, độ đo, hội tụ bị chặn.",
+      "descEn": "Riemann integral, integrability, antiderivatives, the fundamental theorem, improper integrals, measures, dominated convergence.",
+      "items": [
+        {
+          "id": "riemann-integral", "en": "Riemann integral", "pos": "n", "ipa": "/ˈriːmɑːn ˈɪntɪɡrəl/",
+          "vi": "tích phân Riemann", "gloss": "the limit of sums over finer and finer partitions",
+          "def": "The {{Riemann integral}} $\\int_a^b f(x)\\,dx$ is the limit of Riemann sums $\\sum_i f(t_i)(x_i - x_{i-1})$ as the mesh of the partition tends to zero.",
+          "family": [["Riemann sum", "n", "tổng Riemann"], ["partition", "n", "phân hoạch"], ["integrable", "adj", "khả tích"]],
+          "col": [["a Riemann [[sum]]", "một tổng Riemann"], ["a [[partition]] of $[a, b]$", "một phân hoạch của $[a, b]$"], ["the mesh of the [[partition]]", "độ mịn của phân hoạch"]],
+          "ex": ["Every continuous function on $[a, b]$ is Riemann integrable.", "Mọi hàm liên tục trên $[a, b]$ đều khả tích Riemann."],
+          "note": ["Riemann đọc /ˈriːmɑːn/. “integrate” là tích phân (động từ), “integral” là tích phân (danh từ).", "integrate (verb) vs integral (noun)."]
+        },
+        {
+          "id": "integrable", "en": "integrable", "pos": "adj", "ipa": "/ˈɪntɪɡrəbl/",
+          "vi": "khả tích", "gloss": "having a well-defined finite integral",
+          "def": "A function $f$ is {{integrable}} on $A$ if $\\int_A |f|\\,d\\mu < \\infty$ (Lebesgue sense) or if its Riemann integral exists.",
+          "family": [["integrability", "n", "tính khả tích"], ["square-integrable", "adj", "khả tích bình phương"], ["locally integrable", "adj", "khả tích địa phương"]],
+          "col": [["integrable [[on]] $[a, b]$", "khả tích trên $[a, b]$"], ["a [[square]]-integrable function", "hàm khả tích bình phương"], ["absolutely [[integrable]]", "khả tích tuyệt đối"]],
+          "ex": ["The space $L^2(\\Omega)$ consists of all square-integrable functions on $\\Omega$.", "Không gian $L^2(\\Omega)$ gồm mọi hàm khả tích bình phương trên $\\Omega$."],
+          "note": ["Nhấn âm 1: IN-ti-gra-ble.", "Stress on the first syllable."]
+        },
+        {
+          "id": "antiderivative", "en": "antiderivative", "pos": "n", "ipa": "/ˌæntiˈdɪrɪvətɪv/",
+          "vi": "nguyên hàm", "gloss": "a function whose derivative is the given function",
+          "def": "An {{antiderivative}} of $f$ on an interval $I$ is a differentiable function $F$ with $F' = f$ on $I$.",
+          "family": [["primitive", "n", "nguyên hàm (đồng nghĩa)"], ["indefinite integral", "n", "tích phân bất định"]],
+          "col": [["find an antiderivative [[of]] $f$", "tìm một nguyên hàm của $f$"], ["up to an additive [[constant]]", "sai khác một hằng số"]],
+          "ex": ["Any two antiderivatives of $f$ on an interval differ by a constant.", "Hai nguyên hàm bất kỳ của $f$ trên một khoảng chỉ khác nhau một hằng số."],
+          "note": ["“Primitive” cũng dùng nhưng dễ gây nhầm, nên ưu tiên antiderivative.", "“Primitive” is also used but can confuse."]
+        },
+        {
+          "id": "ftc", "en": "fundamental theorem of calculus", "pos": "n", "ipa": "/ˌfʌndəˈmentl ˈθɪərəm əv ˈkælkjələs/",
+          "vi": "định lý cơ bản của giải tích", "gloss": "the link between differentiation and integration",
+          "def": "The {{fundamental theorem of calculus}} states that if $f$ is continuous on $[a, b]$ and $F' = f$, then $\\int_a^b f(x)\\,dx = F(b) - F(a)$.",
+          "family": [["calculus", "n", "giải tích (vi tích phân)"]],
+          "col": [["[[by]] the fundamental theorem of calculus", "theo định lý cơ bản của giải tích"], ["evaluate an integral [[using]] an antiderivative", "tính tích phân bằng nguyên hàm"]],
+          "ex": ["By the fundamental theorem of calculus, $\\frac{d}{dx} \\int_a^x f(t)\\,dt = f(x)$ for continuous $f$.", "Theo định lý cơ bản của giải tích, $\\frac{d}{dx} \\int_a^x f(t)\\,dt = f(x)$ với $f$ liên tục."],
+          "note": ["Viết tắt FTC. calculus = vi tích phân; còn “analysis” là giải tích chặt chẽ (có chứng minh).", "calculus = computational; analysis = rigorous theory."]
+        },
+        {
+          "id": "improper-integral", "en": "improper integral", "pos": "n", "ipa": "/ɪmˈprɒpə ˈɪntɪɡrəl/",
+          "vi": "tích phân suy rộng", "gloss": "an integral over an unbounded domain or of an unbounded function",
+          "def": "An {{improper integral}} such as $\\int_1^\\infty \\frac{dx}{x^2}$ is defined as a limit of proper integrals: $\\lim_{R \\to \\infty} \\int_1^R \\frac{dx}{x^2}$.",
+          "family": [["proper integral", "n", "tích phân thường"], ["diverge", "v", "phân kỳ"]],
+          "col": [["the improper integral [[converges]]", "tích phân suy rộng hội tụ"], ["an improper integral of the [[first]] kind", "tích phân suy rộng loại một"]],
+          "ex": ["The improper integral $\\int_1^\\infty x^{-p}\\,dx$ converges if and only if $p > 1$.", "Tích phân suy rộng $\\int_1^\\infty x^{-p}\\,dx$ hội tụ khi và chỉ khi $p > 1$."],
+          "note": ["Ở đây “improper” là “suy rộng”, không phải “không đúng”.", "Here “improper” means extended, not wrong."]
+        },
+        {
+          "id": "measurable", "en": "measurable", "pos": "adj", "ipa": "/ˈmeʒərəbl/",
+          "vi": "đo được", "gloss": "belonging to the σ-algebra on which a measure is defined",
+          "def": "A function $f\\colon X \\to \\mathbb{R}$ is {{measurable}} if $\\{x : f(x) > a\\}$ is a measurable set for every $a \\in \\mathbb{R}$.",
+          "family": [["measure", "n", "độ đo"], ["measurability", "n", "tính đo được"], ["Lebesgue measure", "n", "độ đo Lebesgue"]],
+          "col": [["a measurable [[set|function]]", "tập / hàm đo được"], ["Lebesgue [[measurable]]", "đo được theo Lebesgue"], ["[[almost]] everywhere", "hầu khắp nơi"]],
+          "ex": ["The limit of a pointwise convergent sequence of measurable functions is measurable.", "Giới hạn của một dãy hàm đo được hội tụ theo từng điểm là hàm đo được."],
+          "note": ["“Almost everywhere” viết tắt a.e.: tính chất đúng trừ trên một tập có độ đo không.", "a.e. = except on a set of measure zero."]
+        },
+        {
+          "id": "dct", "en": "dominated convergence theorem", "pos": "n", "ipa": "/ˈdɒmɪneɪtɪd kənˈvɜːdʒəns ˈθɪərəm/",
+          "vi": "định lý hội tụ bị chặn (hội tụ trội)", "gloss": "a condition allowing the limit to pass inside an integral",
+          "def": "By the {{dominated convergence theorem}}, if $f_n \\to f$ almost everywhere and $|f_n| \\le g$ with $g$ integrable, then $\\int f_n \\to \\int f$.",
+          "family": [["dominate", "v", "trội hơn"], ["monotone convergence theorem", "n", "định lý hội tụ đơn điệu"], ["Fatou's lemma", "n", "bổ đề Fatou"]],
+          "col": [["[[by]] the dominated convergence theorem", "theo định lý hội tụ bị chặn"], ["dominated [[by]] an integrable function", "bị trội bởi một hàm khả tích"], ["interchange the limit and the [[integral]]", "đổi chỗ giới hạn và tích phân"]],
+          "ex": ["By the dominated convergence theorem, we may interchange the limit and the integral.", "Theo định lý hội tụ bị chặn, ta có thể đổi chỗ giới hạn và tích phân."],
+          "note": ["Viết tắt DCT. Tiếng Việt gọi “hội tụ bị chặn” hoặc “hội tụ trội”.", "Abbreviated DCT."]
+        },
+        {
+          "id": "lebesgue-space", "en": "Lebesgue space", "alt": ["L^p space"], "pos": "n", "ipa": "/ləˈbeɪɡ speɪs/",
+          "vi": "không gian Lebesgue $L^p$", "gloss": "the space of functions whose p-th power is integrable",
+          "def": "For $1 \\le p < \\infty$, the {{Lebesgue space}} $L^p(\\Omega)$ consists of measurable $f$ with $\\|f\\|_p = \\big(\\int_\\Omega |f|^p\\,dx\\big)^{1/p} < \\infty$.",
+          "family": [["norm", "n", "chuẩn"], ["Hölder's inequality", "n", "bất đẳng thức Hölder"], ["Minkowski's inequality", "n", "bất đẳng thức Minkowski"]],
+          "col": [["a function [[in]] $L^p(\\Omega)$", "một hàm thuộc $L^p(\\Omega)$"], ["the $L^2$-[[norm]]", "chuẩn $L^2$"], ["Hölder's [[inequality]]", "bất đẳng thức Hölder"]],
+          "ex": ["By Hölder's inequality, $\\|fg\\|_1 \\le \\|f\\|_2 \\|g\\|_2$ for all $f, g \\in L^2(\\Omega)$.", "Theo bất đẳng thức Hölder, $\\|fg\\|_1 \\le \\|f\\|_2 \\|g\\|_2$ với mọi $f, g \\in L^2(\\Omega)$."],
+          "note": ["Đọc “L p space”, hay “L two” cho $L^2$. Lebesgue đọc /ləˈbeɪɡ/.", "Read $L^2$ as “L two”."]
+        }
+      ]
+    },
+    {
+      "id": "series", "emoji": "∑",
+      "title": "Chuỗi và hội tụ của hàm", "titleEn": "Series and convergence of functions",
+      "desc": "Chuỗi, hội tụ tuyệt đối, tiêu chuẩn tỉ số, hội tụ điểm, hội tụ đều, chuỗi lũy thừa, bán kính hội tụ, M-test.",
+      "descEn": "Series, absolute convergence, the ratio test, pointwise and uniform convergence, power series, radius of convergence, the M-test.",
+      "items": [
+        {
+          "id": "series", "en": "series", "pos": "n", "ipa": "/ˈsɪəriːz/",
+          "vi": "chuỗi", "gloss": "an infinite sum of terms",
+          "def": "A {{series}} $\\sum_{n=1}^\\infty a_n$ is said to converge if the sequence of partial sums $s_N = \\sum_{n=1}^N a_n$ converges.",
+          "family": [["partial sum", "n", "tổng riêng"], ["geometric series", "n", "chuỗi hình học"]],
+          "col": [["the series [[converges]] to $S$", "chuỗi hội tụ đến $S$"], ["a [[partial]] sum", "một tổng riêng"], ["a geometric [[series]]", "chuỗi hình học"]],
+          "ex": ["The geometric series $\\sum_{n=0}^\\infty r^n$ converges if and only if $|r| < 1$.", "Chuỗi hình học $\\sum_{n=0}^\\infty r^n$ hội tụ khi và chỉ khi $|r| < 1$."],
+          "note": ["Số ít và số nhiều của series đều là series (a series, two series).", "series is both singular and plural."]
+        },
+        {
+          "id": "absolutely-convergent", "en": "absolutely convergent", "pos": "adj", "ipa": "/ˈæbsəluːtli kənˈvɜːdʒənt/",
+          "vi": "hội tụ tuyệt đối", "gloss": "the series of absolute values converges",
+          "def": "A series $\\sum a_n$ is {{absolutely convergent}} if $\\sum |a_n|$ converges; every absolutely convergent series converges.",
+          "family": [["conditionally convergent", "adj", "hội tụ có điều kiện"], ["absolute value", "n", "giá trị tuyệt đối"]],
+          "col": [["converge [[absolutely]]", "hội tụ tuyệt đối"], ["absolutely [[summable]]", "khả tổng tuyệt đối"], ["conditionally [[convergent]]", "hội tụ có điều kiện"]],
+          "ex": ["The alternating harmonic series converges conditionally but not absolutely.", "Chuỗi điều hòa đan dấu hội tụ có điều kiện nhưng không hội tụ tuyệt đối."],
+          "note": ["Chuỗi hội tụ tuyệt đối có thể sắp xếp lại tùy ý mà tổng không đổi.", "An absolutely convergent series can be rearranged freely."]
+        },
+        {
+          "id": "ratio-test", "en": "ratio test", "pos": "n", "ipa": "/ˈreɪʃiəʊ test/",
+          "vi": "tiêu chuẩn tỉ số (d'Alembert)", "gloss": "a convergence test comparing consecutive terms",
+          "def": "By the {{ratio test}}, if $\\limsup_{n \\to \\infty} |a_{n+1}/a_n| < 1$, then $\\sum a_n$ converges absolutely; if the limit exceeds $1$, it diverges.",
+          "family": [["root test", "n", "tiêu chuẩn căn (Cauchy)"], ["comparison test", "n", "tiêu chuẩn so sánh"]],
+          "col": [["[[apply]] the ratio test", "áp dụng tiêu chuẩn tỉ số"], ["the ratio test is [[inconclusive]]", "tiêu chuẩn tỉ số không kết luận được"], ["by the [[comparison]] test", "theo tiêu chuẩn so sánh"]],
+          "ex": ["Applying the ratio test to $\\sum n!/n^n$, we find that the series converges.", "Áp dụng tiêu chuẩn tỉ số cho $\\sum n!/n^n$, ta thấy chuỗi hội tụ."],
+          "note": ["“Test” ở đây là “tiêu chuẩn”, không phải “bài kiểm tra”.", "“test” here means criterion."]
+        },
+        {
+          "id": "pointwise-convergence", "en": "pointwise convergence", "pos": "n", "ipa": "/ˈpɔɪntwaɪz kənˈvɜːdʒəns/",
+          "vi": "hội tụ điểm (hội tụ theo từng điểm)", "gloss": "convergence of f_n(x) at each fixed x",
+          "def": "$(f_n)$ {{converges pointwise}} to $f$ on $A$ if $f_n(x) \\to f(x)$ for every $x \\in A$.",
+          "family": [["pointwise", "adv", "theo từng điểm"], ["uniform convergence", "n", "hội tụ đều"]],
+          "col": [["converge pointwise [[on]] $A$", "hội tụ điểm trên $A$"], ["pointwise [[but not]] uniformly", "hội tụ điểm nhưng không đều"], ["the pointwise [[limit]]", "giới hạn theo từng điểm"]],
+          "ex": ["The functions $f_n(x) = x^n$ converge pointwise on $[0, 1]$ but not uniformly.", "Các hàm $f_n(x) = x^n$ hội tụ điểm trên $[0, 1]$ nhưng không hội tụ đều."],
+          "note": ["Giới hạn điểm của các hàm liên tục có thể không liên tục (như ví dụ trên).", "The pointwise limit of continuous functions need not be continuous."]
+        },
+        {
+          "id": "uniform-convergence", "en": "uniform convergence", "pos": "n", "ipa": "/ˈjuːnɪfɔːm kənˈvɜːdʒəns/",
+          "vi": "hội tụ đều", "gloss": "convergence at the same rate at all points",
+          "def": "$(f_n)$ {{converges uniformly}} to $f$ on $A$ if $\\sup_{x \\in A} |f_n(x) - f(x)| \\to 0$ as $n \\to \\infty$.",
+          "family": [["uniformly", "adv", "một cách đều"], ["sup norm", "n", "chuẩn sup"]],
+          "col": [["converge uniformly [[on]] compact sets", "hội tụ đều trên các tập compact"], ["the uniform [[limit]] of continuous functions is continuous", "giới hạn đều của các hàm liên tục là liên tục"], ["in the [[sup]] norm", "theo chuẩn sup"]],
+          "ex": ["The uniform limit of a sequence of continuous functions is continuous.", "Giới hạn đều của một dãy hàm liên tục là một hàm liên tục."],
+          "note": ["“Uniform convergence on compact sets” rất phổ biến: hội tụ đều trên mọi tập compact.", "“Uniformly on compact sets” is a common phrase."]
+        },
+        {
+          "id": "power-series", "en": "power series", "pos": "n", "ipa": "/ˈpaʊə ˈsɪəriːz/",
+          "vi": "chuỗi lũy thừa", "gloss": "a series of the form Σ aₙ(x−c)ⁿ",
+          "def": "A {{power series}} centered at $c$ is a series $\\sum_{n=0}^\\infty a_n (x - c)^n$.",
+          "family": [["radius of convergence", "n", "bán kính hội tụ"], ["analytic", "adj", "giải tích (khai triển được thành chuỗi lũy thừa)"]],
+          "col": [["a power series [[centered]] at $c$", "chuỗi lũy thừa có tâm tại $c$"], ["expand [[into]] a power series", "khai triển thành chuỗi lũy thừa"], ["differentiate a power series [[term by term]]", "đạo hàm chuỗi lũy thừa từng số hạng"]],
+          "ex": ["A power series can be differentiated term by term inside its interval of convergence.", "Chuỗi lũy thừa có thể lấy đạo hàm từng số hạng trong khoảng hội tụ của nó."],
+          "note": ["“Centered at” (US) / “centred at” (UK).", "US: centered; UK: centred."]
+        },
+        {
+          "id": "radius-of-convergence", "en": "radius of convergence", "pos": "n", "ipa": "/ˈreɪdiəs əv kənˈvɜːdʒəns/",
+          "vi": "bán kính hội tụ", "gloss": "the largest r so that the series converges for |x−c| < r",
+          "def": "The {{radius of convergence}} of $\\sum a_n (x - c)^n$ is $R = 1/\\limsup_{n \\to \\infty} |a_n|^{1/n}$, so the series converges for $|x - c| < R$ and diverges for $|x - c| > R$.",
+          "family": [["interval of convergence", "n", "khoảng hội tụ"], ["converge absolutely", "v", "hội tụ tuyệt đối"]],
+          "col": [["the radius of convergence is [[infinite]]", "bán kính hội tụ là vô hạn"], ["[[inside]] the radius of convergence", "bên trong bán kính hội tụ"], ["compute the radius of convergence [[via]] the ratio test", "tính bán kính hội tụ qua tiêu chuẩn tỉ số"]],
+          "ex": ["The exponential series has infinite radius of convergence.", "Chuỗi mũ có bán kính hội tụ vô hạn."],
+          "note": ["Công thức $R = 1/\\limsup |a_n|^{1/n}$ gọi là công thức Cauchy–Hadamard.", "This is the Cauchy–Hadamard formula."]
+        },
+        {
+          "id": "m-test", "en": "Weierstrass M-test", "alt": ["M-test"], "pos": "n", "ipa": "/ˈvaɪərʃtrɑːs em test/",
+          "vi": "tiêu chuẩn M của Weierstrass", "gloss": "a test for uniform convergence of series of functions",
+          "def": "By the {{Weierstrass M-test}}, if $|f_n(x)| \\le M_n$ for all $x \\in A$ and $\\sum M_n < \\infty$, then $\\sum f_n$ converges uniformly (and absolutely) on $A$.",
+          "family": [["majorant", "n", "chuỗi trội"], ["dominate", "v", "trội hơn"]],
+          "col": [["[[by]] the Weierstrass M-test", "theo tiêu chuẩn M của Weierstrass"], ["the series is dominated [[by]] $\\sum M_n$", "chuỗi bị trội bởi $\\sum M_n$"]],
+          "ex": ["By the Weierstrass M-test, the series $\\sum \\sin(nx)/n^2$ converges uniformly on $\\mathbb{R}$.", "Theo tiêu chuẩn M của Weierstrass, chuỗi $\\sum \\sin(nx)/n^2$ hội tụ đều trên $\\mathbb{R}$."],
+          "note": ["Weierstrass đọc “VY-er-shtrahs” (âm đầu gần /v/).", "Pronounced roughly “VY-er-shtrahs”."]
+        }
+      ]
+    }
+  ]
+}

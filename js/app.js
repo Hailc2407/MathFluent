@@ -4,11 +4,12 @@
   const { $, h, btn, shuffle, fold, check, toast, store, today, tex, rich, gapAnswers, plain, Speech } = MF;
 
   const MODS = [
-    { id: "terms", file: "data/terms-optimization.json", emoji: "📖" },
+    { id: "terms", kind: "terms", field: "Optimization", file: "data/terms-optimization.json", emoji: "📖" },
+    { id: "analysis", kind: "terms", field: "Analysis", file: "data/terms-analysis.json", emoji: "📐" },
     { id: "symbols", file: "data/symbols.json", emoji: "∑" },
     { id: "phrases", file: "data/phrases.json", emoji: "✍️" },
   ];
-  const PREFIX = { terms: "t", symbols: "s", phrases: "p" };
+  const PREFIX = { terms: "t", analysis: "a", symbols: "s", phrases: "p" };
   const MIN = 60000, DAY = 86400000;
   const INTERVAL = { 1: 10 * MIN, 2: DAY, 3: 3 * DAY, 4: 7 * DAY, 5: 15 * DAY };
   const MASTER = 30 * DAY;
@@ -71,9 +72,9 @@
   const sayLater = (text, ms = 250) => { const my = tok; setTimeout(() => { if (my === tok) speak(text); }, ms); };
 
   // ---- item helpers -----------------------------------------------------------------
-  const sayOf = (it) => (it.mod === "terms" ? it.en : it.mod === "symbols" ? it.read : it.ex[0]);
-  const meanOf = (it) => (it.mod === "terms" ? (EN() ? it.gloss : it.vi) : it.mod === "symbols" ? (EN() ? it.read : it.vi) : L(it.fn));
-  const labelOf = (it) => (it.mod === "terms" ? h("span", { lang: "en" }, it.en) : it.mod === "symbols" ? tex(it.tex) : rich(it.en));
+  const sayOf = (it) => (it.kind === "terms" ? it.en : it.mod === "symbols" ? it.read : it.ex[0]);
+  const meanOf = (it) => (it.kind === "terms" ? (EN() ? it.gloss : it.vi) : it.mod === "symbols" ? (EN() ? it.read : it.vi) : L(it.fn));
+  const labelOf = (it) => (it.kind === "terms" ? h("span", { lang: "en" }, it.en) : it.mod === "symbols" ? tex(it.tex) : rich(it.en));
   const searchText = (it) => fold([it.en, it.vi, it.gloss, it.read, (it.alt || []).join(" "), it.fn && it.fn.join(" "), it.ex && plain(it.ex.join(" "), true), it.tex].filter(Boolean).join(" "));
   const POS = { n: ["danh từ", "noun"], v: ["động từ", "verb"], adj: ["tính từ", "adjective"] };
   const draftTag = (it) => (it.ok ? null : h("span", { class: "tag draft", title: T.draftTitle }, T.draft));
@@ -190,7 +191,7 @@
           h("span", { class: "chip static" }, h("b", { lang: "en" }, f[0]), " ", h("span", { class: "muted small" }, f[1]), EN() ? null : h("span", { class: "small" }, " · ", rich(f[2])))))) : null,
         sec(T.secEx, exBox(it.ex)),
         noteBox(it)),
-      h("div", { class: "tags" }, h("span", { class: "tag" }, "Optimization"), draftTag(it)));
+      h("div", { class: "tags" }, h("span", { class: "tag" }, modOf(it.mod).field), draftTag(it)));
   }
   function symCard(it) {
     return h("div", { class: "card" },
@@ -213,9 +214,9 @@
         noteBox(it)),
       h("div", { class: "tags" }, draftTag(it)));
   }
-  const cardOf = (it) => (it.mod === "terms" ? termCard(it) : it.mod === "symbols" ? symCard(it) : phrCard(it));
+  const cardOf = (it) => (it.kind === "terms" ? termCard(it) : it.mod === "symbols" ? symCard(it) : phrCard(it));
   function reveal(it) {
-    if (it.mod === "terms") return h("div", { class: "reveal" }, h("div", { class: "reveal-top" }, h("b", { lang: "en" }, it.en), " ", say(it.en, false)), h("div", { class: "muted" }, meanOf(it)));
+    if (it.kind === "terms") return h("div", { class: "reveal" }, h("div", { class: "reveal-top" }, h("b", { lang: "en" }, it.en), " ", say(it.en, false)), h("div", { class: "muted" }, meanOf(it)));
     if (it.mod === "symbols") return h("div", { class: "reveal" }, h("div", { class: "reveal-top" }, tex(it.tex), h("b", { lang: "en" }, " — " + it.read), " ", say(it.read, false)), EN() ? null : h("div", { class: "muted" }, it.vi));
     return h("div", { class: "reveal" }, h("div", { class: "reveal-top", lang: "en" }, rich(it.ex[0]), " ", say(it.ex[0], false)), EN() ? null : h("div", { class: "muted", lang: "vi" }, rich(it.ex[1])));
   }
@@ -546,7 +547,7 @@
   function lessonRounds(mod, keys) {
     const its = keys.map((k) => ITEMS[k]);
     const R = (fn, list = its) => shuffle(list).map((it) => ({ key: it.key, run: (s) => fn(s, it) }));
-    if (mod === "terms") return [R(qMeaning), R(qDef), canSpeak() ? R(qListen) : R(qReverse), R(qCol), R(qType)];
+    if (its[0].kind === "terms") return [R(qMeaning), R(qDef), canSpeak() ? R(qListen) : R(qReverse), R(qCol), R(qType)];
     if (mod === "symbols") return [R(qSymRead), canSpeak() ? R(qSymListen) : R(qSymText), R(qSymSay)];
     return [R(qPhrFn), R(qPhrRight, its.filter((it) => it.wrong && it.wrong.length)), R(qPhrCloze)];
   }
@@ -617,7 +618,7 @@
   function reviewTask(k) {
     const it = ITEMS[k], lv = lvOf(k), coin = Math.random() < 0.5;
     let fn;
-    if (it.mod === "terms") fn = lv <= 1 ? qMeaning : lv === 2 ? (coin ? qDef : canSpeak() ? qListen : qReverse) : lv === 3 ? (coin ? qReverse : qCol) : lv === 4 ? (coin ? qCol : qDef) : coin ? qType : qCol;
+    if (it.kind === "terms") fn = lv <= 1 ? qMeaning : lv === 2 ? (coin ? qDef : canSpeak() ? qListen : qReverse) : lv === 3 ? (coin ? qReverse : qCol) : lv === 4 ? (coin ? qCol : qDef) : coin ? qType : qCol;
     else if (it.mod === "symbols") fn = lv <= 1 ? qSymRead : lv === 2 ? (canSpeak() ? qSymListen : qSymText) : lv === 3 ? (coin ? qSymRead : qSymText) : coin ? qSymSay : canSpeak() ? qSymListen : qSymText;
     else fn = lv <= 1 ? qPhrFn : lv === 2 ? (it.wrong ? qPhrRight : qPhrRev) : lv === 3 ? qPhrCloze : lv === 4 ? (coin && it.wrong ? qPhrRight : qPhrCloze) : coin ? qPhrCloze : qPhrRev;
     return { key: k, run: (s) => fn(s, it) };
@@ -774,7 +775,7 @@
       for (const t of mods[m.id].topics) {
         const keys = t.items.map((it) => {
           const key = PREFIX[m.id] + ":" + it.id;
-          Object.assign(it, { key, mod: m.id, topic: t.id });
+          Object.assign(it, { key, mod: m.id, kind: m.kind || m.id, topic: t.id });
           ITEMS[key] = it;
           return key;
         });
