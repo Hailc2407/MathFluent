@@ -1,0 +1,365 @@
+{
+  "module": "phrases",
+  "topics": [
+    {
+      "id": "setup",
+      "emoji": "📝",
+      "title": "Đặt vấn đề và ký hiệu",
+      "titleEn": "Setting up and notation",
+      "desc": "Let … be, Assume that, denote by, Throughout, is said to be, a/an trước ký hiệu.",
+      "descEn": "Let … be, Assume that, denote by, Throughout, is said to be, a/an before symbols.",
+      "items": [
+        {
+          "id": "let-be", "fn": ["Giới thiệu đối tượng", "Introducing an object"],
+          "en": "Let … be …", "vi": "Cho … là …",
+          "ex": ["Let $C$ be a nonempty closed convex subset of $H$.", "Cho $C$ là một tập con lồi, đóng, khác rỗng của $H$."],
+          "cloze": "Let $C$ [[be]] a nonempty closed convex subset of $H$.",
+          "wrong": ["Let $C$ is a nonempty closed convex subset of $H$.", "Let $C$ to be a nonempty closed convex subset of $H$."],
+          "note": ["Sau Let dùng động từ nguyên mẫu không “to”: Let … be …", "After “let”, use the bare infinitive: let … be …"]
+        },
+        {
+          "id": "assume", "fn": ["Đưa ra giả thiết", "Stating an assumption"],
+          "en": "Assume that …", "vi": "Giả sử rằng …",
+          "ex": ["Assume that $f$ is convex and $\\nabla f$ is $L$-Lipschitz continuous.", "Giả sử rằng $f$ lồi và $\\nabla f$ liên tục Lipschitz với hằng số $L$."],
+          "cloze": "[[Assume|Suppose]] that $f$ is convex and $\\nabla f$ is $L$-Lipschitz continuous.",
+          "note": ["Assume that và Suppose that dùng như nhau. Giả thiết chung cho cả bài: “Throughout, we assume that …”.", "Assume that and Suppose that are interchangeable. For a standing assumption: “Throughout, we assume that …”."]
+        },
+        {
+          "id": "denote-by", "fn": ["Đặt ký hiệu", "Introducing notation"],
+          "en": "We denote by … the …", "vi": "Ta ký hiệu … là …",
+          "ex": ["We denote by $S$ the solution set of problem (1.1).", "Ta ký hiệu $S$ là tập nghiệm của bài toán (1.1)."],
+          "cloze": "We [[denote]] by $S$ the solution set of problem (1.1).",
+          "wrong": ["We denote $S$ by the solution set of problem (1.1).", "We denote $S$ is the solution set of problem (1.1)."],
+          "note": ["Hai cấu trúc đúng: “denote by $S$ the set …” hoặc “denote the set … by $S$”. Ký hiệu luôn đứng ngay sau by.", "Two correct patterns: “denote by S the set …” or “denote the set … by S”. The symbol comes right after “by”."]
+        },
+        {
+          "id": "throughout", "fn": ["Quy ước chung", "Setting a global convention"],
+          "en": "Throughout this paper, …", "vi": "Trong suốt bài báo này, …",
+          "ex": ["Throughout this paper, $H$ is a real Hilbert space with inner product $\\langle \\cdot, \\cdot \\rangle$.", "Trong suốt bài báo này, $H$ là một không gian Hilbert thực với tích vô hướng $\\langle \\cdot, \\cdot \\rangle$."],
+          "cloze": "[[Throughout]] this paper, $H$ is a real Hilbert space with inner product $\\langle \\cdot, \\cdot \\rangle$.",
+          "wrong": ["Through this paper, $H$ is a real Hilbert space with inner product $\\langle \\cdot, \\cdot \\rangle$.", "During this paper, $H$ is a real Hilbert space with inner product $\\langle \\cdot, \\cdot \\rangle$."],
+          "note": ["Throughout = xuyên suốt; through = đi xuyên qua. Cũng dùng “Throughout this section”.", "Throughout = for the whole of; through = passing through."]
+        },
+        {
+          "id": "said-to-be", "fn": ["Định nghĩa một tính chất", "Defining a property"],
+          "en": "… is said to be … if …", "vi": "… được gọi là … nếu …",
+          "ex": ["A mapping $T\\colon H \\to H$ is said to be nonexpansive if $\\|Tx - Ty\\| \\le \\|x - y\\|$ for all $x, y \\in H$.", "Ánh xạ $T\\colon H \\to H$ được gọi là không giãn nếu $\\|Tx - Ty\\| \\le \\|x - y\\|$ với mọi $x, y \\in H$."],
+          "cloze": "A mapping $T\\colon H \\to H$ is said [[to be]] nonexpansive if $\\|Tx - Ty\\| \\le \\|x - y\\|$ for all $x, y \\in H$.",
+          "wrong": ["A mapping $T\\colon H \\to H$ is said nonexpansive if $\\|Tx - Ty\\| \\le \\|x - y\\|$ for all $x, y \\in H$.", "A mapping $T\\colon H \\to H$ is called to be nonexpansive if $\\|Tx - Ty\\| \\le \\|x - y\\|$ for all $x, y \\in H$."],
+          "note": ["Hai cách đúng: “is said to be X” hoặc “is called X”. Không viết “is called to be X”.", "Either “is said to be X” or “is called X”, never “is called to be X”."]
+        },
+        {
+          "id": "article-symbol", "fn": ["Mạo từ a/an trước ký hiệu", "a or an before a symbol"],
+          "en": "an $L$-smooth function, a $C^1$ function", "vi": "chọn a/an theo âm đọc của ký hiệu",
+          "ex": ["Let $f$ be an $L$-smooth function and $x^*$ an arbitrary minimizer of $f$.", "Cho $f$ là một hàm $L$-trơn và $x^*$ là một điểm cực tiểu tùy ý của $f$."],
+          "cloze": "Let $f$ be [[an]] $L$-smooth function and $x^*$ an arbitrary minimizer of $f$.",
+          "wrong": ["Let $f$ be a $L$-smooth function and $x^*$ an arbitrary minimizer of $f$."],
+          "note": ["Chọn theo âm đọc chứ không theo chữ cái: L đọc “el” → an; $C^1$ đọc “see one” → a; $\\varepsilon$ đọc “epsilon” → an; $n$-dimensional đọc “en” → an; Hilbert → a Hilbert space.", "Go by sound, not spelling: an L-smooth, a C¹, an ε-ball, an n-dimensional space, a Hilbert space."]
+        },
+        {
+          "id": "consider", "fn": ["Giới thiệu bài toán", "Introducing the problem"],
+          "en": "Consider the problem …", "vi": "Xét bài toán …",
+          "ex": ["Consider the constrained optimization problem $\\min\\{f(x) : x \\in C\\}$, where $f$ is convex.", "Xét bài toán tối ưu có ràng buộc $\\min\\{f(x) : x \\in C\\}$, trong đó $f$ là hàm lồi."],
+          "cloze": "[[Consider]] the constrained optimization problem $\\min\\{f(x) : x \\in C\\}$, where $f$ is convex.",
+          "wrong": ["Considering the constrained optimization problem $\\min\\{f(x) : x \\in C\\}$, where $f$ is convex."],
+          "note": ["“Consider …” (mệnh lệnh) là một câu hoàn chỉnh. “Considering …” không thể đứng một mình làm câu.", "The imperative “Consider …” is a full sentence; “Considering …” on its own is a fragment."]
+        },
+        {
+          "id": "wrt", "fn": ["Nói “theo biến / đối với”", "Saying “with respect to”"],
+          "en": "with respect to …", "vi": "theo / đối với …",
+          "ex": ["The partial derivative of $L$ with respect to $x$ vanishes at $(\\bar x, \\bar\\lambda)$.", "Đạo hàm riêng của $L$ theo $x$ bằng không tại $(\\bar x, \\bar\\lambda)$."],
+          "cloze": "The partial derivative of $L$ [[with respect to]] $x$ vanishes at $(\\bar x, \\bar\\lambda)$.",
+          "wrong": ["The partial derivative of $L$ with respect of $x$ vanishes at $(\\bar x, \\bar\\lambda)$."],
+          "note": ["Viết tắt w.r.t. chỉ nên dùng trong ghi chú, không dùng trong bài báo.", "Keep the abbreviation w.r.t. for notes, not for papers."]
+        }
+      ]
+    },
+    {
+      "id": "reasoning",
+      "emoji": "🔗",
+      "title": "Lập luận và suy diễn",
+      "titleEn": "Reasoning",
+      "desc": "It follows that, In view of, By virtue of, Since …, which implies, Combining.",
+      "descEn": "It follows that, In view of, By virtue of, Since …, which implies, Combining.",
+      "items": [
+        {
+          "id": "it-follows", "fn": ["Suy ra", "Drawing a consequence"],
+          "en": "It follows that …", "vi": "Suy ra …",
+          "ex": ["Since $f$ is coercive, it follows that the sublevel set $\\{x : f(x) \\le f(x^0)\\}$ is bounded.", "Vì $f$ bức nên suy ra tập mức dưới $\\{x : f(x) \\le f(x^0)\\}$ bị chặn."],
+          "cloze": "Since $f$ is coercive, it [[follows]] that the sublevel set $\\{x : f(x) \\le f(x^0)\\}$ is bounded.",
+          "wrong": ["Since $f$ is coercive, it is followed that the sublevel set $\\{x : f(x) \\le f(x^0)\\}$ is bounded."],
+          "note": ["“It follows from (2.3) that …” = Từ (2.3) suy ra …. Không dùng bị động “it is followed that”.", "“It follows from (2.3) that …”. Never the passive “it is followed that”."]
+        },
+        {
+          "id": "in-view-of", "fn": ["Viện dẫn kết quả trước", "Citing an earlier result"],
+          "en": "In view of Theorem 2.1, …", "vi": "Theo Định lý 2.1, …",
+          "ex": ["In view of Lemma 3.2, the sequence $(x^k)$ is bounded.", "Theo Bổ đề 3.2, dãy $(x^k)$ bị chặn."],
+          "cloze": "In [[view]] of Lemma 3.2, the sequence $(x^k)$ is bounded.",
+          "wrong": ["In view of the Lemma 3.2, the sequence $(x^k)$ is bounded."],
+          "note": ["Định lý/bổ đề có số không dùng “the” và viết hoa: Theorem 2.1, Lemma 3.2. Nhưng: “the above lemma”, “the previous theorem”.", "Numbered results take no article and a capital: Theorem 2.1. But: “the above lemma”."]
+        },
+        {
+          "id": "by-virtue", "fn": ["Nhờ vào", "By means of"],
+          "en": "By virtue of …", "vi": "Nhờ …, theo …",
+          "ex": ["By virtue of the Cauchy–Schwarz inequality, we have $\\langle \\nabla f(x), d \\rangle \\ge -\\|\\nabla f(x)\\|\\,\\|d\\|$.", "Nhờ bất đẳng thức Cauchy–Schwarz, ta có $\\langle \\nabla f(x), d \\rangle \\ge -\\|\\nabla f(x)\\|\\,\\|d\\|$."],
+          "cloze": "By [[virtue]] of the Cauchy–Schwarz inequality, we have $\\langle \\nabla f(x), d \\rangle \\ge -\\|\\nabla f(x)\\|\\,\\|d\\|$.",
+          "wrong": ["By the virtue of the Cauchy–Schwarz inequality, we have $\\langle \\nabla f(x), d \\rangle \\ge -\\|\\nabla f(x)\\|\\,\\|d\\|$."],
+          "note": ["Cách ngắn hơn: “By the Cauchy–Schwarz inequality, …”. Đồng nghĩa: owing to, thanks to (ít trang trọng hơn).", "Shorter: “By the Cauchy–Schwarz inequality, …”."]
+        },
+        {
+          "id": "since", "fn": ["Nêu lý do", "Giving a reason"],
+          "en": "Since …, we have …", "vi": "Vì … nên ta có …",
+          "ex": ["Since $f$ is convex, we have $f(y) \\ge f(x) + \\langle \\nabla f(x), y - x \\rangle$ for all $x, y$.", "Vì $f$ lồi nên ta có $f(y) \\ge f(x) + \\langle \\nabla f(x), y - x \\rangle$ với mọi $x, y$."],
+          "cloze": "[[Since|As]] $f$ is convex, we have $f(y) \\ge f(x) + \\langle \\nabla f(x), y - x \\rangle$ for all $x, y$.",
+          "wrong": ["Since $f$ is convex, so we have $f(y) \\ge f(x) + \\langle \\nabla f(x), y - x \\rangle$ for all $x, y$.", "Because of $f$ is convex, we have $f(y) \\ge f(x) + \\langle \\nabla f(x), y - x \\rangle$ for all $x, y$."],
+          "note": ["Tiếng Việt nói “Vì … nên …”, nhưng tiếng Anh không dùng cả since và so trong một câu. “Because of” đi với danh từ, không đi với mệnh đề.", "Vietnamese pairs “vì … nên …”, but English never uses since and so together. “Because of” takes a noun, not a clause."]
+        },
+        {
+          "id": "which-implies", "fn": ["Nối tiếp một hệ quả", "Chaining a consequence"],
+          "en": "…, which implies that …", "vi": "…, điều này kéo theo …",
+          "ex": ["Thus $\\|x^{k+1} - x^*\\| \\le \\|x^k - x^*\\|$ for all $k$, which implies that the sequence $(\\|x^k - x^*\\|)$ converges.", "Do đó $\\|x^{k+1} - x^*\\| \\le \\|x^k - x^*\\|$ với mọi $k$, điều này kéo theo dãy $(\\|x^k - x^*\\|)$ hội tụ."],
+          "cloze": "Thus $\\|x^{k+1} - x^*\\| \\le \\|x^k - x^*\\|$ for all $k$, which [[implies]] that the sequence $(\\|x^k - x^*\\|)$ converges.",
+          "wrong": ["Thus $\\|x^{k+1} - x^*\\| \\le \\|x^k - x^*\\|$ for all $k$, this implies that the sequence $(\\|x^k - x^*\\|)$ converges."],
+          "note": ["Sau dấu phẩy dùng “which implies”. Muốn dùng “this implies” thì phải mở câu mới (sau dấu chấm), nếu không sẽ thành lỗi nối câu (comma splice).", "After a comma use “which implies”; “This implies” needs a new sentence, otherwise it is a comma splice."]
+        },
+        {
+          "id": "other-hand", "fn": ["Đưa thêm một thông tin", "Bringing in another fact"],
+          "en": "On the other hand, …", "vi": "Mặt khác, …",
+          "ex": ["On the other hand, by the definition of $\\bar x$, we have $f(\\bar x) \\le f(x)$.", "Mặt khác, theo định nghĩa của $\\bar x$, ta có $f(\\bar x) \\le f(x)$."],
+          "cloze": "[[On]] the other hand, by the definition of $\\bar x$, we have $f(\\bar x) \\le f(x)$.",
+          "wrong": ["In the other hand, by the definition of $\\bar x$, we have $f(\\bar x) \\le f(x)$.", "On the other hands, by the definition of $\\bar x$, we have $f(\\bar x) \\le f(x)$."],
+          "note": ["Cặp đầy đủ: “On the one hand …, on the other hand …”.", "The full pair: “On the one hand …, on the other hand …”."]
+        },
+        {
+          "id": "combining", "fn": ["Kết hợp các đánh giá", "Combining estimates"],
+          "en": "Combining (3.2) and (3.5), we obtain …", "vi": "Kết hợp (3.2) và (3.5), ta thu được …",
+          "ex": ["Combining (3.2) and (3.5), we obtain $f(x^{k+1}) \\le f(x^k) - \\frac{1}{2L}\\|\\nabla f(x^k)\\|^2$.", "Kết hợp (3.2) và (3.5), ta thu được $f(x^{k+1}) \\le f(x^k) - \\frac{1}{2L}\\|\\nabla f(x^k)\\|^2$."],
+          "cloze": "[[Combining]] (3.2) and (3.5), we obtain $f(x^{k+1}) \\le f(x^k) - \\frac{1}{2L}\\|\\nabla f(x^k)\\|^2$.",
+          "wrong": ["Combine (3.2) and (3.5), we obtain $f(x^{k+1}) \\le f(x^k) - \\frac{1}{2L}\\|\\nabla f(x^k)\\|^2$.", "Combining (3.2) and (3.5), it obtains $f(x^{k+1}) \\le f(x^k) - \\frac{1}{2L}\\|\\nabla f(x^k)\\|^2$."],
+          "note": ["Cụm phân từ “Combining …” cần chủ ngữ “we” ở mệnh đề chính. Cũng nói “Combining (3.2) with (3.5)”.", "“Combining …” needs “we” as the subject of the main clause. “Combining (3.2) with (3.5)” is also fine."]
+        },
+        {
+          "id": "consequently", "fn": ["Kết luận một bước", "Concluding a step"],
+          "en": "Consequently, … / Therefore, … / Hence …", "vi": "Do đó, …",
+          "ex": ["Consequently, every cluster point of $(x^k)$ belongs to $S$.", "Do đó, mọi điểm tụ của $(x^k)$ đều thuộc $S$."],
+          "cloze": "[[Consequently|Therefore|Hence|Thus]], every cluster point of $(x^k)$ belongs to $S$.",
+          "note": ["Hence, Thus, Therefore, Consequently đều đúng; nên luân phiên để tránh lặp từ.", "Hence, Thus, Therefore and Consequently are all fine; vary them to avoid repetition."]
+        }
+      ]
+    },
+    {
+      "id": "proof",
+      "emoji": "∎",
+      "title": "Cấu trúc chứng minh",
+      "titleEn": "Proof structure",
+      "desc": "WLOG, phản chứng, chỉ cần chứng minh, còn phải chứng minh, quy nạp, kết thúc.",
+      "descEn": "WLOG, contradiction, it suffices, it remains, induction, closing a proof.",
+      "items": [
+        {
+          "id": "wlog", "fn": ["Không mất tính tổng quát", "Without loss of generality"],
+          "en": "Without loss of generality, we may assume that …", "vi": "Không mất tính tổng quát, có thể giả sử …",
+          "ex": ["Without loss of generality, we may assume that $x_n \\rightharpoonup \\bar x$.", "Không mất tính tổng quát, có thể giả sử $x_n \\rightharpoonup \\bar x$."],
+          "cloze": "Without [[loss]] of generality, we may assume that $x_n \\rightharpoonup \\bar x$.",
+          "wrong": ["Without the loss of generality, we may assume that $x_n \\rightharpoonup \\bar x$.", "Without loss of the generality, we may assume that $x_n \\rightharpoonup \\bar x$."],
+          "note": ["Viết tắt WLOG. Thường đi với “we may assume that”.", "Abbreviated WLOG; usually followed by “we may assume that”."]
+        },
+        {
+          "id": "contrary", "fn": ["Chứng minh phản chứng", "Proof by contradiction"],
+          "en": "Suppose, to the contrary, that …", "vi": "Giả sử ngược lại rằng …",
+          "ex": ["Suppose, to the contrary, that $\\bar x \\notin S$.", "Giả sử ngược lại rằng $\\bar x \\notin S$."],
+          "cloze": "Suppose, to the [[contrary]], that $\\bar x \\notin S$.",
+          "wrong": ["Suppose, in the contrary, that $\\bar x \\notin S$."],
+          "note": ["Kết thúc phản chứng: “…, which is a contradiction.” hoặc “This contradicts (2.4).”", "Close with “…, which is a contradiction.” or “This contradicts (2.4).”"]
+        },
+        {
+          "id": "suffices", "fn": ["Chỉ cần chứng minh", "Reducing the goal"],
+          "en": "It suffices to show that …", "vi": "Ta chỉ cần chứng minh …",
+          "ex": ["It suffices to show that every weak cluster point of $(x^k)$ belongs to $S$.", "Ta chỉ cần chứng minh mọi điểm tụ yếu của $(x^k)$ đều thuộc $S$."],
+          "cloze": "It [[suffices]] to show that every weak cluster point of $(x^k)$ belongs to $S$.",
+          "wrong": ["It suffices showing that every weak cluster point of $(x^k)$ belongs to $S$.", "It is sufficed to show that every weak cluster point of $(x^k)$ belongs to $S$."],
+          "note": ["Đồng nghĩa: “It is enough to show that …”.", "Synonym: “It is enough to show that …”."]
+        },
+        {
+          "id": "remains", "fn": ["Phần còn lại phải chứng minh", "What is left to prove"],
+          "en": "It remains to show that …", "vi": "Còn phải chứng minh …",
+          "ex": ["It remains to show that $\\bar x$ is unique.", "Còn phải chứng minh $\\bar x$ là duy nhất."],
+          "cloze": "It [[remains]] to show that $\\bar x$ is unique.",
+          "wrong": ["It is remained to show that $\\bar x$ is unique.", "It remains to showing that $\\bar x$ is unique."],
+          "note": ["remain là nội động từ nên không có dạng bị động “is remained”.", "remain is intransitive, so there is no passive “is remained”."]
+        },
+        {
+          "id": "claim", "fn": ["Nêu một khẳng định trung gian", "Stating an intermediate claim"],
+          "en": "We claim that … Indeed, …", "vi": "Ta khẳng định rằng … Thật vậy, …",
+          "ex": ["We claim that $(x^k)$ is Fejér monotone with respect to $S$. Indeed, for every $z \\in S$ we have $\\|x^{k+1} - z\\| \\le \\|x^k - z\\|$.", "Ta khẳng định rằng $(x^k)$ đơn điệu Fejér đối với $S$. Thật vậy, với mọi $z \\in S$ ta có $\\|x^{k+1} - z\\| \\le \\|x^k - z\\|$."],
+          "cloze": "We [[claim]] that $(x^k)$ is Fejér monotone with respect to $S$.",
+          "note": ["“Indeed, …” mở đầu phần chứng minh cho khẳng định vừa nêu.", "“Indeed, …” opens the argument for the claim."]
+        },
+        {
+          "id": "completes", "fn": ["Kết thúc chứng minh", "Ending a proof"],
+          "en": "This completes the proof.", "vi": "Chứng minh hoàn tất.",
+          "ex": ["Hence $\\bar x \\in S$. This completes the proof.", "Do đó $\\bar x \\in S$. Chứng minh hoàn tất."],
+          "cloze": "Hence $\\bar x \\in S$. This [[completes]] the proof.",
+          "wrong": ["Hence $\\bar x \\in S$. This is completed the proof."],
+          "note": ["Biến thể: “The proof is complete.”, “…, which completes the proof.” hoặc ký hiệu ∎ / □.", "Variants: “The proof is complete.”, “…, which completes the proof.”, or ∎ / □."]
+        },
+        {
+          "id": "conversely", "fn": ["Chứng minh chiều ngược lại", "The converse direction"],
+          "en": "Conversely, …", "vi": "Ngược lại, …",
+          "ex": ["Conversely, if $0 \\in \\partial f(\\bar x)$, then $\\bar x$ minimizes $f$.", "Ngược lại, nếu $0 \\in \\partial f(\\bar x)$ thì $\\bar x$ là điểm cực tiểu của $f$."],
+          "cloze": "[[Conversely]], if $0 \\in \\partial f(\\bar x)$, then $\\bar x$ minimizes $f$.",
+          "wrong": ["Inversely, if $0 \\in \\partial f(\\bar x)$, then $\\bar x$ minimizes $f$."],
+          "note": ["Dùng khi chứng minh chiều “⇐” của mệnh đề “khi và chỉ khi”. “Inversely” nghĩa là tỉ lệ nghịch.", "Use it for the “⇐” direction of an “if and only if”. “Inversely” means inversely proportional."]
+        },
+        {
+          "id": "induction", "fn": ["Chứng minh quy nạp", "Proof by induction"],
+          "en": "We proceed by induction on $k$.", "vi": "Ta chứng minh bằng quy nạp theo $k$.",
+          "ex": ["We proceed by induction on $k$. For $k = 0$, the inequality is trivial.", "Ta chứng minh bằng quy nạp theo $k$. Với $k = 0$, bất đẳng thức là hiển nhiên."],
+          "cloze": "We proceed by [[induction]] on $k$. For $k = 0$, the inequality is trivial.",
+          "note": ["the base case = bước cơ sở; the induction hypothesis = giả thiết quy nạp; the inductive step = bước quy nạp.", "Vocabulary: the base case, the induction hypothesis, the inductive step."]
+        }
+      ]
+    },
+    {
+      "id": "limits",
+      "emoji": "∞",
+      "title": "Giới hạn và hội tụ",
+      "titleEn": "Limits and convergence",
+      "desc": "Passing to the limit, tends to, dãy con hội tụ yếu, n đủ lớn, tùy ý, Being …",
+      "descEn": "Passing to the limit, tends to, weakly convergent subsequences, large n, arbitrary, Being …",
+      "items": [
+        {
+          "id": "passing-limit", "fn": ["Qua giới hạn", "Passing to the limit"],
+          "en": "Passing to the limit as $n \\to \\infty$ in (3.4), we obtain …", "vi": "Cho $n \\to \\infty$ trong (3.4), ta thu được …",
+          "ex": ["Passing to the limit as $n \\to \\infty$ in (3.4), we obtain $f(\\bar x) \\le \\alpha$.", "Cho $n \\to \\infty$ trong (3.4), ta thu được $f(\\bar x) \\le \\alpha$."],
+          "cloze": "[[Passing]] to the limit as $n \\to \\infty$ in (3.4), we obtain $f(\\bar x) \\le \\alpha$.",
+          "wrong": ["Passing the limit as $n \\to \\infty$ in (3.4), we obtain $f(\\bar x) \\le \\alpha$."],
+          "note": ["Đồng nghĩa: “Letting $n \\to \\infty$ in (3.4), …”, “Taking the limit as $n \\to \\infty$ in (3.4), …”.", "Synonyms: “Letting n → ∞ in (3.4), …”, “Taking the limit as n → ∞ …”."]
+        },
+        {
+          "id": "tends-to", "fn": ["Tiến tới", "Tending to"],
+          "en": "… as $n$ tends to infinity", "vi": "… khi $n$ tiến ra vô cùng",
+          "ex": ["The step sizes $\\alpha_k$ tend to zero as $k$ tends to infinity.", "Các cỡ bước $\\alpha_k$ tiến về không khi $k$ tiến ra vô cùng."],
+          "cloze": "The step sizes $\\alpha_k$ tend to zero as $k$ [[tends|goes]] to infinity.",
+          "wrong": ["The step sizes $\\alpha_k$ tend to zero as $k$ tends to the infinity.", "The step sizes $\\alpha_k$ tend to zero as $k$ tends into infinity."],
+          "note": ["Đồng nghĩa: goes to infinity. Không có “the” trước infinity.", "Synonym: goes to infinity. No article before infinity."]
+        },
+        {
+          "id": "subsequence", "fn": ["Trích dãy con hội tụ yếu", "Extracting a weakly convergent subsequence"],
+          "en": "there exists a subsequence … that converges weakly to …", "vi": "tồn tại một dãy con … hội tụ yếu đến …",
+          "ex": ["Since $(x_n)$ is bounded in $H$, there exists a subsequence $(x_{n_k})$ that converges weakly to some $\\bar x \\in H$.", "Vì dãy $(x_n)$ bị chặn trong $H$ nên tồn tại một dãy con $(x_{n_k})$ hội tụ yếu đến một điểm $\\bar x \\in H$."],
+          "cloze": "Since $(x_n)$ is bounded in $H$, there exists a subsequence $(x_{n_k})$ that converges [[weakly]] to some $\\bar x \\in H$.",
+          "wrong": ["Since $(x_n)$ is bounded in $H$, there exists a subsequence $(x_{n_k})$ converges weakly to some $\\bar x \\in H$."],
+          "note": ["Tiếng Việt không cần “mà”, nhưng tiếng Anh cần “that” (hoặc “which”) trước động từ thứ hai. Cách ngắn: “Passing to a subsequence if necessary, we may assume that $x_n \\rightharpoonup \\bar x$.”", "English needs “that” before the second verb. Shorter: “Passing to a subsequence if necessary, we may assume that $x_n \\rightharpoonup \\bar x$.”"]
+        },
+        {
+          "id": "large-n", "fn": ["Với n đủ lớn", "For all large n"],
+          "en": "for all sufficiently large $n$", "vi": "với mọi $n$ đủ lớn",
+          "ex": ["Then $x_n \\in U$ for all sufficiently large $n$.", "Khi đó $x_n \\in U$ với mọi $n$ đủ lớn."],
+          "cloze": "Then $x_n \\in U$ for all [[sufficiently]] large $n$.",
+          "wrong": ["Then $x_n \\in U$ for all $n$ large sufficiently."],
+          "note": ["Đồng nghĩa: “for $n$ large enough”, “for all $n \\ge n_0$”. sufficiently đứng trước tính từ, enough đứng sau.", "Also “for n large enough”. sufficiently goes before the adjective, enough after it."]
+        },
+        {
+          "id": "arbitrary", "fn": ["Dùng tính tùy ý", "Using arbitrariness"],
+          "en": "Since $\\varepsilon > 0$ is arbitrary, …", "vi": "Vì $\\varepsilon > 0$ tùy ý nên …",
+          "ex": ["Since $\\varepsilon > 0$ is arbitrary, we conclude that $\\limsup_{n \\to \\infty} f(x_n) \\le f(\\bar x)$.", "Vì $\\varepsilon > 0$ tùy ý nên ta kết luận $\\limsup_{n \\to \\infty} f(x_n) \\le f(\\bar x)$."],
+          "cloze": "Since $\\varepsilon > 0$ is [[arbitrary]], we conclude that $\\limsup_{n \\to \\infty} f(x_n) \\le f(\\bar x)$.",
+          "wrong": ["Since $\\varepsilon > 0$ is arbitrarily, we conclude that $\\limsup_{n \\to \\infty} f(x_n) \\le f(\\bar x)$."],
+          "note": ["arbitrary (tính từ) đứng sau “is”; arbitrarily (trạng từ) bổ nghĩa cho tính từ: “arbitrarily small”.", "arbitrary (adjective) after “is”; arbitrarily (adverb) before an adjective: “arbitrarily small”."]
+        },
+        {
+          "id": "being", "fn": ["Mệnh đề phân từ chỉ nguyên nhân", "A participle clause for a reason"],
+          "en": "Being …, the sequence … has …", "vi": "Vì … nên dãy … có …",
+          "ex": ["Being bounded in $\\mathbb{R}^n$, the sequence $(x^k)$ has at least one cluster point.", "Vì bị chặn trong $\\mathbb{R}^n$ nên dãy $(x^k)$ có ít nhất một điểm tụ."],
+          "cloze": "[[Being]] bounded in $\\mathbb{R}^n$, the sequence $(x^k)$ has at least one cluster point.",
+          "wrong": ["Being bounded in $\\mathbb{R}^n$, it follows that the sequence $(x^k)$ has at least one cluster point."],
+          "note": ["Chủ ngữ ngầm của “Being …” phải trùng chủ ngữ mệnh đề chính (the sequence). “Being …, it follows that …” là lỗi dangling participle.", "The implied subject of “Being …” must be the subject of the main clause; “Being …, it follows that …” is a dangling participle."]
+        },
+        {
+          "id": "linearly", "fn": ["Nêu tốc độ hội tụ", "Stating a convergence rate"],
+          "en": "… converges linearly to …", "vi": "… hội tụ tuyến tính đến …",
+          "ex": ["Under the strong convexity assumption, the sequence $(x^k)$ converges linearly to the unique solution.", "Dưới giả thiết lồi mạnh, dãy $(x^k)$ hội tụ tuyến tính đến nghiệm duy nhất."],
+          "cloze": "Under the strong convexity assumption, the sequence $(x^k)$ converges [[linearly]] to the unique solution.",
+          "note": ["Biến thể: “converges at a linear rate”, “R-linearly”, “Q-linearly”, “sublinearly with rate $O(1/k)$”.", "Variants: “at a linear rate”, “R-linearly”, “Q-linearly”, “sublinearly with rate O(1/k)”."]
+        },
+        {
+          "id": "as-desired", "fn": ["Đạt điều cần chứng minh", "Reaching the goal"],
+          "en": "…, as desired.", "vi": "…, đúng như điều cần chứng minh.",
+          "ex": ["Therefore $f(\\bar x) = \\inf_C f$, as desired.", "Do đó $f(\\bar x) = \\inf_C f$, đúng như điều cần chứng minh."],
+          "cloze": "Therefore $f(\\bar x) = \\inf_C f$, as [[desired|required|claimed]].",
+          "note": ["Dùng ở cuối một bước hoặc cuối chứng minh; nghĩa như “which is what we wanted to prove”.", "Ends a step or a proof: “which is what we wanted to prove”."]
+        }
+      ]
+    },
+    {
+      "id": "paper",
+      "emoji": "📄",
+      "title": "Ngôn ngữ bài báo",
+      "titleEn": "Paper language",
+      "desc": "Tóm tắt, giới thiệu, đóng góp, tính mới, cấu trúc bài, thử nghiệm số.",
+      "descEn": "Abstracts, introductions, contributions, novelty, outline, experiments.",
+      "items": [
+        {
+          "id": "propose", "fn": ["Giới thiệu đóng góp", "Announcing the contribution"],
+          "en": "In this paper, we propose …", "vi": "Trong bài báo này, chúng tôi đề xuất …",
+          "ex": ["In this paper, we propose a novel inertial projection method for solving variational inequalities in real Hilbert spaces.", "Trong bài báo này, chúng tôi đề xuất một phương pháp chiếu quán tính mới để giải bất đẳng thức biến phân trong không gian Hilbert thực."],
+          "cloze": "In this paper, we [[propose|introduce]] a novel inertial projection method for solving variational inequalities in real Hilbert spaces.",
+          "wrong": ["In this paper, we propose a novel inertial projection method to solving variational inequalities in real Hilbert spaces."],
+          "note": ["Dùng “for solving …” hoặc “to solve …”, không trộn thành “to solving”.", "Use “for solving …” or “to solve …”, not “to solving”."]
+        },
+        {
+          "id": "mild", "fn": ["Nói về giả thiết nhẹ", "Light assumptions"],
+          "en": "Under mild assumptions, …", "vi": "Dưới những giả thiết nhẹ, …",
+          "ex": ["Under mild assumptions, we establish the strong convergence of the generated sequence.", "Dưới những giả thiết nhẹ, chúng tôi chứng minh sự hội tụ mạnh của dãy được sinh ra."],
+          "cloze": "Under [[mild]] assumptions, we establish the strong convergence of the generated sequence.",
+          "note": ["Đối lập: “restrictive assumptions” (giả thiết chặt, hạn chế). Cũng gặp: “under standard assumptions”, “under suitable conditions”.", "Opposite: “restrictive assumptions”. Also: “under standard assumptions”."]
+        },
+        {
+          "id": "establish", "fn": ["Nêu kết quả đã chứng minh", "Stating what is proved"],
+          "en": "We establish …", "vi": "Chúng tôi chứng minh (thiết lập) …",
+          "ex": ["We establish the weak convergence of the iterates and an $O(1/k)$ rate for the function values.", "Chúng tôi chứng minh sự hội tụ yếu của dãy lặp và tốc độ $O(1/k)$ cho giá trị hàm."],
+          "cloze": "We [[establish|prove]] the weak convergence of the iterates and an $O(1/k)$ rate for the function values.",
+          "note": ["Động từ hay dùng: establish, prove, show, derive (a bound), obtain (an estimate).", "Typical verbs: establish, prove, show, derive (a bound), obtain (an estimate)."]
+        },
+        {
+          "id": "best-knowledge", "fn": ["Khẳng định tính mới", "Claiming novelty"],
+          "en": "To the best of our knowledge, …", "vi": "Theo hiểu biết của chúng tôi, …",
+          "ex": ["To the best of our knowledge, this is the first linear convergence result for this method without strong convexity.", "Theo hiểu biết của chúng tôi, đây là kết quả hội tụ tuyến tính đầu tiên cho phương pháp này mà không cần tính lồi mạnh."],
+          "cloze": "To the [[best]] of our knowledge, this is the first linear convergence result for this method without strong convexity.",
+          "wrong": ["To the best of our knowledges, this is the first linear convergence result for this method without strong convexity.", "In our best knowledge, this is the first linear convergence result for this method without strong convexity."],
+          "note": ["knowledge là danh từ không đếm được, không có dạng “knowledges”.", "knowledge is uncountable: no “knowledges”."]
+        },
+        {
+          "id": "organized", "fn": ["Giới thiệu cấu trúc bài báo", "Outlining the paper"],
+          "en": "The rest of the paper is organized as follows.", "vi": "Phần còn lại của bài báo được tổ chức như sau.",
+          "ex": ["The rest of the paper is organized as follows. Section 2 recalls some preliminaries, and Section 3 presents the main results.", "Phần còn lại của bài báo được tổ chức như sau. Mục 2 nhắc lại một số kiến thức chuẩn bị, Mục 3 trình bày các kết quả chính."],
+          "cloze": "The rest of the paper is organized as [[follows]].",
+          "wrong": ["The rest of the paper is organized as following.", "The remaining of the paper is organized as follows."],
+          "note": ["“as follows” luôn có s. Động từ cho từng mục: recalls, presents, is devoted to.", "“as follows” always ends in s. Section verbs: recalls, presents, is devoted to."]
+        },
+        {
+          "id": "experiments", "fn": ["Báo cáo thử nghiệm số", "Reporting experiments"],
+          "en": "Numerical experiments illustrate …", "vi": "Các thử nghiệm số minh họa …",
+          "ex": ["Numerical experiments on LASSO problems illustrate the efficiency of the proposed method.", "Các thử nghiệm số trên bài toán LASSO minh họa tính hiệu quả của phương pháp đề xuất."],
+          "cloze": "Numerical experiments on LASSO problems [[illustrate|demonstrate|show|confirm]] the efficiency of the proposed method.",
+          "note": ["Động từ: illustrate, demonstrate, confirm, show. Tránh dùng “prove” cho thử nghiệm số.", "Verbs: illustrate, demonstrate, confirm, show. Avoid “prove” for experiments."]
+        },
+        {
+          "id": "extends", "fn": ["So sánh với kết quả trước", "Relating to previous work"],
+          "en": "This result extends … in [12].", "vi": "Kết quả này mở rộng … trong [12].",
+          "ex": ["This result extends the one obtained in [12] from finite-dimensional spaces to Hilbert spaces.", "Kết quả này mở rộng kết quả trong [12] từ không gian hữu hạn chiều sang không gian Hilbert."],
+          "cloze": "This result [[extends|generalizes|generalises]] the one obtained in [12] from finite-dimensional spaces to Hilbert spaces.",
+          "note": ["Dùng “the one” để khỏi lặp “result”. Dùng “improves” khi giả thiết yếu hơn hoặc tốc độ tốt hơn.", "“the one” avoids repeating “result”. Use “improves” for weaker assumptions or better rates."]
+        },
+        {
+          "id": "twofold", "fn": ["Liệt kê đóng góp", "Listing contributions"],
+          "en": "Our main contributions are twofold: …", "vi": "Đóng góp chính của chúng tôi gồm hai phần: …",
+          "ex": ["Our main contributions are twofold: we relax the Lipschitz assumption, and we derive an explicit convergence rate.", "Đóng góp chính của chúng tôi gồm hai phần: chúng tôi nới lỏng giả thiết Lipschitz và đưa ra tốc độ hội tụ tường minh."],
+          "cloze": "Our main contributions are [[twofold]]: we relax the Lipschitz assumption, and we derive an explicit convergence rate.",
+          "wrong": ["Our main contributions are two folds: we relax the Lipschitz assumption, and we derive an explicit convergence rate."],
+          "note": ["twofold / threefold = gồm hai / ba phần. Có thể liệt kê bằng (i), (ii), (iii).", "twofold / threefold; list them as (i), (ii), (iii)."]
+        }
+      ]
+    }
+  ]
+}

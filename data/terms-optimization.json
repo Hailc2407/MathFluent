@@ -1,0 +1,663 @@
+{
+  "module": "terms",
+  "field": "optimization",
+  "topics": [
+    {
+      "id": "problem",
+      "emoji": "🎯",
+      "title": "Bài toán tối ưu và nghiệm",
+      "titleEn": "Problems and solutions",
+      "desc": "Hàm mục tiêu, ràng buộc, tập chấp nhận được, điểm cực tiểu, infimum.",
+      "descEn": "Objective, constraints, feasible set, minimizers, infimum.",
+      "items": [
+        {
+          "id": "objective-function", "en": "objective function", "pos": "n", "ipa": "/əbˈdʒektɪv ˈfʌŋkʃn/",
+          "vi": "hàm mục tiêu", "gloss": "the function to be minimized (or maximized)",
+          "def": "In the problem $\\min\\{f(x) : x \\in C\\}$, the function $f$ is the {{objective function}}, also called the cost function.",
+          "family": [["cost function", "n", "hàm chi phí (đồng nghĩa)"], ["loss function", "n", "hàm mất mát (học máy)"]],
+          "col": [
+            ["[[minimize|minimise]] the objective function", "cực tiểu hóa hàm mục tiêu"],
+            ["a [[smooth]] objective function", "hàm mục tiêu trơn"],
+            ["the objective function [[decreases]] along the iterates", "hàm mục tiêu giảm dọc theo dãy lặp"]
+          ],
+          "ex": ["The objective function is convex but not differentiable at the origin.", "Hàm mục tiêu lồi nhưng không khả vi tại gốc tọa độ."],
+          "note": ["Khi nói: “we minimize $f$ over $C$” (cực tiểu hóa $f$ trên $C$). Trong học máy thường gọi là loss function.", "Spoken: “we minimize $f$ over $C$”. In machine learning it is usually called the loss function."]
+        },
+        {
+          "id": "constraint", "en": "constraint", "pos": "n", "ipa": "/kənˈstreɪnt/",
+          "vi": "ràng buộc", "gloss": "a condition that admissible points must satisfy",
+          "def": "In $\\min\\{f(x) : g_i(x) \\le 0,\\ i = 1, \\dots, m\\}$, each inequality $g_i(x) \\le 0$ is a {{constraint}}.",
+          "family": [["constrain", "v", "ràng buộc, hạn chế"], ["constrained", "adj", "có ràng buộc"], ["unconstrained", "adj", "không ràng buộc"]],
+          "col": [
+            ["[[impose]] a constraint", "áp đặt một ràng buộc"],
+            ["[[satisfy]] the constraints", "thỏa mãn các ràng buộc"],
+            ["[[violate]] a constraint", "vi phạm một ràng buộc"],
+            ["[[inequality]] constraints", "ràng buộc bất đẳng thức"]
+          ],
+          "ex": ["The point $\\bar x$ satisfies all the constraints, so it is feasible.", "Điểm $\\bar x$ thỏa mãn mọi ràng buộc nên nó là điểm chấp nhận được."],
+          "note": ["Phân biệt: constraint (danh từ), constrain (động từ), constrained (tính từ: a constrained problem).", "constraint (noun), constrain (verb), constrained (adjective: a constrained problem)."]
+        },
+        {
+          "id": "feasible", "en": "feasible", "pos": "adj", "ipa": "/ˈfiːzəbl/",
+          "vi": "chấp nhận được (khả thi)", "gloss": "satisfying all the constraints",
+          "def": "A point $x$ is {{feasible}} if it satisfies all the constraints; the set of such points is the feasible set.",
+          "family": [["feasibility", "n", "tính chấp nhận được"], ["infeasible", "adj", "không chấp nhận được"]],
+          "col": [
+            ["the feasible [[set|region]]", "tập (miền) chấp nhận được"],
+            ["a feasible [[point]]", "một điểm chấp nhận được"],
+            ["the problem is [[infeasible]]", "bài toán không có điểm chấp nhận được"]
+          ],
+          "ex": ["If the feasible set is empty, the problem is said to be infeasible.", "Nếu tập chấp nhận được rỗng, bài toán được gọi là không chấp nhận được."],
+          "note": ["Sách tiếng Việt dùng cả “tập chấp nhận được” và “tập khả thi”.", "Vietnamese texts use both “tập chấp nhận được” and “tập khả thi”."]
+        },
+        {
+          "id": "minimizer", "en": "minimizer", "alt": ["minimiser"], "pos": "n", "ipa": "/ˈmɪnɪmaɪzə(r)/",
+          "vi": "điểm cực tiểu (nghiệm tối ưu)", "gloss": "a point where the minimum value is attained",
+          "def": "A point $\\bar x \\in C$ is a (global) {{minimizer}} of $f$ over $C$ if $f(\\bar x) \\le f(x)$ for all $x \\in C$.",
+          "family": [["minimize", "v", "cực tiểu hóa"], ["minimum", "n", "giá trị nhỏ nhất (cực tiểu)"], ["maximizer", "n", "điểm cực đại"]],
+          "col": [
+            ["a [[unique]] minimizer", "điểm cực tiểu duy nhất"],
+            ["a [[global]] minimizer", "điểm cực tiểu toàn cục"],
+            ["[[admit|have|possess]] a minimizer", "có điểm cực tiểu"]
+          ],
+          "ex": ["Since $f$ is strictly convex, it admits at most one minimizer.", "Vì $f$ lồi chặt nên nó có nhiều nhất một điểm cực tiểu."],
+          "note": ["minimum là giá trị (một con số), minimizer là điểm đạt giá trị đó. Viết “$\\bar x$ is a minimizer”, “the minimum value is $f(\\bar x)$”.", "minimum = the smallest value (a number); minimizer = a point where it is attained."]
+        },
+        {
+          "id": "optimal-value", "en": "optimal value", "pos": "n", "ipa": "/ˈɒptɪməl ˈvæljuː/",
+          "vi": "giá trị tối ưu", "gloss": "the infimum of the objective over the feasible set",
+          "def": "The {{optimal value}} of $\\min_{x \\in C} f(x)$ is $p^* = \\inf_{x \\in C} f(x)$; it may equal $-\\infty$ or fail to be attained.",
+          "family": [["optimality", "n", "tính tối ưu"], ["optimum", "n", "điểm/giá trị tối ưu"], ["suboptimal", "adj", "chưa tối ưu"]],
+          "col": [
+            ["the optimal value is [[attained]]", "giá trị tối ưu đạt được"],
+            ["a [[lower]] bound on the optimal value", "một cận dưới của giá trị tối ưu"],
+            ["an [[optimal]] solution", "một nghiệm tối ưu"]
+          ],
+          "ex": ["Weak duality shows that the dual optimal value is a lower bound on $p^*$.", "Đối ngẫu yếu cho thấy giá trị tối ưu của bài toán đối ngẫu là một cận dưới của $p^*$."],
+          "note": ["Ký hiệu thường gặp: $p^*$, $f^*$, $\\operatorname{val}(P)$. Đọc $p^*$ là “p star”.", "Common notation: $p^*$, $f^*$, val(P). Read $p^*$ as “p star”."]
+        },
+        {
+          "id": "local-minimizer", "en": "local minimizer", "alt": ["local minimiser"], "pos": "n", "ipa": "/ˈləʊkl ˈmɪnɪmaɪzə(r)/",
+          "vi": "điểm cực tiểu địa phương", "gloss": "a point that is best among nearby feasible points",
+          "def": "$\\bar x$ is a {{local minimizer}} if there is $\\varepsilon > 0$ such that $f(\\bar x) \\le f(x)$ for all feasible $x$ with $\\|x - \\bar x\\| < \\varepsilon$.",
+          "family": [["local minimum", "n", "cực tiểu địa phương (giá trị)"], ["global minimizer", "n", "điểm cực tiểu toàn cục"]],
+          "col": [
+            ["every local minimizer is [[global]]", "mọi điểm cực tiểu địa phương đều là toàn cục"],
+            ["get [[stuck|trapped]] in a local minimum", "bị mắc kẹt ở cực tiểu địa phương"],
+            ["a [[strict]] local minimizer", "điểm cực tiểu địa phương chặt"]
+          ],
+          "ex": ["For convex problems, every local minimizer is a global minimizer.", "Với bài toán lồi, mọi điểm cực tiểu địa phương đều là điểm cực tiểu toàn cục."],
+          "note": ["Dùng tính từ local; trạng từ locally dùng trong cụm như “locally Lipschitz”.", "Use the adjective local here; the adverb appears in phrases like “locally Lipschitz”."]
+        },
+        {
+          "id": "infimum", "en": "infimum", "pos": "n", "ipa": "/ɪnˈfaɪməm/",
+          "vi": "cận dưới đúng (infimum)", "gloss": "the greatest lower bound",
+          "def": "The {{infimum}} of a set $S \\subseteq \\mathbb{R}$ is its greatest lower bound; for example $\\inf_{x > 0} e^{-x} = 0$, although the value $0$ is never attained.",
+          "family": [["infima", "n (pl.)", "số nhiều của infimum"], ["supremum", "n", "cận trên đúng"], ["suprema", "n (pl.)", "số nhiều của supremum"]],
+          "col": [
+            ["the infimum is [[attained|achieved]]", "infimum đạt được"],
+            ["take the infimum [[over]] all $x \\in C$", "lấy infimum trên mọi $x \\in C$"],
+            ["the [[greatest]] lower bound", "cận dưới lớn nhất"]
+          ],
+          "ex": ["The infimum of $f$ over $C$ is finite but not attained, so the problem has no solution.", "Infimum của $f$ trên $C$ hữu hạn nhưng không đạt được, nên bài toán không có nghiệm."],
+          "note": ["Số nhiều: infima (hoặc infimums). Đọc $\\inf$ là “inf” hoặc “the infimum of”.", "Plural: infima (or infimums). Read $\\inf$ as “inf” or “the infimum of”."]
+        },
+        {
+          "id": "attain", "en": "attain", "pos": "v", "ipa": "/əˈteɪn/",
+          "vi": "đạt (được)", "gloss": "to be actually reached at some point",
+          "def": "We say that $\\inf_{x \\in C} f(x)$ is {{attained}} if there exists $\\bar x \\in C$ with $f(\\bar x) = \\inf_{x \\in C} f(x)$.",
+          "family": [["attainment", "n", "sự đạt được"], ["attainable", "adj", "có thể đạt được"]],
+          "col": [
+            ["the minimum is attained [[at]] $\\bar x$", "giá trị nhỏ nhất đạt tại $\\bar x$"],
+            ["$f$ attains its minimum [[on|over]] $C$", "$f$ đạt giá trị nhỏ nhất trên $C$"]
+          ],
+          "ex": ["By the Weierstrass theorem, a continuous function attains its minimum on a nonempty compact set.", "Theo định lý Weierstrass, hàm liên tục đạt giá trị nhỏ nhất trên một tập compact khác rỗng."],
+          "note": ["“$f$ attains its minimum” (không có giới từ sau attain); bị động: “the minimum is attained at $\\bar x$”.", "“f attains its minimum” (no preposition); passive: “the minimum is attained at x̄”."]
+        }
+      ]
+    },
+    {
+      "id": "convexity",
+      "emoji": "🥣",
+      "title": "Tính lồi",
+      "titleEn": "Convexity",
+      "desc": "Tập lồi, hàm lồi, lồi chặt, lồi mạnh, trên đồ thị, tập mức dưới.",
+      "descEn": "Convex sets and functions, strict and strong convexity, epigraphs, sublevel sets.",
+      "items": [
+        {
+          "id": "convex-set", "en": "convex set", "pos": "n", "ipa": "/ˈkɒnveks set/",
+          "vi": "tập lồi", "gloss": "a set containing the segment between any two of its points",
+          "def": "A set $C$ is {{convex}} if $\\lambda x + (1 - \\lambda) y \\in C$ for all $x, y \\in C$ and all $\\lambda \\in [0, 1]$.",
+          "family": [["convexity", "n", "tính lồi"], ["nonconvex", "adj", "không lồi"], ["concave", "adj", "lõm"]],
+          "col": [
+            ["a [[nonempty]] closed convex set", "một tập lồi, đóng, khác rỗng"],
+            ["the convex [[hull]] of $S$", "bao lồi của $S$"],
+            ["the line [[segment]] joining $x$ and $y$", "đoạn thẳng nối $x$ và $y$"]
+          ],
+          "ex": ["Let $C$ be a nonempty closed convex subset of a real Hilbert space $H$.", "Cho $C$ là một tập con lồi, đóng, khác rỗng của không gian Hilbert thực $H$."],
+          "note": ["Thứ tự tính từ chuẩn trong paper: “nonempty closed convex set”, thường không có dấu phẩy.", "Standard order: “nonempty closed convex set”, usually without commas."]
+        },
+        {
+          "id": "convex-function", "en": "convex function", "pos": "n", "ipa": "/ˈkɒnveks ˈfʌŋkʃn/",
+          "vi": "hàm lồi", "gloss": "a function whose graph lies below every chord",
+          "def": "A function $f$ is {{convex}} if $f(\\lambda x + (1 - \\lambda) y) \\le \\lambda f(x) + (1 - \\lambda) f(y)$ for all $x, y$ and all $\\lambda \\in [0, 1]$.",
+          "family": [["concave function", "n", "hàm lõm"], ["convexity", "n", "tính lồi"]],
+          "col": [
+            ["a [[proper]] lower semicontinuous convex function", "hàm lồi, nửa liên tục dưới, chính thường"],
+            ["[[preserve]] convexity", "bảo toàn tính lồi"],
+            ["Jensen's [[inequality]]", "bất đẳng thức Jensen"]
+          ],
+          "ex": ["The pointwise supremum of a family of convex functions is convex.", "Supremum theo từng điểm của một họ hàm lồi là hàm lồi."],
+          "note": ["Cụm viết tắt hay gặp: “proper lsc convex”; lớp các hàm này trên $H$ thường ký hiệu $\\Gamma_0(H)$.", "Common shorthand: “proper lsc convex”; the class is often denoted $\\Gamma_0(H)$."]
+        },
+        {
+          "id": "strictly-convex", "en": "strictly convex", "pos": "adj", "ipa": "/ˈstrɪktli ˈkɒnveks/",
+          "vi": "lồi chặt", "gloss": "convex, with strict inequality for distinct points",
+          "def": "$f$ is {{strictly convex}} if $f(\\lambda x + (1 - \\lambda) y) < \\lambda f(x) + (1 - \\lambda) f(y)$ whenever $x \\ne y$ and $\\lambda \\in (0, 1)$.",
+          "family": [["strict convexity", "n", "tính lồi chặt"]],
+          "col": [
+            ["has [[at]] most one minimizer", "có nhiều nhất một điểm cực tiểu"],
+            ["a [[strict]] inequality", "bất đẳng thức chặt"]
+          ],
+          "ex": ["Strict convexity guarantees uniqueness, but not existence, of a minimizer.", "Tính lồi chặt bảo đảm tính duy nhất, nhưng không bảo đảm sự tồn tại, của điểm cực tiểu."],
+          "note": ["$e^x$ lồi chặt trên $\\mathbb{R}$ nhưng không có điểm cực tiểu, ví dụ hay dùng khi thuyết trình.", "$e^x$ is strictly convex on $\\mathbb{R}$ yet has no minimizer, a handy example in talks."]
+        },
+        {
+          "id": "strongly-convex", "en": "strongly convex", "pos": "adj", "ipa": "/ˈstrɒŋli ˈkɒnveks/",
+          "vi": "lồi mạnh", "gloss": "still convex after subtracting a quadratic",
+          "def": "$f$ is $\\mu$-{{strongly convex}} ($\\mu > 0$) if $f - \\frac{\\mu}{2}\\|\\cdot\\|^2$ is convex.",
+          "family": [["strong convexity", "n", "tính lồi mạnh"], ["modulus of strong convexity", "n", "hằng số lồi mạnh"]],
+          "col": [
+            ["strongly convex [[with]] modulus $\\mu$", "lồi mạnh với hằng số $\\mu$"],
+            ["the [[condition]] number $L/\\mu$", "số điều kiện $L/\\mu$"],
+            ["[[linear]] convergence for strongly convex functions", "hội tụ tuyến tính với hàm lồi mạnh"]
+          ],
+          "ex": ["If $f$ is $\\mu$-strongly convex and $L$-smooth, gradient descent with step size $1/L$ converges linearly.", "Nếu $f$ lồi mạnh với hằng số $\\mu$ và $L$-trơn thì phương pháp gradient với cỡ bước $1/L$ hội tụ tuyến tính."],
+          "note": ["Đọc “$\\mu$-strongly convex” là “mu strongly convex”.", "Read “μ-strongly convex” as “mu strongly convex”."]
+        },
+        {
+          "id": "epigraph", "en": "epigraph", "pos": "n", "ipa": "/ˈepɪɡrɑːf/",
+          "vi": "trên đồ thị (epigraph)", "gloss": "the set of points on or above the graph",
+          "def": "The {{epigraph}} of $f\\colon H \\to (-\\infty, +\\infty]$ is $\\operatorname{epi} f = \\{(x, t) \\in H \\times \\mathbb{R} : f(x) \\le t\\}$.",
+          "family": [["hypograph", "n", "dưới đồ thị"], ["epigraphical", "adj", "thuộc về trên đồ thị"]],
+          "col": [
+            ["the epigraph is [[closed]]", "trên đồ thị là tập đóng"],
+            ["$f$ is convex if and only if $\\operatorname{epi} f$ is [[convex]]", "$f$ lồi khi và chỉ khi trên đồ thị của nó lồi"]
+          ],
+          "ex": ["A function is lower semicontinuous if and only if its epigraph is closed.", "Một hàm là nửa liên tục dưới khi và chỉ khi trên đồ thị của nó là tập đóng."],
+          "note": ["Ký hiệu $\\operatorname{epi} f$, đọc “epi f” hoặc “the epigraph of f”.", "Notation $\\operatorname{epi} f$, read “epi f” or “the epigraph of f”."]
+        },
+        {
+          "id": "sublevel-set", "en": "sublevel set", "pos": "n", "ipa": "/ˈsʌblevl set/",
+          "vi": "tập mức dưới", "gloss": "the points where the function is at most a given level",
+          "def": "For $\\alpha \\in \\mathbb{R}$, the {{sublevel set}} of $f$ at level $\\alpha$ is $\\{x : f(x) \\le \\alpha\\}$.",
+          "family": [["level set", "n", "tập mức"], ["level-bounded", "adj", "bị chặn theo mức"], ["quasiconvex", "adj", "tựa lồi"]],
+          "col": [
+            ["the sublevel sets are [[bounded]]", "các tập mức dưới bị chặn"],
+            ["the sublevel set [[at]] level $\\alpha$", "tập mức dưới tại mức $\\alpha$"]
+          ],
+          "ex": ["Coercivity of $f$ implies that all its sublevel sets are bounded.", "Tính bức của $f$ kéo theo mọi tập mức dưới của nó bị chặn."],
+          "note": ["Hàm lồi có các tập mức dưới lồi; điều ngược lại sai. Hàm có mọi tập mức dưới lồi gọi là hàm tựa lồi (quasiconvex).", "Convex functions have convex sublevel sets; the converse fails. Functions with convex sublevel sets are called quasiconvex."]
+        },
+        {
+          "id": "convex-combination", "en": "convex combination", "pos": "n", "ipa": "/ˈkɒnveks ˌkɒmbɪˈneɪʃn/",
+          "vi": "tổ hợp lồi", "gloss": "a weighted average with nonnegative weights summing to one",
+          "def": "A {{convex combination}} of $x_1, \\dots, x_k$ is a point $\\sum_{i=1}^k \\lambda_i x_i$ with $\\lambda_i \\ge 0$ and $\\sum_{i=1}^k \\lambda_i = 1$.",
+          "family": [["linear combination", "n", "tổ hợp tuyến tính"], ["affine combination", "n", "tổ hợp afin"]],
+          "col": [
+            ["the convex [[hull]]", "bao lồi"],
+            ["[[nonnegative]] weights summing to one", "các trọng số không âm có tổng bằng một"]
+          ],
+          "ex": ["The convex hull of $S$ is the set of all convex combinations of points of $S$.", "Bao lồi của $S$ là tập mọi tổ hợp lồi của các điểm thuộc $S$."],
+          "note": ["“summing to one” = có tổng bằng một; cũng viết “that sum to one”.", "“summing to one” can also be written “that sum to one”."]
+        },
+        {
+          "id": "affine", "en": "affine", "pos": "adj", "ipa": "/əˈfaɪn/",
+          "vi": "afin", "gloss": "linear plus a constant",
+          "def": "A map $A$ is {{affine}} if $A(x) = Lx + b$ for some linear map $L$ and some vector $b$.",
+          "family": [["affine hull", "n", "bao afin"], ["affinely independent", "adj", "độc lập afin"]],
+          "col": [
+            ["an affine [[subspace]]", "một không gian con afin"],
+            ["affine [[equality]] constraints $Ax = b$", "ràng buộc đẳng thức afin $Ax = b$"]
+          ],
+          "ex": ["The composition of a convex function with an affine map is convex.", "Hợp của một hàm lồi với một ánh xạ afin là hàm lồi."],
+          "note": ["Trọng âm ở âm tiết thứ hai: a-FINE. Khi viết paper nên gọi $x \\mapsto Lx + b$ là affine, không gọi là linear.", "Stress on the second syllable. In careful writing, call $x \\mapsto Lx + b$ affine, not linear."]
+        }
+      ]
+    },
+    {
+      "id": "smooth",
+      "emoji": "📈",
+      "title": "Khả vi và điều kiện tối ưu",
+      "titleEn": "Smoothness and optimality",
+      "desc": "Gradient, Hessian, điểm dừng, xác định dương, Lipschitz, điều kiện tối ưu.",
+      "descEn": "Gradients, Hessians, stationary points, definiteness, Lipschitz continuity, optimality conditions.",
+      "items": [
+        {
+          "id": "gradient", "en": "gradient", "pos": "n", "ipa": "/ˈɡreɪdiənt/",
+          "vi": "gradient (vectơ gradient)", "gloss": "the vector of partial derivatives",
+          "def": "If $f\\colon \\mathbb{R}^n \\to \\mathbb{R}$ is differentiable at $x$, its {{gradient}} is $\\nabla f(x) = \\big(\\frac{\\partial f}{\\partial x_1}(x), \\dots, \\frac{\\partial f}{\\partial x_n}(x)\\big)$.",
+          "family": [["gradient descent", "n", "phương pháp gradient"], ["subgradient", "n", "dưới gradient"]],
+          "col": [
+            ["the gradient [[vanishes]] at $\\bar x$", "gradient bằng không tại $\\bar x$"],
+            ["[[evaluate|compute]] the gradient", "tính gradient"],
+            ["a [[stochastic]] gradient", "gradient ngẫu nhiên"]
+          ],
+          "ex": ["At a minimizer of a differentiable function, the gradient vanishes.", "Tại điểm cực tiểu của một hàm khả vi, gradient bằng không."],
+          "note": ["“The gradient vanishes at $\\bar x$” là cách viết rất phổ biến cho $\\nabla f(\\bar x) = 0$.", "“The gradient vanishes at x̄” is the usual way to write $\\nabla f(\\bar x) = 0$."]
+        },
+        {
+          "id": "hessian", "en": "Hessian", "pos": "n", "ipa": "/ˈhesiən/",
+          "vi": "ma trận Hessian", "gloss": "the matrix of second partial derivatives",
+          "def": "For a twice differentiable $f$, the {{Hessian}} $\\nabla^2 f(x)$ is the $n \\times n$ matrix with entries $\\frac{\\partial^2 f}{\\partial x_i \\partial x_j}(x)$.",
+          "family": [["Hessian matrix", "n", "ma trận Hessian"]],
+          "col": [
+            ["the Hessian [[matrix]]", "ma trận Hessian"],
+            ["the Hessian is positive [[semidefinite]]", "Hessian nửa xác định dương"]
+          ],
+          "ex": ["If the Hessian is positive definite at a stationary point, then that point is a strict local minimizer.", "Nếu Hessian xác định dương tại một điểm dừng thì điểm đó là điểm cực tiểu địa phương chặt."],
+          "note": ["Viết hoa H (theo tên Hesse). Đọc $\\nabla^2 f(x)$ là “the Hessian of f at x” hoặc “nabla squared f of x”.", "Capital H (after Hesse). Read $\\nabla^2 f(x)$ as “the Hessian of f at x”."]
+        },
+        {
+          "id": "stationary-point", "en": "stationary point", "pos": "n", "ipa": "/ˈsteɪʃənri pɔɪnt/",
+          "vi": "điểm dừng", "gloss": "a point where the gradient is zero",
+          "def": "A point $\\bar x$ is a {{stationary point}} (or critical point) of a differentiable function $f$ if $\\nabla f(\\bar x) = 0$.",
+          "family": [["critical point", "n", "điểm tới hạn (đồng nghĩa)"], ["stationarity", "n", "tính dừng"]],
+          "col": [
+            ["[[converge]] to a stationary point", "hội tụ về một điểm dừng"],
+            ["every [[cluster|accumulation|limit]] point is a stationary point", "mọi điểm tụ đều là điểm dừng"]
+          ],
+          "ex": ["Every limit point of the sequence generated by the algorithm is a stationary point of $f$.", "Mọi điểm giới hạn của dãy sinh bởi thuật toán đều là điểm dừng của $f$."],
+          "note": ["Đừng nhầm stationary (dừng) với stationery (văn phòng phẩm).", "Don't confuse stationary with stationery (paper and pens)."]
+        },
+        {
+          "id": "saddle-point", "en": "saddle point", "pos": "n", "ipa": "/ˈsædl pɔɪnt/",
+          "vi": "điểm yên ngựa", "gloss": "a stationary point that is neither a local min nor a local max",
+          "def": "A stationary point of $f$ that is neither a local minimizer nor a local maximizer is a {{saddle point}}; for example $(0, 0)$ for $f(x, y) = x^2 - y^2$.",
+          "family": [["saddle-point problem", "n", "bài toán điểm yên ngựa"]],
+          "col": [
+            ["[[escape]] saddle points", "thoát khỏi điểm yên ngựa"],
+            ["a [[strict]] saddle point", "điểm yên ngựa chặt"]
+          ],
+          "ex": ["Under mild conditions, gradient descent with random initialization almost surely avoids strict saddle points.", "Dưới các điều kiện nhẹ, phương pháp gradient với khởi tạo ngẫu nhiên hầu chắc chắn tránh được các điểm yên ngựa chặt."],
+          "note": ["Trong đối ngẫu, “saddle point of the Lagrangian” mang nghĩa khác: $L(\\bar x, \\lambda) \\le L(\\bar x, \\bar\\lambda) \\le L(x, \\bar\\lambda)$.", "In duality, a “saddle point of the Lagrangian” means $L(\\bar x, \\lambda) \\le L(\\bar x, \\bar\\lambda) \\le L(x, \\bar\\lambda)$."]
+        },
+        {
+          "id": "directional-derivative", "en": "directional derivative", "pos": "n", "ipa": "/dəˈrekʃənl dɪˈrɪvətɪv/",
+          "vi": "đạo hàm theo hướng", "gloss": "the rate of change of f along a direction",
+          "def": "The {{directional derivative}} of $f$ at $x$ in the direction $d$ is $f'(x; d) = \\lim_{t \\downarrow 0} \\frac{f(x + td) - f(x)}{t}$, when this limit exists.",
+          "family": [["derivative", "n", "đạo hàm"], ["differentiable", "adj", "khả vi"]],
+          "col": [
+            ["[[in]] the direction $d$", "theo hướng $d$"],
+            ["a [[descent]] direction", "một hướng giảm"]
+          ],
+          "ex": ["A convex function has a directional derivative in every direction at each interior point of its domain.", "Hàm lồi có đạo hàm theo mọi hướng tại mỗi điểm trong của miền xác định."],
+          "note": ["Đọc $t \\downarrow 0$ là “t decreases to zero” hoặc “t tends to zero from above”.", "Read $t \\downarrow 0$ as “t decreases to zero”."]
+        },
+        {
+          "id": "positive-definite", "en": "positive definite", "pos": "adj", "ipa": "/ˈpɒzətɪv ˈdefɪnət/",
+          "vi": "xác định dương", "gloss": "x^T A x > 0 for every nonzero x",
+          "def": "A symmetric matrix $A$ is {{positive definite}} if $x^\\top A x > 0$ for all $x \\ne 0$, and positive semidefinite if $x^\\top A x \\ge 0$ for all $x$.",
+          "family": [["positive semidefinite", "adj", "nửa xác định dương"], ["negative definite", "adj", "xác định âm"], ["indefinite", "adj", "không xác định dấu"]],
+          "col": [
+            ["[[symmetric]] positive definite", "đối xứng xác định dương"],
+            ["all eigenvalues are [[positive]]", "mọi giá trị riêng đều dương"]
+          ],
+          "ex": ["A symmetric matrix is positive definite if and only if all its eigenvalues are positive.", "Ma trận đối xứng xác định dương khi và chỉ khi mọi giá trị riêng của nó đều dương."],
+          "note": ["Ký hiệu $A \\succ 0$ (xác định dương), $A \\succeq 0$ (nửa xác định dương). definite đọc /ˈdefɪnət/.", "Notation $A \\succ 0$ and $A \\succeq 0$. definite is pronounced /ˈdefɪnət/."]
+        },
+        {
+          "id": "lipschitz", "en": "Lipschitz continuous", "pos": "adj", "ipa": "/ˈlɪpʃɪts kənˈtɪnjuəs/",
+          "vi": "liên tục Lipschitz", "gloss": "changing at most proportionally to the distance",
+          "def": "A map $F$ is {{Lipschitz continuous}} with constant $L \\ge 0$ if $\\|F(x) - F(y)\\| \\le L\\|x - y\\|$ for all $x, y$.",
+          "family": [["Lipschitz constant", "n", "hằng số Lipschitz"], ["locally Lipschitz", "adj", "Lipschitz địa phương"], ["L-smooth", "adj", "L-trơn (gradient L-Lipschitz)"]],
+          "col": [
+            ["a Lipschitz continuous [[gradient]]", "gradient liên tục Lipschitz"],
+            ["Lipschitz continuous [[with]] constant $L$", "liên tục Lipschitz với hằng số $L$"]
+          ],
+          "ex": ["We assume that $\\nabla f$ is Lipschitz continuous with constant $L > 0$.", "Ta giả thiết $\\nabla f$ liên tục Lipschitz với hằng số $L > 0$."],
+          "note": ["Đọc “LIP-shits”. Hàm có gradient $L$-Lipschitz thường được gọi là “$L$-smooth”.", "Pronounced “LIP-shits”. A function with an $L$-Lipschitz gradient is often called “$L$-smooth”."]
+        },
+        {
+          "id": "optimality-condition", "en": "optimality condition", "pos": "n", "ipa": "/ˌɒptɪˈmæləti kənˈdɪʃn/",
+          "vi": "điều kiện tối ưu", "gloss": "a condition that optimal points must (or that guarantees they) satisfy",
+          "def": "Fermat's rule is the first-order necessary {{optimality condition}}: if $\\bar x$ is a local minimizer of a differentiable $f$, then $\\nabla f(\\bar x) = 0$.",
+          "family": [["necessary condition", "n", "điều kiện cần"], ["sufficient condition", "n", "điều kiện đủ"], ["first-order / second-order", "adj", "cấp một / cấp hai"]],
+          "col": [
+            ["the first-order [[necessary]] optimality condition", "điều kiện cần tối ưu cấp một"],
+            ["the second-order [[sufficient]] condition", "điều kiện đủ cấp hai"],
+            ["the optimality condition [[reads]] $0 \\in \\partial f(\\bar x)$", "điều kiện tối ưu có dạng $0 \\in \\partial f(\\bar x)$"]
+          ],
+          "ex": ["For convex problems, the first-order optimality condition is both necessary and sufficient.", "Với bài toán lồi, điều kiện tối ưu cấp một vừa là điều kiện cần vừa là điều kiện đủ."],
+          "note": ["“reads” ở đây nghĩa là “có dạng”, rất hay gặp: “the condition reads …”. “necessary and sufficient” = cần và đủ.", "“reads” here means “takes the form”: “the condition reads …”."]
+        }
+      ]
+    },
+    {
+      "id": "duality",
+      "emoji": "⚖️",
+      "title": "Ràng buộc và đối ngẫu",
+      "titleEn": "Constraints and duality",
+      "desc": "Hàm Lagrange, nhân tử, điều kiện KKT, điều kiện bù, đối ngẫu.",
+      "descEn": "Lagrangians, multipliers, KKT conditions, complementary slackness, duality.",
+      "items": [
+        {
+          "id": "lagrangian", "en": "Lagrangian", "pos": "n", "ipa": "/ləˈɡrɑːndʒiən/",
+          "vi": "hàm Lagrange", "gloss": "the objective plus multiplier-weighted constraints",
+          "def": "For $\\min\\{f(x) : g_i(x) \\le 0,\\ i = 1, \\dots, m\\}$, the {{Lagrangian}} is $L(x, \\lambda) = f(x) + \\sum_{i=1}^m \\lambda_i g_i(x)$ with $\\lambda \\ge 0$.",
+          "family": [["Lagrangian duality", "n", "đối ngẫu Lagrange"], ["Lagrangian relaxation", "n", "nới lỏng Lagrange"]],
+          "col": [
+            ["the [[augmented]] Lagrangian", "hàm Lagrange tăng cường"],
+            ["[[minimize|minimise]] the Lagrangian over $x$", "cực tiểu hóa hàm Lagrange theo $x$"]
+          ],
+          "ex": ["The dual function is obtained by minimizing the Lagrangian over $x$.", "Hàm đối ngẫu thu được bằng cách cực tiểu hóa hàm Lagrange theo $x$."],
+          "note": ["Lagrangian vừa là danh từ (hàm Lagrange) vừa là tính từ (Lagrangian duality).", "Lagrangian is both a noun and an adjective (Lagrangian duality)."]
+        },
+        {
+          "id": "lagrange-multiplier", "en": "Lagrange multiplier", "alt": ["Lagrange multipliers"], "pos": "n", "ipa": "/ləˈɡrɑːndʒ ˈmʌltɪplaɪə(r)/",
+          "vi": "nhân tử Lagrange", "gloss": "a weight attached to a constraint in the Lagrangian",
+          "def": "The scalars $\\lambda_i \\ge 0$ in $L(x, \\lambda) = f(x) + \\sum_i \\lambda_i g_i(x)$ are called {{Lagrange multipliers}}.",
+          "family": [["multiplier", "n", "nhân tử"], ["dual variable", "n", "biến đối ngẫu"]],
+          "col": [
+            ["the [[associated|corresponding]] Lagrange multiplier", "nhân tử Lagrange tương ứng"],
+            ["the [[existence]] of Lagrange multipliers", "sự tồn tại của nhân tử Lagrange"]
+          ],
+          "ex": ["For convex problems satisfying Slater's condition, Lagrange multipliers exist at every solution.", "Với bài toán lồi thỏa mãn điều kiện Slater, nhân tử Lagrange tồn tại tại mọi nghiệm."],
+          "note": ["Thường viết “Lagrange multiplier” (không sở hữu cách). Nhân tử của ràng buộc đẳng thức không bị ràng buộc về dấu.", "Usually “Lagrange multiplier”, without the possessive. Multipliers of equality constraints have no sign restriction."]
+        },
+        {
+          "id": "kkt", "en": "KKT conditions", "alt": ["Karush-Kuhn-Tucker conditions", "KKT condition"], "pos": "n", "ipa": "/ˌkeɪ keɪ ˈtiː kənˈdɪʃnz/",
+          "vi": "điều kiện KKT", "gloss": "stationarity, feasibility, sign and complementarity conditions",
+          "def": "The {{KKT conditions}} at $(\\bar x, \\bar\\lambda)$ are $\\nabla f(\\bar x) + \\sum_i \\bar\\lambda_i \\nabla g_i(\\bar x) = 0$, $g_i(\\bar x) \\le 0$, $\\bar\\lambda_i \\ge 0$ and $\\bar\\lambda_i g_i(\\bar x) = 0$ for all $i$.",
+          "family": [["KKT point", "n", "điểm KKT"], ["KKT system", "n", "hệ KKT"]],
+          "col": [
+            ["a KKT [[point]]", "một điểm KKT"],
+            ["the KKT conditions [[hold]] at $\\bar x$", "điều kiện KKT thỏa mãn tại $\\bar x$"]
+          ],
+          "ex": ["Under a constraint qualification, every local minimizer is a KKT point.", "Dưới một điều kiện chính quy, mọi điểm cực tiểu địa phương đều là điểm KKT."],
+          "note": ["KKT = Karush–Kuhn–Tucker, đọc từng chữ “K-K-T”. “The conditions hold” = các điều kiện được thỏa mãn.", "KKT = Karush–Kuhn–Tucker, read letter by letter. “The conditions hold” = they are satisfied."]
+        },
+        {
+          "id": "complementary-slackness", "en": "complementary slackness", "pos": "n", "ipa": "/ˌkɒmplɪˈmentri ˈslæknəs/",
+          "vi": "điều kiện bù", "gloss": "each multiplier is zero unless its constraint is active",
+          "def": "{{Complementary slackness}} requires $\\lambda_i g_i(\\bar x) = 0$ for each $i$: a multiplier can be positive only if its constraint is active.",
+          "family": [["complementarity", "n", "tính bù"], ["slack variable", "n", "biến bù"]],
+          "col": [
+            ["$\\lambda_i = 0$ [[whenever]] $g_i(\\bar x) < 0$", "$\\lambda_i = 0$ mỗi khi $g_i(\\bar x) < 0$"],
+            ["[[strict]] complementarity", "tính bù chặt"]
+          ],
+          "ex": ["By complementary slackness, the multipliers of inactive constraints vanish.", "Theo điều kiện bù, các nhân tử ứng với ràng buộc không tích cực bằng không."],
+          "note": ["Tài liệu tiếng Việt gọi là “điều kiện bù” hoặc “điều kiện độ lệch bù”.", "Vietnamese texts say “điều kiện bù” or “điều kiện độ lệch bù”."]
+        },
+        {
+          "id": "constraint-qualification", "en": "constraint qualification", "pos": "n", "ipa": "/kənˈstreɪnt ˌkwɒlɪfɪˈkeɪʃn/",
+          "vi": "điều kiện chính quy (ràng buộc)", "gloss": "a regularity assumption on the constraints",
+          "def": "A {{constraint qualification}} is an assumption on the constraints, such as Slater's condition or LICQ, that guarantees the existence of Lagrange multipliers at a local minimizer.",
+          "family": [["Slater's condition", "n", "điều kiện Slater"], ["LICQ, MFCQ", "n", "các điều kiện chính quy cụ thể"]],
+          "col": [
+            ["under a [[suitable]] constraint qualification", "dưới một điều kiện chính quy thích hợp"],
+            ["the constraint qualification is [[satisfied|fulfilled]]", "điều kiện chính quy được thỏa mãn"]
+          ],
+          "ex": ["Slater's condition requires a strictly feasible point, i.e. some $x$ with $g_i(x) < 0$ for all $i$.", "Điều kiện Slater đòi hỏi một điểm chấp nhận được chặt, tức là một $x$ với $g_i(x) < 0$ với mọi $i$."],
+          "note": ["Viết tắt CQ. LICQ = linear independence CQ, MFCQ = Mangasarian–Fromovitz CQ.", "Abbreviated CQ. LICQ = linear independence CQ, MFCQ = Mangasarian–Fromovitz CQ."]
+        },
+        {
+          "id": "active-constraint", "en": "active constraint", "pos": "n", "ipa": "/ˈæktɪv kənˈstreɪnt/",
+          "vi": "ràng buộc tích cực", "gloss": "an inequality constraint that holds with equality",
+          "def": "An inequality constraint $g_i(x) \\le 0$ is {{active}} at a feasible point $\\bar x$ if $g_i(\\bar x) = 0$.",
+          "family": [["inactive", "adj", "không tích cực"], ["active set", "n", "tập (chỉ số) tích cực"]],
+          "col": [
+            ["the constraint is active [[at]] $\\bar x$", "ràng buộc tích cực tại $\\bar x$"],
+            ["the active-set [[method]]", "phương pháp tập tích cực"]
+          ],
+          "ex": ["Only active constraints can have nonzero multipliers.", "Chỉ các ràng buộc tích cực mới có thể có nhân tử khác không."],
+          "note": ["Còn gọi là “binding constraint”. Tiếng Việt: ràng buộc tích cực, ràng buộc chặt.", "Also called a “binding constraint”."]
+        },
+        {
+          "id": "dual-problem", "en": "dual problem", "pos": "n", "ipa": "/ˈdjuːəl ˈprɒbləm/",
+          "vi": "bài toán đối ngẫu", "gloss": "maximizing the dual function over nonnegative multipliers",
+          "def": "With the dual function $q(\\lambda) = \\inf_x L(x, \\lambda)$, the (Lagrangian) {{dual problem}} is $\\max_{\\lambda \\ge 0} q(\\lambda)$.",
+          "family": [["duality", "n", "đối ngẫu"], ["primal problem", "n", "bài toán gốc"], ["primal–dual", "adj", "gốc–đối ngẫu"]],
+          "col": [
+            ["the [[primal]] problem", "bài toán gốc"],
+            ["[[weak]] duality", "đối ngẫu yếu"],
+            ["the dual function is [[concave]]", "hàm đối ngẫu là hàm lõm"]
+          ],
+          "ex": ["The dual function is always concave, even when the primal problem is not convex.", "Hàm đối ngẫu luôn là hàm lõm, kể cả khi bài toán gốc không lồi."],
+          "note": ["dual /ˈdjuːəl/ phát âm giống duel (đấu tay đôi).", "dual is pronounced like duel."]
+        },
+        {
+          "id": "duality-gap", "en": "duality gap", "pos": "n", "ipa": "/djuˈæləti ɡæp/",
+          "vi": "khoảng cách đối ngẫu", "gloss": "the difference between the primal and dual optimal values",
+          "def": "The {{duality gap}} is $p^* - d^* \\ge 0$; strong duality means that the gap is zero.",
+          "family": [["strong duality", "n", "đối ngẫu mạnh"], ["weak duality", "n", "đối ngẫu yếu"]],
+          "col": [
+            ["a [[zero]] duality gap", "khoảng cách đối ngẫu bằng không"],
+            ["strong duality [[holds]]", "đối ngẫu mạnh xảy ra"]
+          ],
+          "ex": ["For convex problems satisfying Slater's condition, strong duality holds and the duality gap is zero.", "Với bài toán lồi thỏa mãn điều kiện Slater, đối ngẫu mạnh xảy ra và khoảng cách đối ngẫu bằng không."],
+          "note": ["Trong thuật toán gốc–đối ngẫu, duality gap thường được dùng làm tiêu chuẩn dừng.", "In primal–dual algorithms the duality gap is often used as a stopping criterion."]
+        }
+      ]
+    },
+    {
+      "id": "algorithms",
+      "emoji": "🔁",
+      "title": "Thuật toán",
+      "titleEn": "Algorithms",
+      "desc": "Điểm lặp, cỡ bước, hướng giảm, line search, gradient, Newton, phép chiếu, tốc độ hội tụ.",
+      "descEn": "Iterates, step sizes, descent directions, line search, gradient and Newton methods, projections, rates.",
+      "items": [
+        {
+          "id": "iterate", "en": "iterate", "pos": "n", "ipa": "/ˈɪtərət/",
+          "vi": "điểm lặp", "gloss": "a point produced by an iterative method",
+          "def": "An iterative method generates a sequence of {{iterates}} $x^0, x^1, x^2, \\dots$, where $x^{k+1}$ is computed from $x^k$.",
+          "family": [["iterate (v)", "v /ˈɪtəreɪt/", "lặp"], ["iteration", "n", "bước lặp, vòng lặp"], ["iterative", "adj", "lặp"]],
+          "col": [
+            ["the [[current]] iterate", "điểm lặp hiện tại"],
+            ["the sequence of iterates [[generated]] by the algorithm", "dãy điểm lặp sinh bởi thuật toán"],
+            ["at [[each|every]] iteration", "ở mỗi bước lặp"]
+          ],
+          "ex": ["The iterates remain in the feasible set at every iteration.", "Các điểm lặp luôn nằm trong tập chấp nhận được ở mọi bước lặp."],
+          "note": ["Danh từ iterate đọc /ˈɪtərət/, động từ đọc /ˈɪtəreɪt/. iterate là điểm lặp, iteration là bước lặp.", "The noun is /ˈɪtərət/, the verb /ˈɪtəreɪt/. An iterate is a point; an iteration is a step."]
+        },
+        {
+          "id": "step-size", "en": "step size", "alt": ["stepsize", "step-size", "step length"], "pos": "n", "ipa": "/step saɪz/",
+          "vi": "cỡ bước (độ dài bước)", "gloss": "the scalar multiplying the search direction",
+          "def": "In $x^{k+1} = x^k - \\alpha_k \\nabla f(x^k)$, the positive number $\\alpha_k$ is the {{step size}}; in machine learning it is called the learning rate.",
+          "family": [["step length", "n", "độ dài bước"], ["learning rate", "n", "tốc độ học (học máy)"]],
+          "col": [
+            ["a [[constant]] step size", "cỡ bước hằng"],
+            ["a [[diminishing]] step size", "cỡ bước giảm dần"],
+            ["the step size is [[chosen|determined]] by line search", "cỡ bước được chọn bằng line search"]
+          ],
+          "ex": ["With a constant step size $\\alpha \\in (0, 2/L)$, gradient descent decreases $f$ at every iteration until a stationary point is reached.", "Với cỡ bước hằng $\\alpha \\in (0, 2/L)$, phương pháp gradient làm giảm $f$ ở mỗi bước lặp cho đến khi gặp một điểm dừng."],
+          "note": ["Viết step size, stepsize hay step-size đều gặp; nên thống nhất một cách trong cả bài.", "step size, stepsize and step-size all occur; pick one and keep it."]
+        },
+        {
+          "id": "descent-direction", "en": "descent direction", "pos": "n", "ipa": "/dɪˈsent dəˈrekʃn/",
+          "vi": "hướng giảm", "gloss": "a direction along which f decreases locally",
+          "def": "A vector $d$ is a {{descent direction}} for $f$ at $x$ if $\\nabla f(x)^\\top d < 0$.",
+          "family": [["descent method", "n", "phương pháp giảm"], ["descend", "v", "đi xuống"]],
+          "col": [
+            ["[[steepest]] descent", "hướng giảm nhanh nhất"],
+            ["a [[sufficient]] decrease condition", "điều kiện giảm đủ"]
+          ],
+          "ex": ["The negative gradient $-\\nabla f(x)$ is a descent direction whenever $\\nabla f(x) \\ne 0$.", "Hướng ngược gradient $-\\nabla f(x)$ là hướng giảm mỗi khi $\\nabla f(x) \\ne 0$."],
+          "note": ["descent /dɪˈsent/ (sự đi xuống) khác decent /ˈdiːsnt/ (tử tế). Viết đúng: gradient descent.", "descent (going down) ≠ decent (respectable). It is gradient descent."]
+        },
+        {
+          "id": "line-search", "en": "line search", "pos": "n", "ipa": "/laɪn sɜːtʃ/",
+          "vi": "tìm kiếm theo đường (line search)", "gloss": "choosing the step size along a fixed direction",
+          "def": "A {{line search}} chooses $\\alpha_k > 0$ along a direction $d^k$; the Armijo rule accepts $\\alpha$ if $f(x^k + \\alpha d^k) \\le f(x^k) + c\\,\\alpha \\nabla f(x^k)^\\top d^k$ for a fixed $c \\in (0, 1)$.",
+          "family": [["Armijo rule", "n", "quy tắc Armijo"], ["Wolfe conditions", "n", "điều kiện Wolfe"]],
+          "col": [
+            ["a [[backtracking]] line search", "line search quay lui"],
+            ["an [[exact]] line search", "line search chính xác"],
+            ["the Armijo [[rule|condition]]", "quy tắc Armijo"]
+          ],
+          "ex": ["The step size is determined by a backtracking line search satisfying the Armijo condition.", "Cỡ bước được xác định bằng line search quay lui thỏa mãn điều kiện Armijo."],
+          "note": ["Tài liệu tiếng Việt thường giữ nguyên “line search”. Điều kiện Wolfe = điều kiện Armijo + điều kiện độ cong (curvature).", "Wolfe conditions = Armijo condition + curvature condition."]
+        },
+        {
+          "id": "gradient-descent", "en": "gradient descent", "pos": "n", "ipa": "/ˈɡreɪdiənt dɪˈsent/",
+          "vi": "phương pháp gradient (hạ gradient)", "gloss": "moving against the gradient at every step",
+          "def": "{{Gradient descent}} generates $x^{k+1} = x^k - \\alpha_k \\nabla f(x^k)$ from a starting point $x^0$.",
+          "family": [["steepest descent", "n", "phương pháp giảm nhanh nhất"], ["gradient method", "n", "phương pháp gradient"]],
+          "col": [
+            ["[[projected]] gradient descent", "phương pháp gradient chiếu"],
+            ["[[stochastic]] gradient descent (SGD)", "phương pháp gradient ngẫu nhiên"],
+            ["an [[accelerated]] gradient method", "phương pháp gradient tăng tốc"]
+          ],
+          "ex": ["For convex $L$-smooth $f$, gradient descent with step size $1/L$ achieves $f(x^k) - f^* = O(1/k)$.", "Với $f$ lồi và $L$-trơn, phương pháp gradient với cỡ bước $1/L$ đạt $f(x^k) - f^* = O(1/k)$."],
+          "note": ["Phương pháp gradient tăng tốc của Nesterov cải thiện tốc độ thành $O(1/k^2)$.", "Nesterov's accelerated gradient method improves the rate to $O(1/k^2)$."]
+        },
+        {
+          "id": "newton", "en": "Newton's method", "alt": ["Newton method", "the Newton method"], "pos": "n", "ipa": "/ˈnjuːtənz ˈmeθəd/",
+          "vi": "phương pháp Newton", "gloss": "taking second-order steps with the Hessian",
+          "def": "{{Newton's method}} for minimizing $f$ iterates $x^{k+1} = x^k - \\nabla^2 f(x^k)^{-1} \\nabla f(x^k)$.",
+          "family": [["quasi-Newton method", "n", "phương pháp tựa Newton"], ["Newton direction", "n", "hướng Newton"], ["damped Newton method", "n", "phương pháp Newton có giảm chấn"]],
+          "col": [
+            ["[[quadratic]] convergence", "hội tụ bậc hai"],
+            ["[[quasi]]-Newton methods such as BFGS", "phương pháp tựa Newton như BFGS"]
+          ],
+          "ex": ["Near a minimizer with positive definite Hessian, Newton's method converges quadratically.", "Gần điểm cực tiểu có Hessian xác định dương, phương pháp Newton hội tụ bậc hai."],
+          "note": ["Viết “Newton's method” hoặc “the Newton method”, không viết “the Newton's method”.", "Write “Newton's method” or “the Newton method”, never “the Newton's method”."]
+        },
+        {
+          "id": "projection", "en": "projection", "pos": "n", "ipa": "/prəˈdʒekʃn/",
+          "vi": "phép chiếu (hình chiếu)", "gloss": "the closest point of a set",
+          "def": "The (metric) {{projection}} of $x$ onto a nonempty closed convex set $C$ is the unique point $P_C(x) \\in C$ such that $\\|x - P_C(x)\\| = \\min_{y \\in C} \\|x - y\\|$.",
+          "family": [["project", "v", "chiếu"], ["projector", "n", "toán tử chiếu"]],
+          "col": [
+            ["the projection [[onto]] $C$", "phép chiếu lên $C$"],
+            ["the [[metric]] projection", "phép chiếu mêtric"],
+            ["the projection is [[nonexpansive]]", "phép chiếu là ánh xạ không giãn"]
+          ],
+          "ex": ["The projection onto a nonempty closed convex set is firmly nonexpansive.", "Phép chiếu lên một tập lồi đóng khác rỗng là ánh xạ không giãn chặt."],
+          "note": ["Giới từ thường dùng: “project $x$ onto $C$”, “the projection of $x$ onto $C$”.", "Usual preposition: “the projection of x onto C”."]
+        },
+        {
+          "id": "rate-of-convergence", "en": "rate of convergence", "alt": ["convergence rate"], "pos": "n", "ipa": "/reɪt əv kənˈvɜːdʒəns/",
+          "vi": "tốc độ hội tụ", "gloss": "how fast the error goes to zero",
+          "def": "The {{rate of convergence}} describes how fast $\\|x^k - x^*\\| \\to 0$: linear if $\\|x^{k+1} - x^*\\| \\le q\\|x^k - x^*\\|$ with $q \\in (0, 1)$, quadratic if $\\|x^{k+1} - x^*\\| \\le c\\|x^k - x^*\\|^2$.",
+          "family": [["linear / sublinear", "adj", "tuyến tính / dưới tuyến tính"], ["superlinear / quadratic", "adj", "siêu tuyến tính / bậc hai"]],
+          "col": [
+            ["converges [[at]] a linear rate", "hội tụ với tốc độ tuyến tính"],
+            ["a [[sublinear]] rate $O(1/k)$", "tốc độ dưới tuyến tính $O(1/k)$"],
+            ["[[improve]] the convergence rate", "cải thiện tốc độ hội tụ"]
+          ],
+          "ex": ["We prove that the method converges at a linear rate under an error bound condition.", "Chúng tôi chứng minh phương pháp hội tụ với tốc độ tuyến tính dưới một điều kiện cận sai số."],
+          "note": ["“converges linearly” = “converges at a linear rate” = “has a linear rate of convergence”.", "“converges linearly” = “converges at a linear rate”."]
+        }
+      ]
+    },
+    {
+      "id": "nonsmooth",
+      "emoji": "🧩",
+      "title": "Không trơn và sự tồn tại nghiệm",
+      "titleEn": "Nonsmooth analysis and existence",
+      "desc": "Nửa liên tục dưới, bức, chính thường, dưới gradient, dưới vi phân, nón pháp tuyến, prox.",
+      "descEn": "Lower semicontinuity, coercivity, properness, subgradients, normal cones, proximal operators.",
+      "items": [
+        {
+          "id": "lsc", "en": "lower semicontinuous", "alt": ["lower semi-continuous"], "pos": "adj", "ipa": "/ˈləʊə ˌsemikənˈtɪnjuəs/",
+          "vi": "nửa liên tục dưới", "gloss": "f(x) ≤ liminf f(xₙ) whenever xₙ → x",
+          "def": "$f$ is {{lower semicontinuous}} (lsc) at $x$ if $f(x) \\le \\liminf_{n \\to \\infty} f(x_n)$ for every sequence $x_n \\to x$.",
+          "family": [["lower semicontinuity", "n", "tính nửa liên tục dưới"], ["upper semicontinuous", "adj", "nửa liên tục trên"]],
+          "col": [
+            ["[[weakly]] lower semicontinuous", "nửa liên tục dưới yếu"],
+            ["proper, lower semicontinuous and [[convex]]", "chính thường, nửa liên tục dưới và lồi"]
+          ],
+          "ex": ["A convex function is weakly lower semicontinuous if and only if it is lower semicontinuous.", "Hàm lồi là nửa liên tục dưới yếu khi và chỉ khi nó nửa liên tục dưới."],
+          "note": ["Viết tắt lsc hoặc l.s.c. Một số sách gọi hàm như vậy là closed function.", "Abbreviated lsc or l.s.c. Some books call such a function closed."]
+        },
+        {
+          "id": "coercive", "en": "coercive", "pos": "adj", "ipa": "/kəʊˈɜːsɪv/",
+          "vi": "bức (cưỡng bức)", "gloss": "tending to +∞ as ‖x‖ → ∞",
+          "def": "A function $f\\colon H \\to (-\\infty, +\\infty]$ is {{coercive}} if $f(x) \\to +\\infty$ as $\\|x\\| \\to \\infty$.",
+          "family": [["coercivity", "n", "tính bức"], ["supercoercive", "adj", "siêu bức: $f(x)/\\|x\\| \\to +\\infty$"]],
+          "col": [
+            ["a coercive [[functional]]", "phiếm hàm bức"],
+            ["the coercivity [[assumption]]", "giả thiết bức"]
+          ],
+          "ex": ["A proper, lower semicontinuous, convex and coercive function on a Hilbert space admits a minimizer.", "Một hàm chính thường, nửa liên tục dưới, lồi và bức trên không gian Hilbert có điểm cực tiểu."],
+          "note": ["Định lý tồn tại cần đủ giả thiết: proper + lsc + convex + coercive (trên không gian Hilbert). Với dạng song tuyến tính (định lý Lax–Milgram), coercive lại nghĩa là $a(x, x) \\ge c\\|x\\|^2$.", "For existence you need proper + lsc + convex + coercive. For bilinear forms (Lax–Milgram), coercive means $a(x, x) \\ge c\\|x\\|^2$."]
+        },
+        {
+          "id": "proper", "en": "proper", "pos": "adj", "ipa": "/ˈprɒpə(r)/",
+          "vi": "chính thường", "gloss": "never −∞ and not identically +∞",
+          "def": "$f\\colon H \\to (-\\infty, +\\infty]$ is {{proper}} if its domain $\\operatorname{dom} f = \\{x : f(x) < +\\infty\\}$ is nonempty.",
+          "family": [["effective domain", "n", "miền hữu hiệu"], ["extended real-valued", "adj", "nhận giá trị thực mở rộng"]],
+          "col": [
+            ["the [[effective]] domain", "miền hữu hiệu"],
+            ["an [[extended]] real-valued function", "hàm nhận giá trị thực mở rộng"]
+          ],
+          "ex": ["Let $f\\colon H \\to (-\\infty, +\\infty]$ be proper, convex and lower semicontinuous.", "Cho $f\\colon H \\to (-\\infty, +\\infty]$ là hàm chính thường, lồi và nửa liên tục dưới."],
+          "note": ["Đừng nhầm với proper subset (tập con thực sự) hay proper map trong tô-pô.", "Unrelated to a proper subset or a proper map in topology."]
+        },
+        {
+          "id": "subgradient", "en": "subgradient", "pos": "n", "ipa": "/ˌsʌbˈɡreɪdiənt/",
+          "vi": "dưới gradient", "gloss": "the slope of an affine minorant that touches f at x",
+          "def": "A vector $g$ is a {{subgradient}} of a convex function $f$ at $x$ if $f(y) \\ge f(x) + \\langle g, y - x \\rangle$ for all $y$.",
+          "family": [["subdifferential", "n", "dưới vi phân"], ["subdifferentiable", "adj", "khả dưới vi phân"]],
+          "col": [
+            ["the subgradient [[inequality]]", "bất đẳng thức dưới gradient"],
+            ["the subgradient [[method]]", "phương pháp dưới gradient"]
+          ],
+          "ex": ["The subgradient method is not a descent method: $f(x^k)$ may increase at some iterations.", "Phương pháp dưới gradient không phải phương pháp giảm: $f(x^k)$ có thể tăng ở một số bước lặp."],
+          "note": ["Tiền tố sub- ở đây là “dưới”: subgradient, subdifferential, sublevel set.", "The prefix sub- means “below”: subgradient, subdifferential, sublevel set."]
+        },
+        {
+          "id": "subdifferential", "en": "subdifferential", "pos": "n", "ipa": "/ˌsʌbdɪfəˈrenʃl/",
+          "vi": "dưới vi phân", "gloss": "the set of all subgradients at a point",
+          "def": "The {{subdifferential}} of $f$ at $x$ is the set $\\partial f(x)$ of all subgradients of $f$ at $x$; for $f = |\\cdot|$ we have $\\partial f(0) = [-1, 1]$.",
+          "family": [["subdifferentiable", "adj", "khả dưới vi phân"], ["limiting subdifferential", "n", "dưới vi phân giới hạn"]],
+          "col": [
+            ["the [[limiting]] subdifferential", "dưới vi phân giới hạn (Mordukhovich)"],
+            ["the subdifferential [[sum]] rule", "quy tắc tổng của dưới vi phân"]
+          ],
+          "ex": ["For a proper convex $f$, the point $\\bar x$ minimizes $f$ if and only if $0 \\in \\partial f(\\bar x)$.", "Với $f$ lồi chính thường, $\\bar x$ là điểm cực tiểu của $f$ khi và chỉ khi $0 \\in \\partial f(\\bar x)$."],
+          "note": ["Đọc $\\partial f(x)$ là “the subdifferential of f at x”. Giải tích biến phân còn dùng Fréchet, limiting (Mordukhovich) và Clarke subdifferential.", "Read $\\partial f(x)$ as “the subdifferential of f at x”."]
+        },
+        {
+          "id": "indicator-function", "en": "indicator function", "pos": "n", "ipa": "/ˈɪndɪkeɪtə(r) ˈfʌŋkʃn/",
+          "vi": "hàm chỉ", "gloss": "zero on the set, +∞ outside it",
+          "def": "The {{indicator function}} of a set $C$ is $\\iota_C(x) = 0$ if $x \\in C$ and $\\iota_C(x) = +\\infty$ otherwise.",
+          "family": [["characteristic function", "n", "hàm đặc trưng (1 trên C, 0 ngoài C)"]],
+          "col": [
+            ["the subdifferential of the indicator function is the [[normal]] cone", "dưới vi phân của hàm chỉ là nón pháp tuyến"],
+            ["the indicator function of a [[closed]] convex set", "hàm chỉ của một tập lồi đóng"]
+          ],
+          "ex": ["Minimizing $f$ over $C$ is equivalent to minimizing $f + \\iota_C$ over the whole space.", "Cực tiểu hóa $f$ trên $C$ tương đương với cực tiểu hóa $f + \\iota_C$ trên toàn không gian."],
+          "note": ["Chú ý: trong xác suất, indicator function lại là hàm nhận giá trị 1/0. Trong giải tích lồi nó nhận giá trị $0/+\\infty$.", "In probability the indicator function takes values 1/0; in convex analysis it takes $0/+\\infty$."]
+        },
+        {
+          "id": "normal-cone", "en": "normal cone", "pos": "n", "ipa": "/ˈnɔːml kəʊn/",
+          "vi": "nón pháp tuyến", "gloss": "the directions making obtuse angles with the set",
+          "def": "For a convex set $C$ and $x \\in C$, the {{normal cone}} is $N_C(x) = \\{v : \\langle v, y - x \\rangle \\le 0 \\ \\text{for all } y \\in C\\}$.",
+          "family": [["tangent cone", "n", "nón tiếp tuyến"], ["polar cone", "n", "nón cực"]],
+          "col": [
+            ["the [[tangent]] cone", "nón tiếp tuyến"],
+            ["the normal cone [[to]] $C$ at $x$", "nón pháp tuyến của $C$ tại $x$"]
+          ],
+          "ex": ["For convex $C$ and convex differentiable $f$, the optimality condition for $\\min_{x \\in C} f(x)$ reads $-\\nabla f(\\bar x) \\in N_C(\\bar x)$.", "Với $C$ lồi và $f$ lồi khả vi, điều kiện tối ưu của bài toán $\\min_{x \\in C} f(x)$ có dạng $-\\nabla f(\\bar x) \\in N_C(\\bar x)$."],
+          "note": ["Giới từ: “the normal cone to $C$ at $x$” (to + tập hợp, at + điểm).", "Prepositions: “the normal cone to C at x”."]
+        },
+        {
+          "id": "proximal-operator", "en": "proximal operator", "pos": "n", "ipa": "/ˈprɒksɪml ˈɒpəreɪtə(r)/",
+          "vi": "toán tử gần kề (prox)", "gloss": "minimizes f plus a quadratic penalty around x",
+          "def": "The {{proximal operator}} of a proper lsc convex $f$ is $\\operatorname{prox}_{\\lambda f}(x) = \\operatorname{argmin}_y \\big\\{ f(y) + \\frac{1}{2\\lambda}\\|y - x\\|^2 \\big\\}$, where $\\lambda > 0$.",
+          "family": [["proximal point algorithm", "n", "thuật toán điểm gần kề"], ["Moreau envelope", "n", "bao Moreau"]],
+          "col": [
+            ["the proximal [[point]] algorithm", "thuật toán điểm gần kề"],
+            ["the proximal gradient [[method]]", "phương pháp gradient gần kề"],
+            ["the prox of the $\\ell_1$-norm is [[soft]]-thresholding", "prox của chuẩn $\\ell_1$ là phép ngưỡng mềm"]
+          ],
+          "ex": ["The proximal operator of the indicator function $\\iota_C$ is the projection onto $C$.", "Toán tử gần kề của hàm chỉ $\\iota_C$ là phép chiếu lên $C$."],
+          "note": ["Viết tắt prox, đọc /prɒks/. Tài liệu tiếng Việt cũng dùng “toán tử proximal”.", "Abbreviated prox, pronounced /prɒks/."]
+        }
+      ]
+    }
+  ]
+}

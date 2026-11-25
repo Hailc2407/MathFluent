@@ -1,0 +1,114 @@
+{
+  "module": "symbols",
+  "topics": [
+    {
+      "id": "logic",
+      "emoji": "∈",
+      "title": "Tập hợp và logic",
+      "titleEn": "Sets and logic",
+      "desc": "Thuộc, tập con, với mọi, tồn tại, kéo theo, khi và chỉ khi, ánh xạ.",
+      "descEn": "Membership, subsets, quantifiers, implications, maps.",
+      "items": [
+        { "id": "in", "tex": "x \\in C", "read": "x belongs to C", "alt": ["x is in C", "x is an element of C"], "vi": "x thuộc C" },
+        { "id": "subset", "tex": "A \\subseteq B", "read": "A is a subset of B", "alt": ["A is contained in B"], "vi": "A là tập con của B",
+          "note": ["Một số tác giả dùng $A \\subset B$ cho tập con thực sự; nên đọc kỹ quy ước của bài báo.", "Some authors use $A \\subset B$ for a proper subset; check the paper's convention."] },
+        { "id": "forall", "tex": "\\forall x \\in C", "read": "for all x in C", "alt": ["for every x in C", "for each x in C"], "vi": "với mọi x thuộc C" },
+        { "id": "exists", "tex": "\\exists\\, x \\in C", "read": "there exists an x in C", "alt": ["there is some x in C"], "vi": "tồn tại x thuộc C",
+          "note": ["$\\exists!$ đọc là “there exists a unique”.", "$\\exists!$ is read “there exists a unique”."] },
+        { "id": "implies", "tex": "P \\Rightarrow Q", "read": "P implies Q", "alt": ["if P, then Q"], "vi": "P kéo theo Q" },
+        { "id": "iff", "tex": "P \\Leftrightarrow Q", "read": "P if and only if Q", "alt": ["P is equivalent to Q"], "vi": "P khi và chỉ khi Q",
+          "note": ["Viết tắt “iff” nhưng khi đọc to vẫn nói đầy đủ “if and only if”.", "Written “iff”, but always said “if and only if”."] },
+        { "id": "setbuilder", "tex": "\\{x \\in \\mathbb{R}^n : g(x) \\le 0\\}", "read": "the set of all x in R n such that g of x is less than or equal to zero", "alt": ["the set of x in R n with g of x at most zero"], "vi": "tập các x thuộc ℝⁿ sao cho g(x) ≤ 0",
+          "note": ["Dấu “:” hoặc “|” trong tập hợp đọc là “such that”. “≤” đọc “is less than or equal to” hoặc “is at most”.", "The colon or bar reads “such that”; “≤” reads “is less than or equal to” or “is at most”."] },
+        { "id": "map", "tex": "f\\colon \\mathbb{R}^n \\to \\mathbb{R}", "read": "f maps R n to R", "alt": ["f from R n to R", "f is a function from R n into R"], "vi": "f là ánh xạ từ ℝⁿ vào ℝ",
+          "note": ["$\\mathbb{R}^n$ đọc là “R n” hoặc “R to the n”.", "$\\mathbb{R}^n$ is read “R n” or “R to the n”."] },
+        { "id": "extended", "tex": "\\mathbb{R} \\cup \\{+\\infty\\}", "read": "R union plus infinity", "alt": ["the extended real line"], "vi": "tập số thực mở rộng ℝ ∪ {+∞}" }
+      ]
+    },
+    {
+      "id": "limits",
+      "emoji": "→",
+      "title": "Dãy và giới hạn",
+      "titleEn": "Sequences and limits",
+      "desc": "Chỉ số dưới, hội tụ mạnh và yếu, lim sup, lim inf, dãy con, ký hiệu O lớn.",
+      "descEn": "Subscripts, strong and weak convergence, lim sup, lim inf, subsequences, big O.",
+      "items": [
+        { "id": "seq", "tex": "(x_n)_{n \\in \\mathbb{N}}", "read": "the sequence x sub n", "alt": ["the sequence x n, n in N"], "vi": "dãy (xₙ)",
+          "note": ["$x_n$ đọc “x sub n”, hoặc gọn là “x n”.", "$x_n$ is read “x sub n”, or simply “x n”."] },
+        { "id": "accents", "tex": "\\bar x,\\ \\hat x,\\ \\tilde x", "read": "x bar, x hat, x tilde", "vi": "x gạch, x mũ, x ngã",
+          "note": ["$\\bar x$ thường là nghiệm hoặc điểm đang xét; $x^*$ đọc “x star”.", "$\\bar x$ is often a solution or reference point; $x^*$ is “x star”."] },
+        { "id": "conv", "tex": "x_n \\to x", "read": "x sub n converges to x", "alt": ["x n tends to x"], "vi": "xₙ hội tụ đến x" },
+        { "id": "weak", "tex": "x_n \\rightharpoonup x", "read": "x sub n converges weakly to x", "alt": ["x n converges weakly to x"], "vi": "xₙ hội tụ yếu đến x",
+          "note": ["Hội tụ mạnh (theo chuẩn) dùng “→”; khi cần phân biệt, nói rõ “converges strongly”.", "Strong (norm) convergence uses “→”; say “converges strongly” when contrasting."] },
+        { "id": "lim", "tex": "\\lim_{n \\to \\infty} x_n", "read": "the limit of x sub n as n tends to infinity", "alt": ["the limit as n goes to infinity of x n"], "vi": "giới hạn của xₙ khi n → ∞" },
+        { "id": "limsup", "tex": "\\limsup_{n \\to \\infty} x_n", "read": "the limit superior of x sub n as n tends to infinity", "alt": ["lim sup of x n"], "vi": "giới hạn trên của xₙ" },
+        { "id": "liminf", "tex": "\\liminf_{n \\to \\infty} f(x_n)", "read": "the limit inferior of f of x sub n as n tends to infinity", "alt": ["lim inf of f of x n"], "vi": "giới hạn dưới của f(xₙ)" },
+        { "id": "subseq", "tex": "(x_{n_k})_{k \\in \\mathbb{N}}", "read": "the subsequence x sub n sub k", "alt": ["x n k"], "vi": "dãy con (x_{n_k})" },
+        { "id": "bigo", "tex": "f(x^k) - f^* = O(1/k)", "read": "f of x k minus f star is big O of one over k", "alt": ["is of order one over k"], "vi": "f(xᵏ) − f* có bậc O(1/k)",
+          "note": ["Chỉ số trên $k$ trong $x^k$ là chỉ số lặp: đọc “x k” hoặc “x superscript k”, không đọc “x to the k”.", "The superscript in $x^k$ is an iteration index: say “x k”, not “x to the k”."] }
+      ]
+    },
+    {
+      "id": "linalg",
+      "emoji": "‖",
+      "title": "Chuẩn, tích vô hướng, ma trận",
+      "titleEn": "Norms, inner products, matrices",
+      "desc": "Chuẩn, tích vô hướng, chuyển vị, nghịch đảo, xác định dương, giá trị riêng.",
+      "descEn": "Norms, inner products, transposes, inverses, definiteness, eigenvalues.",
+      "items": [
+        { "id": "norm", "tex": "\\|x\\|", "read": "the norm of x", "alt": ["norm x"], "vi": "chuẩn của x" },
+        { "id": "norm2", "tex": "\\|x\\|_2", "read": "the two-norm of x", "alt": ["the Euclidean norm of x", "the l two norm of x"], "vi": "chuẩn Euclid (chuẩn 2) của x" },
+        { "id": "inner", "tex": "\\langle x, y \\rangle", "read": "the inner product of x and y", "alt": ["x inner product y"], "vi": "tích vô hướng của x và y" },
+        { "id": "transpose", "tex": "x^\\top y", "read": "x transpose y", "vi": "x chuyển vị nhân y" },
+        { "id": "inverse", "tex": "A^{-1}", "read": "A inverse", "alt": ["the inverse of A"], "vi": "ma trận nghịch đảo của A" },
+        { "id": "pd", "tex": "A \\succ 0", "read": "A is positive definite", "vi": "A xác định dương",
+          "note": ["$A \\succeq 0$ đọc “A is positive semidefinite”.", "$A \\succeq 0$ reads “A is positive semidefinite”."] },
+        { "id": "lmin", "tex": "\\lambda_{\\min}(A)", "read": "the smallest eigenvalue of A", "alt": ["lambda min of A"], "vi": "giá trị riêng nhỏ nhất của A" },
+        { "id": "perp", "tex": "x \\perp y", "read": "x is orthogonal to y", "alt": ["x is perpendicular to y"], "vi": "x trực giao với y" }
+      ]
+    },
+    {
+      "id": "calculus",
+      "emoji": "∇",
+      "title": "Đạo hàm và vi phân",
+      "titleEn": "Derivatives",
+      "desc": "Gradient, Hessian, đạo hàm riêng, theo hướng, dưới vi phân, o nhỏ, khoảng cách.",
+      "descEn": "Gradients, Hessians, partial and directional derivatives, subdifferentials, little o, distance.",
+      "items": [
+        { "id": "grad", "tex": "\\nabla f(x)", "read": "the gradient of f at x", "alt": ["nabla f of x", "grad f of x"], "vi": "gradient của f tại x" },
+        { "id": "hess", "tex": "\\nabla^2 f(x)", "read": "the Hessian of f at x", "alt": ["nabla squared f of x"], "vi": "ma trận Hessian của f tại x" },
+        { "id": "partial", "tex": "\\frac{\\partial f}{\\partial x_i}", "read": "the partial derivative of f with respect to x sub i", "alt": ["partial f partial x i", "d f d x i"], "vi": "đạo hàm riêng của f theo xᵢ" },
+        { "id": "dirder", "tex": "f'(x; d)", "read": "the directional derivative of f at x in the direction d", "alt": ["f prime of x in direction d"], "vi": "đạo hàm theo hướng d của f tại x" },
+        { "id": "subdiff", "tex": "\\partial f(x)", "read": "the subdifferential of f at x", "alt": ["partial f of x"], "vi": "dưới vi phân của f tại x" },
+        { "id": "c1", "tex": "f \\in C^1", "read": "f is continuously differentiable", "alt": ["f is of class C one", "f is C one"], "vi": "f khả vi liên tục" },
+        { "id": "littleo", "tex": "o(t)", "read": "little o of t", "vi": "vô cùng bé bậc cao hơn t",
+          "note": ["$O(t)$ đọc “big O of t”.", "$O(t)$ reads “big O of t”."] },
+        { "id": "dist", "tex": "\\operatorname{dist}(x, C)", "read": "the distance from x to C", "alt": ["the distance of x to C"], "vi": "khoảng cách từ x đến C" }
+      ]
+    },
+    {
+      "id": "optnotation",
+      "emoji": "⊓",
+      "title": "Ký hiệu tối ưu hóa",
+      "titleEn": "Optimization notation",
+      "desc": "min, s.t., argmin, inf, phép chiếu, prox, hàm chỉ, nón pháp tuyến, liên hợp.",
+      "descEn": "min, s.t., argmin, inf, projections, prox, indicators, normal cones, conjugates.",
+      "items": [
+        { "id": "min", "tex": "\\min_{x \\in C} f(x)", "read": "minimize f of x over x in C", "alt": ["the minimum of f over C"], "vi": "cực tiểu hóa f(x) trên C",
+          "note": ["Khi viết bài toán: “minimize $f(x)$ subject to $x \\in C$”.", "As a problem statement: “minimize f(x) subject to x ∈ C”."] },
+        { "id": "st", "tex": "\\text{s.t.}\\ \\ g(x) \\le 0", "read": "subject to g of x less than or equal to zero", "vi": "với ràng buộc g(x) ≤ 0",
+          "note": ["Trong bài toán tối ưu, s.t. là “subject to”. Ở chỗ khác s.t. có thể là “such that”.", "In an optimization problem s.t. means “subject to”; elsewhere it may mean “such that”."] },
+        { "id": "argmin", "tex": "\\mathop{\\mathrm{argmin}}_{x \\in C} f(x)", "read": "the set of minimizers of f over C", "alt": ["arg min of f over C"], "vi": "tập các điểm cực tiểu của f trên C" },
+        { "id": "inf", "tex": "\\inf_{x \\in C} f(x)", "read": "the infimum of f over C", "alt": ["inf of f of x over x in C"], "vi": "infimum của f trên C" },
+        { "id": "proj", "tex": "P_C(x)", "read": "the projection of x onto C", "alt": ["P C of x"], "vi": "hình chiếu của x lên C" },
+        { "id": "prox", "tex": "\\operatorname{prox}_{\\lambda f}(x)", "read": "the proximal operator of lambda f at x", "alt": ["prox of lambda f at x"], "vi": "toán tử gần kề của λf tại x" },
+        { "id": "indicator", "tex": "\\iota_C", "read": "the indicator function of C", "alt": ["iota C"], "vi": "hàm chỉ của C" },
+        { "id": "normalcone", "tex": "N_C(x)", "read": "the normal cone to C at x", "vi": "nón pháp tuyến của C tại x" },
+        { "id": "conj", "tex": "f^*", "read": "the conjugate of f", "alt": ["f star", "the Fenchel conjugate of f"], "vi": "hàm liên hợp của f",
+          "note": ["Còn $x^*$ (“x star”) thường là nghiệm tối ưu. Ngữ cảnh quyết định nghĩa của dấu sao.", "$x^*$ (“x star”) is usually a solution; context decides what the star means."] },
+        { "id": "iterconv", "tex": "x^k \\to x^*", "read": "x k converges to x star", "alt": ["the iterates converge to x star"], "vi": "dãy lặp xᵏ hội tụ đến x*" },
+        { "id": "dom", "tex": "\\operatorname{dom} f", "read": "the domain of f", "alt": ["the effective domain of f"], "vi": "miền hữu hiệu của f" }
+      ]
+    }
+  ]
+}
