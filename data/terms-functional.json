@@ -1,0 +1,1861 @@
+{
+  "module": "terms",
+  "field": "functional",
+  "topics": [
+    {
+      "id": "spaces",
+      "emoji": "🌐",
+      "title": "Không gian định chuẩn và Hilbert",
+      "titleEn": "Normed and Hilbert spaces",
+      "desc": "Không gian định chuẩn, Banach, tích trong, Hilbert, Cauchy–Schwarz, đẳng thức hình bình hành, phần bù trực giao, khả ly.",
+      "descEn": "Normed, Banach, inner product and Hilbert spaces, Cauchy–Schwarz, the parallelogram law, orthogonal complements, separability.",
+      "items": [
+        {
+          "id": "normed-space",
+          "en": "normed space",
+          "pos": "n",
+          "ipa": "/nɔːmd speɪs/",
+          "vi": "không gian định chuẩn",
+          "gloss": "a vector space equipped with a norm",
+          "def": "A {{normed space}} is a vector space $X$ with a norm $\\|\\cdot\\|\\colon X \\to [0, \\infty)$ satisfying $\\|x\\| = 0 \\iff x = 0$, $\\|\\lambda x\\| = |\\lambda|\\|x\\|$ and the triangle inequality $\\|x + y\\| \\le \\|x\\| + \\|y\\|$.",
+          "family": [
+            [
+              "norm",
+              "n",
+              "chuẩn"
+            ],
+            [
+              "triangle inequality",
+              "n",
+              "bất đẳng thức tam giác"
+            ],
+            [
+              "equivalent norms",
+              "n",
+              "các chuẩn tương đương"
+            ]
+          ],
+          "col": [
+            [
+              "a real [[normed]] space",
+              "không gian định chuẩn thực"
+            ],
+            [
+              "equip $X$ [[with]] a norm",
+              "trang bị cho $X$ một chuẩn"
+            ],
+            [
+              "the norm [[induced]] by the inner product",
+              "chuẩn cảm sinh bởi tích trong"
+            ]
+          ],
+          "ex": [
+            "Let $(X, \\|\\cdot\\|)$ be a real normed space.",
+            "Cho $(X, \\|\\cdot\\|)$ là một không gian định chuẩn thực."
+          ],
+          "note": [
+            "Nhấn: “equip … with”, không dùng “equip by”. Mọi không gian định chuẩn đều là không gian mêtric với $d(x, y) = \\|x - y\\|$.",
+            "“equip … with”, not “by”."
+          ]
+        },
+        {
+          "id": "banach-space",
+          "en": "Banach space",
+          "pos": "n",
+          "ipa": "/ˈbænɑːk speɪs/",
+          "vi": "không gian Banach",
+          "gloss": "a complete normed space",
+          "def": "A {{Banach space}} is a normed space that is complete, i.e. in which every Cauchy sequence converges.",
+          "family": [
+            [
+              "complete",
+              "adj",
+              "đầy đủ"
+            ],
+            [
+              "Banach",
+              "n",
+              "(tên riêng)"
+            ],
+            [
+              "reflexive Banach space",
+              "n",
+              "không gian Banach phản xạ"
+            ]
+          ],
+          "col": [
+            [
+              "a [[real]] Banach space",
+              "không gian Banach thực"
+            ],
+            [
+              "a Banach space [[of]] continuous functions",
+              "không gian Banach các hàm liên tục"
+            ],
+            [
+              "a [[separable]] Banach space",
+              "không gian Banach khả ly"
+            ]
+          ],
+          "ex": [
+            "Every finite-dimensional normed space is a Banach space.",
+            "Mọi không gian định chuẩn hữu hạn chiều đều là không gian Banach."
+          ],
+          "note": [
+            "Banach đọc /ˈbænɑːk/ (kết thúc bằng âm k). Ví dụ: $L^p$ ($1 \\le p \\le \\infty$) và $C[a, b]$ đều là không gian Banach.",
+            "Banach is pronounced /ˈbænɑːk/."
+          ]
+        },
+        {
+          "id": "inner-product-space",
+          "en": "inner product space",
+          "pos": "n",
+          "ipa": "/ˈɪnə ˈprɒdʌkt speɪs/",
+          "vi": "không gian có tích trong",
+          "gloss": "a vector space with an inner product",
+          "def": "An {{inner product space}} is a vector space $X$ with a map $\\langle \\cdot, \\cdot \\rangle\\colon X \\times X \\to \\mathbb{R}$ that is symmetric, bilinear and positive definite: $\\langle x, x \\rangle > 0$ for $x \\ne 0$.",
+          "family": [
+            [
+              "inner product",
+              "n",
+              "tích trong (tích vô hướng)"
+            ],
+            [
+              "orthogonal",
+              "adj",
+              "trực giao"
+            ],
+            [
+              "pre-Hilbert space",
+              "n",
+              "không gian tiền Hilbert"
+            ]
+          ],
+          "col": [
+            [
+              "the inner product of $x$ [[and]] $y$",
+              "tích trong của $x$ và $y$"
+            ],
+            [
+              "the norm [[induced]] by the inner product",
+              "chuẩn cảm sinh bởi tích trong"
+            ],
+            [
+              "a real inner product [[space]]",
+              "không gian tích trong thực"
+            ]
+          ],
+          "ex": [
+            "Every inner product space is a normed space with $\\|x\\| = \\sqrt{\\langle x, x \\rangle}$.",
+            "Mọi không gian tích trong đều là không gian định chuẩn với $\\|x\\| = \\sqrt{\\langle x, x \\rangle}$."
+          ],
+          "note": [
+            "Tiếng Việt dùng cả “tích trong” và “tích vô hướng”. Trên $\\mathbb{R}^n$ là tích chấm.",
+            "On $\\mathbb{R}^n$ it is the dot product."
+          ]
+        },
+        {
+          "id": "hilbert-space",
+          "en": "Hilbert space",
+          "pos": "n",
+          "ipa": "/ˈhɪlbət speɪs/",
+          "vi": "không gian Hilbert",
+          "gloss": "a complete inner product space",
+          "def": "A {{Hilbert space}} is an inner product space that is complete with respect to the norm induced by its inner product.",
+          "family": [
+            [
+              "Hilbertian",
+              "adj",
+              "thuộc Hilbert"
+            ],
+            [
+              "orthonormal basis",
+              "n",
+              "cơ sở trực chuẩn"
+            ]
+          ],
+          "col": [
+            [
+              "a real Hilbert [[space]]",
+              "không gian Hilbert thực"
+            ],
+            [
+              "in a Hilbert space [[setting]]",
+              "trong khuôn khổ không gian Hilbert"
+            ],
+            [
+              "an infinite-[[dimensional]] Hilbert space",
+              "không gian Hilbert vô hạn chiều"
+            ]
+          ],
+          "ex": [
+            "Throughout, $H$ denotes a real Hilbert space with inner product $\\langle \\cdot, \\cdot \\rangle$.",
+            "Trong suốt bài, $H$ ký hiệu một không gian Hilbert thực với tích trong $\\langle \\cdot, \\cdot \\rangle$."
+          ],
+          "note": [
+            "Nói “a Hilbert space” (a, không phải an, vì H đọc /h/). $L^2$ và $\\ell^2$ là các ví dụ.",
+            "“a Hilbert space”, because the H is pronounced."
+          ]
+        },
+        {
+          "id": "cauchy-schwarz",
+          "en": "Cauchy–Schwarz inequality",
+          "alt": [
+            "Cauchy-Schwarz inequality"
+          ],
+          "pos": "n",
+          "ipa": "/ˈkəʊʃi ˈʃwɔːts ˌɪneˈkwɒləti/",
+          "vi": "bất đẳng thức Cauchy–Schwarz",
+          "gloss": "|⟨x, y⟩| ≤ ‖x‖‖y‖",
+          "def": "The {{Cauchy–Schwarz inequality}} states that $|\\langle x, y \\rangle| \\le \\|x\\|\\,\\|y\\|$ for all $x, y$ in an inner product space.",
+          "family": [
+            [
+              "Hölder's inequality",
+              "n",
+              "bất đẳng thức Hölder"
+            ],
+            [
+              "equality holds",
+              "v",
+              "dấu bằng xảy ra"
+            ]
+          ],
+          "col": [
+            [
+              "by the Cauchy–Schwarz [[inequality]]",
+              "theo bất đẳng thức Cauchy–Schwarz"
+            ],
+            [
+              "equality holds [[if and only if]] $x$ and $y$ are linearly dependent",
+              "dấu bằng xảy ra khi và chỉ khi $x$ và $y$ phụ thuộc tuyến tính"
+            ]
+          ],
+          "ex": [
+            "By the Cauchy–Schwarz inequality, $\\langle \\nabla f(x), d \\rangle \\ge -\\|\\nabla f(x)\\|\\,\\|d\\|$.",
+            "Theo bất đẳng thức Cauchy–Schwarz, $\\langle \\nabla f(x), d \\rangle \\ge -\\|\\nabla f(x)\\|\\,\\|d\\|$."
+          ],
+          "note": [
+            "Viết tắt “C–S”. Dùng gạch nối dài (en dash) giữa hai tên.",
+            "Use an en dash between the two names."
+          ]
+        },
+        {
+          "id": "parallelogram-law",
+          "en": "parallelogram law",
+          "pos": "n",
+          "ipa": "/ˌpærəˈleləɡræm lɔː/",
+          "vi": "đẳng thức hình bình hành",
+          "gloss": "‖x+y‖² + ‖x−y‖² = 2‖x‖² + 2‖y‖²",
+          "def": "The {{parallelogram law}} says $\\|x + y\\|^2 + \\|x - y\\|^2 = 2\\|x\\|^2 + 2\\|y\\|^2$; a norm comes from an inner product if and only if it satisfies this identity.",
+          "family": [
+            [
+              "polarization identity",
+              "n",
+              "đẳng thức phân cực"
+            ],
+            [
+              "uniformly convex",
+              "adj",
+              "lồi đều"
+            ]
+          ],
+          "col": [
+            [
+              "satisfy the parallelogram [[law]]",
+              "thỏa mãn đẳng thức hình bình hành"
+            ],
+            [
+              "[[by]] the parallelogram law",
+              "theo đẳng thức hình bình hành"
+            ]
+          ],
+          "ex": [
+            "By the parallelogram law, a Cauchy sequence argument shows that the closest point exists.",
+            "Theo đẳng thức hình bình hành, một lập luận dãy Cauchy cho thấy điểm gần nhất tồn tại."
+          ],
+          "note": [
+            "Đây là công cụ chính chứng minh định lý hình chiếu trong Hilbert. $\\ell^p$ ($p \\ne 2$) không thỏa đẳng thức này nên không phải Hilbert.",
+            "$\\ell^p$ with $p \\ne 2$ fails this law, so it is not Hilbert."
+          ]
+        },
+        {
+          "id": "orthogonal-complement",
+          "en": "orthogonal complement",
+          "pos": "n",
+          "ipa": "/ɔːˈθɒɡənl ˈkɒmplɪmənt/",
+          "vi": "phần bù trực giao",
+          "gloss": "all vectors orthogonal to every element of a set",
+          "def": "The {{orthogonal complement}} of $M \\subseteq H$ is $M^\\perp = \\{x \\in H : \\langle x, m \\rangle = 0 \\text{ for all } m \\in M\\}$.",
+          "family": [
+            [
+              "orthogonal",
+              "adj",
+              "trực giao"
+            ],
+            [
+              "orthogonal projection",
+              "n",
+              "phép chiếu trực giao"
+            ],
+            [
+              "direct sum",
+              "n",
+              "tổng trực tiếp"
+            ]
+          ],
+          "col": [
+            [
+              "the orthogonal [[complement]] of $M$",
+              "phần bù trực giao của $M$"
+            ],
+            [
+              "$x$ is orthogonal [[to]] $y$",
+              "$x$ trực giao với $y$"
+            ],
+            [
+              "the orthogonal [[decomposition]] $H = M \\oplus M^\\perp$",
+              "phân tích trực giao $H = M \\oplus M^\\perp$"
+            ]
+          ],
+          "ex": [
+            "If $M$ is a closed subspace of $H$, then $H = M \\oplus M^\\perp$.",
+            "Nếu $M$ là một không gian con đóng của $H$ thì $H = M \\oplus M^\\perp$."
+          ],
+          "note": [
+            "Complement (phần bù) khác compliment (lời khen). Đọc $M^\\perp$ là “M perp”.",
+            "complement ≠ compliment. $M^\\perp$ is “M perp”."
+          ]
+        },
+        {
+          "id": "separable",
+          "en": "separable",
+          "pos": "adj",
+          "ipa": "/ˈsepərəbl/",
+          "vi": "khả ly",
+          "gloss": "having a countable dense subset",
+          "def": "A metric space is {{separable}} if it contains a countable dense subset.",
+          "family": [
+            [
+              "separability",
+              "n",
+              "tính khả ly"
+            ],
+            [
+              "countable",
+              "adj",
+              "đếm được"
+            ],
+            [
+              "dense",
+              "adj",
+              "trù mật"
+            ]
+          ],
+          "col": [
+            [
+              "a separable Hilbert [[space]]",
+              "không gian Hilbert khả ly"
+            ],
+            [
+              "a countable [[dense]] subset",
+              "một tập con đếm được trù mật"
+            ]
+          ],
+          "ex": [
+            "A Hilbert space is separable if and only if it has a countable orthonormal basis.",
+            "Một không gian Hilbert khả ly khi và chỉ khi nó có một cơ sở trực chuẩn đếm được."
+          ],
+          "note": [
+            "$L^p(\\mathbb{R}^n)$ khả ly với $1 \\le p < \\infty$ nhưng $L^\\infty$ không khả ly.",
+            "$L^\\infty$ is not separable."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "operators",
+      "emoji": "🧮",
+      "title": "Toán tử tuyến tính",
+      "titleEn": "Linear operators",
+      "desc": "Toán tử tuyến tính, bị chặn, chuẩn toán tử, liên hợp, tự liên hợp, compact, giá trị riêng, phổ.",
+      "descEn": "Linear operators, boundedness, operator norm, adjoints, self-adjoint and compact operators, eigenvalues, the spectrum.",
+      "items": [
+        {
+          "id": "linear-operator",
+          "en": "linear operator",
+          "pos": "n",
+          "ipa": "/ˈlɪniə ˈɒpəreɪtə/",
+          "vi": "toán tử tuyến tính",
+          "gloss": "a map preserving addition and scalar multiplication",
+          "def": "A {{linear operator}} $T\\colon X \\to Y$ between vector spaces satisfies $T(\\alpha x + \\beta y) = \\alpha T x + \\beta T y$ for all $x, y \\in X$ and scalars $\\alpha, \\beta$.",
+          "family": [
+            [
+              "linear map",
+              "n",
+              "ánh xạ tuyến tính"
+            ],
+            [
+              "linear functional",
+              "n",
+              "phiếm hàm tuyến tính"
+            ],
+            [
+              "kernel",
+              "n",
+              "hạt nhân"
+            ]
+          ],
+          "col": [
+            [
+              "a linear operator [[from]] $X$ to $Y$",
+              "toán tử tuyến tính từ $X$ vào $Y$"
+            ],
+            [
+              "the [[kernel]] of $T$",
+              "hạt nhân của $T$"
+            ],
+            [
+              "the [[range]] of $T$",
+              "miền giá trị của $T$"
+            ]
+          ],
+          "ex": [
+            "Let $T\\colon X \\to Y$ be a linear operator between Banach spaces.",
+            "Cho $T\\colon X \\to Y$ là một toán tử tuyến tính giữa các không gian Banach."
+          ],
+          "note": [
+            "Thường viết $Tx$ thay vì $T(x)$. “operator” thường dùng cho ánh xạ giữa không gian hàm; “map” thì chung hơn.",
+            "Write $Tx$ rather than $T(x)$."
+          ]
+        },
+        {
+          "id": "bounded-operator",
+          "en": "bounded linear operator",
+          "pos": "n",
+          "ipa": "/ˈbaʊndɪd ˈlɪniə ˈɒpəreɪtə/",
+          "vi": "toán tử tuyến tính bị chặn",
+          "gloss": "a linear operator with ‖Tx‖ ≤ C‖x‖",
+          "def": "A linear operator $T\\colon X \\to Y$ is a {{bounded linear operator}} if there is $C \\ge 0$ with $\\|Tx\\| \\le C\\|x\\|$ for all $x \\in X$.",
+          "family": [
+            [
+              "bounded",
+              "adj",
+              "bị chặn"
+            ],
+            [
+              "continuous",
+              "adj",
+              "liên tục"
+            ],
+            [
+              "$\\mathcal{B}(X, Y)$",
+              "n",
+              "không gian các toán tử bị chặn"
+            ]
+          ],
+          "col": [
+            [
+              "a bounded linear operator [[on]] $H$",
+              "toán tử tuyến tính bị chặn trên $H$"
+            ],
+            [
+              "bounded if and only if [[continuous]]",
+              "bị chặn khi và chỉ khi liên tục"
+            ]
+          ],
+          "ex": [
+            "A linear operator between normed spaces is bounded if and only if it is continuous.",
+            "Một toán tử tuyến tính giữa các không gian định chuẩn bị chặn khi và chỉ khi nó liên tục."
+          ],
+          "note": [
+            "Với toán tử tuyến tính, “bị chặn” và “liên tục” là một. Nhưng “bị chặn” ở đây khác với hàm bị chặn thông thường (ảnh của cả không gian).",
+            "“Bounded” here is not the same as a bounded function."
+          ]
+        },
+        {
+          "id": "operator-norm",
+          "en": "operator norm",
+          "pos": "n",
+          "ipa": "/ˈɒpəreɪtə nɔːm/",
+          "vi": "chuẩn toán tử",
+          "gloss": "the smallest constant C with ‖Tx‖ ≤ C‖x‖",
+          "def": "The {{operator norm}} of a bounded linear operator $T$ is $\\|T\\| = \\sup\\{\\|Tx\\| : \\|x\\| \\le 1\\}$.",
+          "family": [
+            [
+              "sup",
+              "n",
+              "cận trên đúng"
+            ],
+            [
+              "submultiplicative",
+              "adj",
+              "dưới nhân tính"
+            ]
+          ],
+          "col": [
+            [
+              "the operator norm [[of]] $T$",
+              "chuẩn toán tử của $T$"
+            ],
+            [
+              "the basic estimate $\\|Tx\\| \\le \\|T\\|\\|x\\|$ [[holds]]",
+              "bất đẳng thức cơ bản của chuẩn toán tử được thỏa mãn"
+            ],
+            [
+              "take the [[supremum]] over the unit ball",
+              "lấy supremum trên hình cầu đơn vị"
+            ]
+          ],
+          "ex": [
+            "For bounded operators $S$ and $T$, we have $\\|ST\\| \\le \\|S\\|\\,\\|T\\|$.",
+            "Với các toán tử bị chặn $S$ và $T$, ta có $\\|ST\\| \\le \\|S\\|\\,\\|T\\|$."
+          ],
+          "note": [
+            "Trong $\\mathbb{R}^n$ chuẩn toán tử của ma trận $A$ (với chuẩn Euclid) là giá trị kỳ dị lớn nhất.",
+            "For a matrix it is the largest singular value."
+          ]
+        },
+        {
+          "id": "adjoint",
+          "en": "adjoint operator",
+          "pos": "n",
+          "ipa": "/ˈædʒɔɪnt ˈɒpəreɪtə/",
+          "vi": "toán tử liên hợp",
+          "gloss": "the operator T* with ⟨Tx, y⟩ = ⟨x, T*y⟩",
+          "def": "The {{adjoint operator}} of a bounded linear operator $T\\colon H \\to K$ is the unique $T^*\\colon K \\to H$ satisfying $\\langle Tx, y \\rangle = \\langle x, T^* y \\rangle$ for all $x \\in H$, $y \\in K$.",
+          "family": [
+            [
+              "adjoint",
+              "n",
+              "toán tử liên hợp"
+            ],
+            [
+              "transpose",
+              "n",
+              "ma trận chuyển vị"
+            ],
+            [
+              "Hermitian",
+              "adj",
+              "Hermite"
+            ]
+          ],
+          "col": [
+            [
+              "the adjoint [[of]] $T$",
+              "toán tử liên hợp của $T$"
+            ],
+            [
+              "$T^*$ is the adjoint [[of]] $T$",
+              "$T^*$ là liên hợp của $T$"
+            ]
+          ],
+          "ex": [
+            "For a real matrix $A$ acting on $\\mathbb{R}^n$, the adjoint is the transpose $A^\\top$.",
+            "Với ma trận thực $A$ tác động lên $\\mathbb{R}^n$, toán tử liên hợp là ma trận chuyển vị $A^\\top$."
+          ],
+          "note": [
+            "Nhấn âm đầu: AD-joint. Đọc $T^*$ là “T star”.",
+            "Read $T^*$ as “T star”."
+          ]
+        },
+        {
+          "id": "self-adjoint",
+          "en": "self-adjoint",
+          "pos": "adj",
+          "ipa": "/ˌself ˈædʒɔɪnt/",
+          "vi": "tự liên hợp",
+          "gloss": "equal to its own adjoint",
+          "def": "A bounded operator $T$ on $H$ is {{self-adjoint}} if $T^* = T$, i.e. $\\langle Tx, y \\rangle = \\langle x, Ty \\rangle$ for all $x, y$.",
+          "family": [
+            [
+              "symmetric",
+              "adj",
+              "đối xứng"
+            ],
+            [
+              "positive",
+              "adj",
+              "dương"
+            ],
+            [
+              "spectral theorem",
+              "n",
+              "định lý phổ"
+            ]
+          ],
+          "col": [
+            [
+              "a self-adjoint [[operator]]",
+              "toán tử tự liên hợp"
+            ],
+            [
+              "a positive [[self-adjoint]] operator",
+              "toán tử tự liên hợp dương"
+            ],
+            [
+              "a bounded self-adjoint operator [[on]] $H$",
+              "toán tử tự liên hợp bị chặn trên $H$"
+            ]
+          ],
+          "ex": [
+            "The eigenvalues of a self-adjoint operator are real.",
+            "Các giá trị riêng của một toán tử tự liên hợp đều là số thực."
+          ],
+          "note": [
+            "Với ma trận thực: self-adjoint = đối xứng ($A = A^\\top$).",
+            "For real matrices: symmetric."
+          ]
+        },
+        {
+          "id": "compact-operator",
+          "en": "compact operator",
+          "pos": "n",
+          "ipa": "/kəmˈpækt ˈɒpəreɪtə/",
+          "vi": "toán tử compact",
+          "gloss": "mapping bounded sets to relatively compact sets",
+          "def": "A linear operator $T\\colon X \\to Y$ is a {{compact operator}} if it maps every bounded set onto a relatively compact set, i.e. a set with compact closure.",
+          "family": [
+            [
+              "compactness",
+              "n",
+              "tính compact"
+            ],
+            [
+              "completely continuous",
+              "adj",
+              "hoàn toàn liên tục"
+            ],
+            [
+              "finite-rank",
+              "adj",
+              "hạng hữu hạn"
+            ]
+          ],
+          "col": [
+            [
+              "a compact [[linear]] operator",
+              "toán tử tuyến tính compact"
+            ],
+            [
+              "a compact operator [[maps]] weakly convergent sequences to strongly convergent ones",
+              "toán tử compact biến dãy hội tụ yếu thành dãy hội tụ mạnh"
+            ]
+          ],
+          "ex": [
+            "A compact operator maps weakly convergent sequences to norm convergent sequences.",
+            "Một toán tử compact biến mọi dãy hội tụ yếu thành dãy hội tụ theo chuẩn."
+          ],
+          "note": [
+            "Toán tử compact luôn bị chặn. Phép nhúng Rellich $H^1_0(\\Omega) \\hookrightarrow L^2(\\Omega)$ là ví dụ kinh điển.",
+            "Compact operators are always bounded."
+          ]
+        },
+        {
+          "id": "eigenvalue",
+          "en": "eigenvalue",
+          "pos": "n",
+          "ipa": "/ˈaɪɡnvæljuː/",
+          "vi": "giá trị riêng",
+          "gloss": "a scalar λ with Tx = λx for some x ≠ 0",
+          "def": "A scalar $\\lambda$ is an {{eigenvalue}} of $T$ if $Tx = \\lambda x$ for some nonzero vector $x$, called an eigenvector.",
+          "family": [
+            [
+              "eigenvector",
+              "n",
+              "vectơ riêng"
+            ],
+            [
+              "eigenspace",
+              "n",
+              "không gian riêng"
+            ],
+            [
+              "eigenfunction",
+              "n",
+              "hàm riêng"
+            ]
+          ],
+          "col": [
+            [
+              "an eigenvalue [[of]] $T$",
+              "một giá trị riêng của $T$"
+            ],
+            [
+              "the eigenvector [[associated|corresponding]] with $\\lambda$",
+              "vectơ riêng ứng với $\\lambda$"
+            ],
+            [
+              "the [[largest|smallest]] eigenvalue",
+              "giá trị riêng lớn nhất / nhỏ nhất"
+            ]
+          ],
+          "ex": [
+            "The smallest eigenvalue of the Hessian measures the strong convexity of $f$.",
+            "Giá trị riêng nhỏ nhất của Hessian đo tính lồi mạnh của $f$."
+          ],
+          "note": [
+            "“eigen” là tiếng Đức, nghĩa “riêng”. Đọc /ˈaɪɡn/.",
+            "“eigen” is German for “own”."
+          ]
+        },
+        {
+          "id": "spectrum",
+          "en": "spectrum",
+          "pos": "n",
+          "ipa": "/ˈspektrəm/",
+          "vi": "phổ",
+          "gloss": "the set of λ for which T − λI is not invertible",
+          "def": "The {{spectrum}} of a bounded operator $T$ is $\\sigma(T) = \\{\\lambda \\in \\mathbb{C} : T - \\lambda I \\text{ is not invertible}\\}$.",
+          "family": [
+            [
+              "spectral",
+              "adj",
+              "thuộc phổ"
+            ],
+            [
+              "resolvent set",
+              "n",
+              "tập giải"
+            ],
+            [
+              "spectral radius",
+              "n",
+              "bán kính phổ"
+            ]
+          ],
+          "col": [
+            [
+              "the spectrum [[of]] $T$",
+              "phổ của $T$"
+            ],
+            [
+              "the spectral [[radius]]",
+              "bán kính phổ"
+            ],
+            [
+              "the [[spectral]] theorem",
+              "định lý phổ"
+            ]
+          ],
+          "ex": [
+            "The spectrum of a bounded self-adjoint operator is a nonempty compact subset of $\\mathbb{R}$.",
+            "Phổ của một toán tử tự liên hợp bị chặn là một tập con compact khác rỗng của $\\mathbb{R}$."
+          ],
+          "note": [
+            "Số nhiều: spectra. Ở vô hạn chiều, phổ có thể chứa nhiều hơn giá trị riêng.",
+            "The plural is spectra. In infinite dimensions it can contain more than eigenvalues."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "duality",
+      "emoji": "🪞",
+      "title": "Đối ngẫu và tô-pô yếu",
+      "titleEn": "Duality and weak topologies",
+      "desc": "Không gian đối ngẫu, Hahn–Banach, Riesz, hội tụ yếu, yếu-*, phản xạ, Banach–Alaoglu, phiếm hàm.",
+      "descEn": "Dual spaces, Hahn–Banach, Riesz, weak and weak-* convergence, reflexivity, Banach–Alaoglu, functionals.",
+      "items": [
+        {
+          "id": "dual-space",
+          "en": "dual space",
+          "pos": "n",
+          "ipa": "/ˈdjuːəl speɪs/",
+          "vi": "không gian đối ngẫu",
+          "gloss": "the space of bounded linear functionals",
+          "def": "The {{dual space}} of a normed space $X$ is $X^* = \\mathcal{B}(X, \\mathbb{R})$, the space of all bounded linear functionals on $X$ with the norm $\\|f\\|_* = \\sup_{\\|x\\| \\le 1} |f(x)|$.",
+          "family": [
+            [
+              "bidual",
+              "n",
+              "không gian đối ngẫu thứ hai"
+            ],
+            [
+              "dual norm",
+              "n",
+              "chuẩn đối ngẫu"
+            ],
+            [
+              "pairing",
+              "n",
+              "cặp đối ngẫu"
+            ]
+          ],
+          "col": [
+            [
+              "the dual space [[of]] $X$",
+              "không gian đối ngẫu của $X$"
+            ],
+            [
+              "the duality [[pairing]] $\\langle f, x \\rangle$",
+              "cặp đối ngẫu $\\langle f, x \\rangle$"
+            ],
+            [
+              "the dual [[norm]]",
+              "chuẩn đối ngẫu"
+            ]
+          ],
+          "ex": [
+            "The dual space of a normed space is always a Banach space.",
+            "Không gian đối ngẫu của một không gian định chuẩn luôn là một không gian Banach."
+          ],
+          "note": [
+            "Đọc $X^*$ là “X star”. Với $1 < p < \\infty$: $(L^p)^* = L^q$ với $1/p + 1/q = 1$.",
+            "$(L^p)^* = L^q$ for $1 < p < \\infty$."
+          ]
+        },
+        {
+          "id": "hahn-banach",
+          "en": "Hahn–Banach theorem",
+          "pos": "n",
+          "ipa": "/ˌhɑːn ˈbænɑːk ˈθɪərəm/",
+          "vi": "định lý Hahn–Banach",
+          "gloss": "bounded functionals can be extended without increasing the norm",
+          "def": "The {{Hahn–Banach theorem}} states that every bounded linear functional defined on a subspace of a normed space $X$ can be extended to all of $X$ with the same norm.",
+          "family": [
+            [
+              "extension",
+              "n",
+              "sự mở rộng"
+            ],
+            [
+              "separation theorem",
+              "n",
+              "định lý tách"
+            ],
+            [
+              "supporting hyperplane",
+              "n",
+              "siêu phẳng tựa"
+            ]
+          ],
+          "col": [
+            [
+              "[[by]] the Hahn–Banach theorem",
+              "theo định lý Hahn–Banach"
+            ],
+            [
+              "extend a functional [[to]] the whole space",
+              "mở rộng một phiếm hàm lên toàn không gian"
+            ],
+            [
+              "separate two convex sets [[by]] a hyperplane",
+              "tách hai tập lồi bằng một siêu phẳng"
+            ]
+          ],
+          "ex": [
+            "By the Hahn–Banach theorem, a closed convex set and a point outside it can be strictly separated by a hyperplane.",
+            "Theo định lý Hahn–Banach, một tập lồi đóng và một điểm nằm ngoài nó có thể được tách chặt bằng một siêu phẳng."
+          ],
+          "note": [
+            "Là công cụ gốc của giải tích lồi và đối ngẫu. Hahn đọc /hɑːn/.",
+            "A foundation of convex analysis and duality."
+          ]
+        },
+        {
+          "id": "riesz-representation",
+          "en": "Riesz representation theorem",
+          "pos": "n",
+          "ipa": "/ˈriːs ˌreprɪzenˈteɪʃn ˈθɪərəm/",
+          "vi": "định lý biểu diễn Riesz",
+          "gloss": "every bounded functional on H is an inner product with a unique vector",
+          "def": "By the {{Riesz representation theorem}}, for every bounded linear functional $f$ on a Hilbert space $H$ there is a unique $y \\in H$ such that $f(x) = \\langle x, y \\rangle$ for all $x \\in H$, and $\\|f\\| = \\|y\\|$.",
+          "family": [
+            [
+              "represent",
+              "v",
+              "biểu diễn"
+            ],
+            [
+              "representation",
+              "n",
+              "sự biểu diễn"
+            ],
+            [
+              "Riesz map",
+              "n",
+              "ánh xạ Riesz"
+            ]
+          ],
+          "col": [
+            [
+              "[[by]] the Riesz representation theorem",
+              "theo định lý biểu diễn Riesz"
+            ],
+            [
+              "identify $H$ [[with]] its dual",
+              "đồng nhất $H$ với không gian đối ngẫu của nó"
+            ],
+            [
+              "represented [[by]] a vector",
+              "được biểu diễn bởi một vectơ"
+            ]
+          ],
+          "ex": [
+            "By the Riesz representation theorem, we identify the Hilbert space $H$ with its dual $H^*$.",
+            "Theo định lý biểu diễn Riesz, ta đồng nhất không gian Hilbert $H$ với không gian đối ngẫu $H^*$ của nó."
+          ],
+          "note": [
+            "Riesz đọc /ˈriːs/. Đây là lý do gradient của $f$ trên Hilbert là một vectơ trong $H$.",
+            "This is why the gradient of $f$ lives in $H$."
+          ]
+        },
+        {
+          "id": "weak-convergence",
+          "en": "weak convergence",
+          "pos": "n",
+          "ipa": "/wiːk kənˈvɜːdʒəns/",
+          "vi": "hội tụ yếu",
+          "gloss": "convergence against every bounded linear functional",
+          "def": "A sequence $(x_n)$ in $X$ {{converges weakly}} to $x$, written $x_n \\rightharpoonup x$, if $f(x_n) \\to f(x)$ for every $f \\in X^*$; in a Hilbert space this means $\\langle x_n, y \\rangle \\to \\langle x, y \\rangle$ for all $y \\in H$.",
+          "family": [
+            [
+              "weakly",
+              "adv",
+              "một cách yếu"
+            ],
+            [
+              "strong convergence",
+              "n",
+              "hội tụ mạnh (theo chuẩn)"
+            ],
+            [
+              "weak topology",
+              "n",
+              "tô-pô yếu"
+            ]
+          ],
+          "col": [
+            [
+              "converge weakly [[to]] $x$",
+              "hội tụ yếu đến $x$"
+            ],
+            [
+              "weakly [[closed]]",
+              "đóng yếu"
+            ],
+            [
+              "a weakly convergent [[subsequence]]",
+              "một dãy con hội tụ yếu"
+            ]
+          ],
+          "ex": [
+            "Every bounded sequence in a Hilbert space has a weakly convergent subsequence.",
+            "Mọi dãy bị chặn trong một không gian Hilbert đều có một dãy con hội tụ yếu."
+          ],
+          "note": [
+            "Hội tụ mạnh kéo theo hội tụ yếu; chiều ngược lại sai (ví dụ cơ sở trực chuẩn $e_n \\rightharpoonup 0$ nhưng $\\|e_n\\| = 1$).",
+            "Strong implies weak; an orthonormal basis $e_n \\rightharpoonup 0$ but $\\|e_n\\| = 1$."
+          ]
+        },
+        {
+          "id": "weak-star",
+          "en": "weak-* convergence",
+          "alt": [
+            "weak star convergence",
+            "weak* convergence"
+          ],
+          "pos": "n",
+          "ipa": "/wiːk stɑː kənˈvɜːdʒəns/",
+          "vi": "hội tụ yếu-*",
+          "gloss": "pointwise convergence of functionals on X",
+          "def": "A sequence $(f_n)$ in $X^*$ {{converges weak-*}} to $f$ if $f_n(x) \\to f(x)$ for every $x \\in X$.",
+          "family": [
+            [
+              "weak-* topology",
+              "n",
+              "tô-pô yếu-*"
+            ],
+            [
+              "weak-* compact",
+              "adj",
+              "compact yếu-*"
+            ]
+          ],
+          "col": [
+            [
+              "converge weak-* [[to]] $f$",
+              "hội tụ yếu-* đến $f$"
+            ],
+            [
+              "weak-* [[compact]]",
+              "compact yếu-*"
+            ]
+          ],
+          "ex": [
+            "By the Banach–Alaoglu theorem, the closed unit ball of $X^*$ is weak-* compact.",
+            "Theo định lý Banach–Alaoglu, hình cầu đơn vị đóng của $X^*$ là compact yếu-*."
+          ],
+          "note": [
+            "Đọc “weak star”. Trên không gian phản xạ, yếu-* trùng với yếu.",
+            "Read “weak star”. On reflexive spaces it coincides with weak."
+          ]
+        },
+        {
+          "id": "reflexive",
+          "en": "reflexive",
+          "pos": "adj",
+          "ipa": "/rɪˈfleksɪv/",
+          "vi": "phản xạ",
+          "gloss": "equal to its bidual under the canonical embedding",
+          "def": "A Banach space $X$ is {{reflexive}} if the canonical embedding $X \\to X^{**}$ is onto, so $X = X^{**}$.",
+          "family": [
+            [
+              "reflexivity",
+              "n",
+              "tính phản xạ"
+            ],
+            [
+              "canonical embedding",
+              "n",
+              "phép nhúng chính tắc"
+            ],
+            [
+              "uniformly convex",
+              "adj",
+              "lồi đều"
+            ]
+          ],
+          "col": [
+            [
+              "a reflexive Banach [[space]]",
+              "không gian Banach phản xạ"
+            ],
+            [
+              "every Hilbert space is [[reflexive]]",
+              "mọi không gian Hilbert đều phản xạ"
+            ]
+          ],
+          "ex": [
+            "In a reflexive Banach space, every bounded sequence has a weakly convergent subsequence.",
+            "Trong một không gian Banach phản xạ, mọi dãy bị chặn đều có một dãy con hội tụ yếu."
+          ],
+          "note": [
+            "$L^p$ phản xạ với $1 < p < \\infty$, còn $L^1$, $L^\\infty$ không phản xạ.",
+            "$L^1$ and $L^\\infty$ are not reflexive."
+          ]
+        },
+        {
+          "id": "banach-alaoglu",
+          "en": "Banach–Alaoglu theorem",
+          "pos": "n",
+          "ipa": "/ˈbænɑːk əˈlɔːɡluː ˈθɪərəm/",
+          "vi": "định lý Banach–Alaoglu",
+          "gloss": "the dual unit ball is weak-* compact",
+          "def": "The {{Banach–Alaoglu theorem}} states that the closed unit ball of the dual space $X^*$ is compact in the weak-* topology.",
+          "family": [
+            [
+              "weak-* compact",
+              "adj",
+              "compact yếu-*"
+            ],
+            [
+              "sequentially compact",
+              "adj",
+              "compact theo dãy"
+            ]
+          ],
+          "col": [
+            [
+              "[[by]] the Banach–Alaoglu theorem",
+              "theo định lý Banach–Alaoglu"
+            ],
+            [
+              "the closed unit [[ball]] of $X^*$",
+              "hình cầu đơn vị đóng của $X^*$"
+            ]
+          ],
+          "ex": [
+            "By the Banach–Alaoglu theorem and separability of $X$, every bounded sequence in $X^*$ has a weak-* convergent subsequence.",
+            "Theo định lý Banach–Alaoglu và tính khả ly của $X$, mọi dãy bị chặn trong $X^*$ có một dãy con hội tụ yếu-*."
+          ],
+          "note": [
+            "Alaoglu đọc /əˈlɔːɡluː/. Là cơ sở của phương pháp trực tiếp trong biến phân.",
+            "The basis of the direct method of the calculus of variations."
+          ]
+        },
+        {
+          "id": "linear-functional",
+          "en": "bounded linear functional",
+          "alt": [
+            "linear functional"
+          ],
+          "pos": "n",
+          "ipa": "/ˈbaʊndɪd ˈlɪniə ˈfʌŋkʃnəl/",
+          "vi": "phiếm hàm tuyến tính bị chặn",
+          "gloss": "a bounded linear map into the scalars",
+          "def": "A {{bounded linear functional}} on $X$ is a bounded linear map $f\\colon X \\to \\mathbb{R}$, i.e. there is $C$ with $|f(x)| \\le C\\|x\\|$.",
+          "family": [
+            [
+              "functional",
+              "n",
+              "phiếm hàm"
+            ],
+            [
+              "linear form",
+              "n",
+              "dạng tuyến tính"
+            ]
+          ],
+          "col": [
+            [
+              "a continuous linear [[functional]]",
+              "phiếm hàm tuyến tính liên tục"
+            ],
+            [
+              "a functional [[on]] $X$",
+              "một phiếm hàm trên $X$"
+            ],
+            [
+              "the value of $f$ [[at]] $x$",
+              "giá trị của $f$ tại $x$"
+            ]
+          ],
+          "ex": [
+            "Every bounded linear functional on $\\mathbb{R}^n$ has the form $x \\mapsto \\langle a, x \\rangle$ for some $a \\in \\mathbb{R}^n$.",
+            "Mọi phiếm hàm tuyến tính bị chặn trên $\\mathbb{R}^n$ có dạng $x \\mapsto \\langle a, x \\rangle$ với một $a \\in \\mathbb{R}^n$ nào đó."
+          ],
+          "note": [
+            "“functional” là danh từ: hàm nhận giá trị số trên một không gian hàm (cũng là “phiếm hàm” trong biến phân).",
+            "A functional is a scalar-valued function on a function space."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "theorems",
+      "emoji": "🏛️",
+      "title": "Các định lý nền tảng",
+      "titleEn": "Fundamental theorems",
+      "desc": "Điểm bất động Banach, Baire, bị chặn đều, ánh xạ mở, đồ thị đóng, Lax–Milgram, hình chiếu, ánh xạ co.",
+      "descEn": "Banach's fixed point theorem, Baire, uniform boundedness, open mapping, closed graph, Lax–Milgram, projection, contractions.",
+      "items": [
+        {
+          "id": "contraction",
+          "en": "contraction mapping",
+          "alt": [
+            "contraction"
+          ],
+          "pos": "n",
+          "ipa": "/kənˈtrækʃn ˈmæpɪŋ/",
+          "vi": "ánh xạ co",
+          "gloss": "a map that shrinks distances by a fixed factor below 1",
+          "def": "A map $T\\colon X \\to X$ on a metric space is a {{contraction mapping}} if there is $q \\in [0, 1)$ with $d(Tx, Ty) \\le q\\, d(x, y)$ for all $x, y$.",
+          "family": [
+            [
+              "contractive",
+              "adj",
+              "co"
+            ],
+            [
+              "contraction constant",
+              "n",
+              "hằng số co"
+            ],
+            [
+              "strict contraction",
+              "n",
+              "ánh xạ co chặt"
+            ]
+          ],
+          "col": [
+            [
+              "a contraction with [[constant]] $q$",
+              "ánh xạ co với hằng số $q$"
+            ],
+            [
+              "$T$ is a contraction [[on]] $X$",
+              "$T$ là ánh xạ co trên $X$"
+            ]
+          ],
+          "ex": [
+            "If $f$ is $\\mu$-strongly convex with $L$-Lipschitz gradient, the gradient step $x \\mapsto x - \\frac{1}{L}\\nabla f(x)$ is a contraction with constant $1 - \\mu/L$.",
+            "Nếu $f$ lồi mạnh với hằng số $\\mu$ và gradient $L$-Lipschitz thì bước gradient $x \\mapsto x - \\frac{1}{L}\\nabla f(x)$ là ánh xạ co với hằng số $1 - \\mu/L$."
+          ],
+          "note": [
+            "Co khác “không giãn” (nonexpansive): hằng số co phải nhỏ hơn 1 chặt.",
+            "A contraction needs $q < 1$; a nonexpansive map allows $q = 1$."
+          ]
+        },
+        {
+          "id": "banach-fixed-point",
+          "en": "Banach fixed-point theorem",
+          "alt": [
+            "Banach fixed point theorem",
+            "contraction mapping theorem"
+          ],
+          "pos": "n",
+          "ipa": "/ˈbænɑːk fɪkst pɔɪnt ˈθɪərəm/",
+          "vi": "định lý điểm bất động Banach",
+          "gloss": "a contraction on a complete metric space has a unique fixed point",
+          "def": "The {{Banach fixed-point theorem}} states that every contraction on a nonempty complete metric space has a unique fixed point, and the iterates $x_{n+1} = Tx_n$ converge to it for any starting point.",
+          "family": [
+            [
+              "fixed point",
+              "n",
+              "điểm bất động"
+            ],
+            [
+              "Picard iteration",
+              "n",
+              "dãy lặp Picard"
+            ]
+          ],
+          "col": [
+            [
+              "[[by]] Banach's fixed-point theorem",
+              "theo định lý điểm bất động Banach"
+            ],
+            [
+              "a unique fixed [[point]]",
+              "một điểm bất động duy nhất"
+            ],
+            [
+              "the fixed-point [[iteration]]",
+              "phép lặp điểm bất động"
+            ]
+          ],
+          "ex": [
+            "By the Banach fixed-point theorem, the equation $x = Tx$ has exactly one solution in $X$.",
+            "Theo định lý điểm bất động Banach, phương trình $x = Tx$ có đúng một nghiệm trong $X$."
+          ],
+          "note": [
+            "Còn có đánh giá sai số $d(x_n, x^*) \\le q^n/(1-q)\\, d(x_1, x_0)$, cho thấy hội tụ tuyến tính.",
+            "It also gives a linear convergence rate."
+          ]
+        },
+        {
+          "id": "baire",
+          "en": "Baire category theorem",
+          "pos": "n",
+          "ipa": "/beə ˈkætəɡri ˈθɪərəm/",
+          "vi": "định lý Baire",
+          "gloss": "a complete metric space is not a countable union of nowhere dense sets",
+          "def": "The {{Baire category theorem}} states that a nonempty complete metric space is not a countable union of nowhere dense closed sets.",
+          "family": [
+            [
+              "nowhere dense",
+              "adj",
+              "không đâu trù mật"
+            ],
+            [
+              "meager",
+              "adj",
+              "thuộc phạm trù thứ nhất"
+            ],
+            [
+              "residual",
+              "adj",
+              "dư"
+            ]
+          ],
+          "col": [
+            [
+              "[[by]] the Baire category theorem",
+              "theo định lý Baire"
+            ],
+            [
+              "a countable [[union]] of closed sets",
+              "hợp đếm được của các tập đóng"
+            ]
+          ],
+          "ex": [
+            "By the Baire category theorem, one of the closed sets $A_n$ has nonempty interior.",
+            "Theo định lý Baire, một trong các tập đóng $A_n$ có phần trong khác rỗng."
+          ],
+          "note": [
+            "Baire đọc /beə/. “Category” ở đây là thuật ngữ tô-pô (phạm trù Baire), không liên quan đến lý thuyết phạm trù.",
+            "“Category” is a topological term here."
+          ]
+        },
+        {
+          "id": "uniform-boundedness",
+          "en": "uniform boundedness principle",
+          "alt": [
+            "Banach–Steinhaus theorem"
+          ],
+          "pos": "n",
+          "ipa": "/ˈjuːnɪfɔːm ˈbaʊndɪdnəs ˈprɪnsəpl/",
+          "vi": "nguyên lý bị chặn đều",
+          "gloss": "pointwise bounded operators are uniformly bounded",
+          "def": "The {{uniform boundedness principle}} states that if $X$ is Banach and a family $\\{T_i\\}$ of bounded operators satisfies $\\sup_i \\|T_i x\\| < \\infty$ for each $x$, then $\\sup_i \\|T_i\\| < \\infty$.",
+          "family": [
+            [
+              "pointwise bounded",
+              "adj",
+              "bị chặn theo từng điểm"
+            ],
+            [
+              "Banach–Steinhaus",
+              "n",
+              "(tên khác)"
+            ]
+          ],
+          "col": [
+            [
+              "[[by]] the uniform boundedness principle",
+              "theo nguyên lý bị chặn đều"
+            ],
+            [
+              "a pointwise bounded [[family]]",
+              "họ bị chặn theo từng điểm"
+            ]
+          ],
+          "ex": [
+            "By the uniform boundedness principle, every weakly convergent sequence is bounded.",
+            "Theo nguyên lý bị chặn đều, mọi dãy hội tụ yếu đều bị chặn."
+          ],
+          "note": [
+            "Viết tắt UBP. Cần $X$ đầy đủ (Banach), không dùng được cho không gian định chuẩn bất kỳ.",
+            "It needs $X$ complete."
+          ]
+        },
+        {
+          "id": "open-mapping",
+          "en": "open mapping theorem",
+          "pos": "n",
+          "ipa": "/ˈəʊpən ˈmæpɪŋ ˈθɪərəm/",
+          "vi": "định lý ánh xạ mở",
+          "gloss": "a surjective bounded operator between Banach spaces is open",
+          "def": "The {{open mapping theorem}} states that every surjective bounded linear operator between Banach spaces maps open sets to open sets.",
+          "family": [
+            [
+              "surjective",
+              "adj",
+              "toàn ánh"
+            ],
+            [
+              "bounded inverse theorem",
+              "n",
+              "định lý ánh xạ ngược bị chặn"
+            ]
+          ],
+          "col": [
+            [
+              "[[by]] the open mapping theorem",
+              "theo định lý ánh xạ mở"
+            ],
+            [
+              "a surjective bounded [[operator]]",
+              "toán tử bị chặn toàn ánh"
+            ]
+          ],
+          "ex": [
+            "By the open mapping theorem, a bijective bounded linear operator between Banach spaces has a bounded inverse.",
+            "Theo định lý ánh xạ mở, một toán tử tuyến tính bị chặn song ánh giữa các không gian Banach có ánh xạ ngược bị chặn."
+          ],
+          "note": [
+            "Hệ quả hay dùng: định lý ánh xạ ngược bị chặn (bounded inverse theorem).",
+            "A common corollary: the bounded inverse theorem."
+          ]
+        },
+        {
+          "id": "closed-graph",
+          "en": "closed graph theorem",
+          "pos": "n",
+          "ipa": "/kləʊzd ɡrɑːf ˈθɪərəm/",
+          "vi": "định lý đồ thị đóng",
+          "gloss": "a linear operator with closed graph is bounded",
+          "def": "The {{closed graph theorem}} states that a linear operator $T\\colon X \\to Y$ between Banach spaces is bounded if and only if its graph $\\{(x, Tx)\\}$ is closed in $X \\times Y$.",
+          "family": [
+            [
+              "graph",
+              "n",
+              "đồ thị"
+            ],
+            [
+              "closed operator",
+              "n",
+              "toán tử đóng"
+            ]
+          ],
+          "col": [
+            [
+              "[[by]] the closed graph theorem",
+              "theo định lý đồ thị đóng"
+            ],
+            [
+              "the graph of $T$ is [[closed]]",
+              "đồ thị của $T$ là tập đóng"
+            ]
+          ],
+          "ex": [
+            "By the closed graph theorem, it suffices to show that $T$ has a closed graph.",
+            "Theo định lý đồ thị đóng, chỉ cần chứng minh $T$ có đồ thị đóng."
+          ],
+          "note": [
+            "Toán tử đạo hàm $d/dx$ có đồ thị đóng nhưng không bị chặn: miền xác định của nó không phải toàn không gian.",
+            "$d/dx$ is closed but not bounded; its domain is not the whole space."
+          ]
+        },
+        {
+          "id": "lax-milgram",
+          "en": "Lax–Milgram theorem",
+          "pos": "n",
+          "ipa": "/læks ˈmɪlɡræm ˈθɪərəm/",
+          "vi": "định lý Lax–Milgram",
+          "gloss": "existence and uniqueness for bounded coercive bilinear forms",
+          "def": "The {{Lax–Milgram theorem}} states that if $a\\colon H \\times H \\to \\mathbb{R}$ is a bounded, coercive bilinear form and $f \\in H^*$, there is a unique $u \\in H$ with $a(u, v) = f(v)$ for all $v \\in H$.",
+          "family": [
+            [
+              "bilinear form",
+              "n",
+              "dạng song tuyến tính"
+            ],
+            [
+              "coercive",
+              "adj",
+              "bức"
+            ],
+            [
+              "weak solution",
+              "n",
+              "nghiệm yếu"
+            ]
+          ],
+          "col": [
+            [
+              "[[by]] the Lax–Milgram theorem",
+              "theo định lý Lax–Milgram"
+            ],
+            [
+              "a bounded coercive bilinear [[form]]",
+              "dạng song tuyến tính bị chặn và bức"
+            ],
+            [
+              "a weak [[solution]]",
+              "nghiệm yếu"
+            ]
+          ],
+          "ex": [
+            "By the Lax–Milgram theorem, the variational problem has a unique weak solution in $H^1_0(\\Omega)$.",
+            "Theo định lý Lax–Milgram, bài toán biến phân có nghiệm yếu duy nhất trong $H^1_0(\\Omega)$."
+          ],
+          "note": [
+            "“Coercive” ở đây là $a(v, v) \\ge c\\|v\\|^2$ (khác định nghĩa coercive của hàm số).",
+            "Here coercive means $a(v, v) \\ge c\\|v\\|^2$."
+          ]
+        },
+        {
+          "id": "projection-theorem",
+          "en": "projection theorem",
+          "pos": "n",
+          "ipa": "/prəˈdʒekʃn ˈθɪərəm/",
+          "vi": "định lý hình chiếu",
+          "gloss": "every point has a unique nearest point in a closed convex set",
+          "def": "The {{projection theorem}} states that for every nonempty closed convex subset $C$ of a Hilbert space $H$ and every $x \\in H$, there is a unique $P_C(x) \\in C$ with $\\|x - P_C(x)\\| = \\operatorname{dist}(x, C)$, characterized by $\\langle x - P_C(x), y - P_C(x) \\rangle \\le 0$ for all $y \\in C$.",
+          "family": [
+            [
+              "nearest point",
+              "n",
+              "điểm gần nhất"
+            ],
+            [
+              "variational inequality",
+              "n",
+              "bất đẳng thức biến phân"
+            ]
+          ],
+          "col": [
+            [
+              "[[by]] the projection theorem",
+              "theo định lý hình chiếu"
+            ],
+            [
+              "the unique nearest [[point]]",
+              "điểm gần nhất duy nhất"
+            ],
+            [
+              "characterized [[by]] a variational inequality",
+              "được đặc trưng bởi một bất đẳng thức biến phân"
+            ]
+          ],
+          "ex": [
+            "By the projection theorem, $P_C(x)$ is well defined for every $x \\in H$.",
+            "Theo định lý hình chiếu, $P_C(x)$ được xác định tốt với mọi $x \\in H$."
+          ],
+          "note": [
+            "Điều kiện đặc trưng chính là bất đẳng thức biến phân, xuất hiện liên tục trong tối ưu.",
+            "The characterization is a variational inequality."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nonlinear",
+      "emoji": "🔁",
+      "title": "Toán tử phi tuyến và điểm bất động",
+      "titleEn": "Nonlinear operators and fixed points",
+      "desc": "Không giãn, điểm bất động, không giãn chặt, toán tử đơn điệu, đơn điệu cực đại, giải thức, đơn điệu Fejér, nguyên lý đóng nửa.",
+      "descEn": "Nonexpansive maps, fixed points, firm nonexpansiveness, monotone and maximal monotone operators, resolvents, Fejér monotonicity, demiclosedness.",
+      "items": [
+        {
+          "id": "nonexpansive",
+          "en": "nonexpansive mapping",
+          "alt": [
+            "nonexpansive",
+            "nonexpansive operator"
+          ],
+          "pos": "n",
+          "ipa": "/ˌnɒnɪkˈspænsɪv ˈmæpɪŋ/",
+          "vi": "ánh xạ không giãn",
+          "gloss": "a 1-Lipschitz map",
+          "def": "A mapping $T\\colon C \\to H$ is a {{nonexpansive mapping}} if $\\|Tx - Ty\\| \\le \\|x - y\\|$ for all $x, y \\in C$.",
+          "family": [
+            [
+              "nonexpansiveness",
+              "n",
+              "tính không giãn"
+            ],
+            [
+              "Lipschitz continuous",
+              "adj",
+              "liên tục Lipschitz"
+            ],
+            [
+              "averaged",
+              "adj",
+              "trung bình hóa"
+            ]
+          ],
+          "col": [
+            [
+              "a nonexpansive mapping [[on]] $C$",
+              "ánh xạ không giãn trên $C$"
+            ],
+            [
+              "the projection is [[nonexpansive]]",
+              "phép chiếu là ánh xạ không giãn"
+            ],
+            [
+              "a nonexpansive [[self]]-mapping",
+              "ánh xạ không giãn từ $C$ vào chính nó"
+            ]
+          ],
+          "ex": [
+            "The projection onto a nonempty closed convex set is a nonexpansive mapping.",
+            "Phép chiếu lên một tập lồi đóng khác rỗng là một ánh xạ không giãn."
+          ],
+          "note": [
+            "Không giãn = $1$-Lipschitz. Khác ánh xạ co (contraction), vốn có hằng số $< 1$.",
+            "Nonexpansive = 1-Lipschitz."
+          ]
+        },
+        {
+          "id": "fixed-point",
+          "en": "fixed point",
+          "pos": "n",
+          "ipa": "/fɪkst pɔɪnt/",
+          "vi": "điểm bất động",
+          "gloss": "a point mapped to itself",
+          "def": "A point $x$ is a {{fixed point}} of $T$ if $Tx = x$; the set of all fixed points is denoted $\\operatorname{Fix} T$.",
+          "family": [
+            [
+              "fix",
+              "v",
+              "giữ nguyên"
+            ],
+            [
+              "fixed-point iteration",
+              "n",
+              "phép lặp điểm bất động"
+            ],
+            [
+              "common fixed point",
+              "n",
+              "điểm bất động chung"
+            ]
+          ],
+          "col": [
+            [
+              "a fixed point [[of]] $T$",
+              "một điểm bất động của $T$"
+            ],
+            [
+              "find a fixed point [[of]] $T$",
+              "tìm một điểm bất động của $T$"
+            ],
+            [
+              "the fixed point [[set]]",
+              "tập điểm bất động"
+            ]
+          ],
+          "ex": [
+            "Let $T$ be nonexpansive with $\\operatorname{Fix} T \\ne \\emptyset$; we seek a fixed point of $T$.",
+            "Cho $T$ không giãn với $\\operatorname{Fix} T \\ne \\emptyset$; ta tìm một điểm bất động của $T$."
+          ],
+          "note": [
+            "Đọc $\\operatorname{Fix} T$ là “fix T”. Viết có gạch nối khi làm tính từ: a fixed-point theorem.",
+            "Hyphenate when it modifies a noun: a fixed-point theorem."
+          ]
+        },
+        {
+          "id": "firmly-nonexpansive",
+          "en": "firmly nonexpansive",
+          "pos": "adj",
+          "ipa": "/ˈfɜːmli ˌnɒnɪkˈspænsɪv/",
+          "vi": "không giãn chặt",
+          "gloss": "‖Tx−Ty‖² ≤ ⟨Tx−Ty, x−y⟩",
+          "def": "$T$ is {{firmly nonexpansive}} if $\\|Tx - Ty\\|^2 \\le \\langle Tx - Ty, x - y \\rangle$ for all $x, y$; equivalently, $2T - I$ is nonexpansive.",
+          "family": [
+            [
+              "averaged operator",
+              "n",
+              "toán tử trung bình hóa"
+            ],
+            [
+              "Krasnosel'skii–Mann iteration",
+              "n",
+              "phép lặp Krasnosel'skii–Mann"
+            ]
+          ],
+          "col": [
+            [
+              "firmly nonexpansive [[operator]]",
+              "toán tử không giãn chặt"
+            ],
+            [
+              "the resolvent is firmly [[nonexpansive]]",
+              "giải thức là không giãn chặt"
+            ]
+          ],
+          "ex": [
+            "The projection onto a closed convex set is firmly nonexpansive.",
+            "Phép chiếu lên một tập lồi đóng là không giãn chặt."
+          ],
+          "note": [
+            "Không giãn chặt $\\Rightarrow$ không giãn, nhưng không ngược lại. Tương đương “$1/2$-averaged”.",
+            "Firmly nonexpansive implies nonexpansive, but not conversely."
+          ]
+        },
+        {
+          "id": "monotone-operator",
+          "en": "monotone operator",
+          "pos": "n",
+          "ipa": "/ˈmɒnətəʊn ˈɒpəreɪtə/",
+          "vi": "toán tử đơn điệu",
+          "gloss": "⟨u−v, x−y⟩ ≥ 0 for all graph points",
+          "def": "A set-valued operator $A\\colon H \\rightrightarrows H$ is a {{monotone operator}} if $\\langle x - y, u - v \\rangle \\ge 0$ for all $(x, u), (y, v)$ in its graph.",
+          "family": [
+            [
+              "strongly monotone",
+              "adj",
+              "đơn điệu mạnh"
+            ],
+            [
+              "set-valued operator",
+              "n",
+              "toán tử đa trị"
+            ],
+            [
+              "graph",
+              "n",
+              "đồ thị"
+            ]
+          ],
+          "col": [
+            [
+              "a maximally monotone [[operator]]",
+              "toán tử đơn điệu cực đại"
+            ],
+            [
+              "the subdifferential is a monotone [[operator]]",
+              "dưới vi phân là một toán tử đơn điệu"
+            ],
+            [
+              "a strongly monotone [[and]] Lipschitz continuous operator",
+              "toán tử đơn điệu mạnh và liên tục Lipschitz"
+            ]
+          ],
+          "ex": [
+            "The subdifferential of a proper lower semicontinuous convex function is a maximally monotone operator.",
+            "Dưới vi phân của một hàm lồi chính thường nửa liên tục dưới là một toán tử đơn điệu cực đại."
+          ],
+          "note": [
+            "Với hàm một biến, $f'$ đơn điệu khi và chỉ khi $f$ lồi. Đọc $\\rightrightarrows$ là “maps into subsets of”.",
+            "For scalar $f$, $f'$ is monotone iff $f$ is convex."
+          ]
+        },
+        {
+          "id": "maximal-monotone",
+          "en": "maximally monotone",
+          "alt": [
+            "maximal monotone"
+          ],
+          "pos": "adj",
+          "ipa": "/ˈmæksɪməli ˈmɒnətəʊn/",
+          "vi": "đơn điệu cực đại",
+          "gloss": "monotone, and not properly contained in another monotone operator",
+          "def": "A monotone operator $A$ is {{maximally monotone}} if its graph is not properly contained in the graph of any other monotone operator; equivalently, $\\operatorname{ran}(I + A) = H$ (Minty).",
+          "family": [
+            [
+              "maximality",
+              "n",
+              "tính cực đại"
+            ],
+            [
+              "Minty's theorem",
+              "n",
+              "định lý Minty"
+            ],
+            [
+              "zero of an operator",
+              "n",
+              "không điểm của toán tử"
+            ]
+          ],
+          "col": [
+            [
+              "a maximally monotone operator [[on]] $H$",
+              "toán tử đơn điệu cực đại trên $H$"
+            ],
+            [
+              "find a zero of a maximally monotone [[operator]]",
+              "tìm không điểm của một toán tử đơn điệu cực đại"
+            ]
+          ],
+          "ex": [
+            "The problem is to find $x \\in H$ such that $0 \\in Ax$, where $A$ is maximally monotone.",
+            "Bài toán là tìm $x \\in H$ sao cho $0 \\in Ax$, với $A$ đơn điệu cực đại."
+          ],
+          "note": [
+            "Viết cực đại (maximally) bằng trạng từ, không viết “maximum monotone”. Bài toán $0 \\in Ax$ là “monotone inclusion”.",
+            "It is “maximally monotone”, not “maximum monotone”."
+          ]
+        },
+        {
+          "id": "resolvent",
+          "en": "resolvent",
+          "pos": "n",
+          "ipa": "/rɪˈzɒlvənt/",
+          "vi": "giải thức (toán tử giải)",
+          "gloss": "the operator (I + λA)⁻¹",
+          "def": "The {{resolvent}} of an operator $A$ with parameter $\\lambda > 0$ is $J_{\\lambda A} = (I + \\lambda A)^{-1}$.",
+          "family": [
+            [
+              "resolvent set",
+              "n",
+              "tập giải"
+            ],
+            [
+              "proximal operator",
+              "n",
+              "toán tử gần kề"
+            ],
+            [
+              "Yosida approximation",
+              "n",
+              "xấp xỉ Yosida"
+            ]
+          ],
+          "col": [
+            [
+              "the resolvent [[of]] $A$",
+              "giải thức của $A$"
+            ],
+            [
+              "the resolvent is single-[[valued]]",
+              "giải thức là đơn trị"
+            ],
+            [
+              "the resolvent [[identity]]",
+              "đẳng thức giải thức"
+            ]
+          ],
+          "ex": [
+            "For a maximally monotone $A$, the resolvent $J_{\\lambda A}$ is a firmly nonexpansive operator defined on all of $H$.",
+            "Với $A$ đơn điệu cực đại, giải thức $J_{\\lambda A}$ là một toán tử không giãn chặt xác định trên toàn $H$."
+          ],
+          "note": [
+            "Khi $A = \\partial f$ thì giải thức chính là toán tử gần kề $\\operatorname{prox}_{\\lambda f}$.",
+            "For $A = \\partial f$ the resolvent is the proximal operator."
+          ]
+        },
+        {
+          "id": "fejer-monotone",
+          "en": "Fejér monotone",
+          "pos": "adj",
+          "ipa": "/ˈfeɪer ˈmɒnətəʊn/",
+          "vi": "đơn điệu Fejér",
+          "gloss": "never moving farther from any point of a set",
+          "def": "A sequence $(x_n)$ is {{Fejér monotone}} with respect to a nonempty set $S$ if $\\|x_{n+1} - z\\| \\le \\|x_n - z\\|$ for all $z \\in S$ and all $n$.",
+          "family": [
+            [
+              "Fejér monotonicity",
+              "n",
+              "tính đơn điệu Fejér"
+            ],
+            [
+              "Opial's lemma",
+              "n",
+              "bổ đề Opial"
+            ],
+            [
+              "quasi-Fejér",
+              "adj",
+              "tựa Fejér"
+            ]
+          ],
+          "col": [
+            [
+              "Fejér monotone [[with respect to]] $S$",
+              "đơn điệu Fejér đối với $S$"
+            ],
+            [
+              "a Fejér monotone [[sequence]]",
+              "dãy đơn điệu Fejér"
+            ]
+          ],
+          "ex": [
+            "A Fejér monotone sequence with respect to $S$ is bounded, and $\\lim \\|x_n - z\\|$ exists for every $z \\in S$.",
+            "Một dãy đơn điệu Fejér đối với $S$ bị chặn, và $\\lim \\|x_n - z\\|$ tồn tại với mọi $z \\in S$."
+          ],
+          "note": [
+            "Fejér đọc /ˈfeɪer/. Là công cụ chuẩn để chứng minh hội tụ yếu của thuật toán.",
+            "A standard tool in weak convergence proofs."
+          ]
+        },
+        {
+          "id": "demiclosed",
+          "en": "demiclosed",
+          "pos": "adj",
+          "ipa": "/ˈdemikləʊzd/",
+          "vi": "đóng nửa (demiclosed)",
+          "gloss": "weak convergence of xₙ and strong of xₙ−Txₙ forces a fixed point",
+          "def": "$I - T$ is {{demiclosed}} at $0$ if $x_n \\rightharpoonup x$ and $x_n - Tx_n \\to 0$ imply $x - Tx = 0$.",
+          "family": [
+            [
+              "demiclosedness principle",
+              "n",
+              "nguyên lý đóng nửa"
+            ],
+            [
+              "weak sequential cluster point",
+              "n",
+              "điểm tụ yếu theo dãy"
+            ]
+          ],
+          "col": [
+            [
+              "the demiclosedness [[principle]]",
+              "nguyên lý đóng nửa"
+            ],
+            [
+              "$I - T$ is demiclosed [[at]] $0$",
+              "$I - T$ đóng nửa tại $0$"
+            ]
+          ],
+          "ex": [
+            "By the demiclosedness principle, every weak cluster point of the sequence belongs to $\\operatorname{Fix} T$.",
+            "Theo nguyên lý đóng nửa, mọi điểm tụ yếu của dãy đều thuộc $\\operatorname{Fix} T$."
+          ],
+          "note": [
+            "Với $T$ không giãn trên Hilbert thì $I - T$ đóng nửa tại $0$. Kết hợp với Opial cho hội tụ yếu của toàn dãy.",
+            "For nonexpansive $T$ on a Hilbert space, $I - T$ is demiclosed at 0."
+          ]
+        }
+      ]
+    }
+  ]
+}

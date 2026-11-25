@@ -2,7 +2,7 @@ window.MF_LANG = {
   vi: {
     htmlLang: "vi",
     pageTitle: "MathFluent · Tiếng Anh cho Toán ứng dụng",
-    tagline: "Tiếng Anh cho Toán ứng dụng · Optimization & Analysis",
+    tagline: "Tiếng Anh cho Toán ứng dụng · Optimization, Analysis & Functional Analysis",
     navHome: "Học", navReview: "Ôn tập", navBook: "Sổ tay", navSearch: "Tìm", navSettings: "Cài đặt",
     theme: "Sáng / tối", langBtn: "EN", langBtnTitle: "Switch to English",
     lv: ["Chưa học", "Mới học", "Nhớ mờ", "Tạm nhớ", "Khá nhớ", "Thuộc"],
@@ -10,10 +10,11 @@ window.MF_LANG = {
     mods: {
       terms: ["Thuật ngữ Tối ưu hóa", "Thuật ngữ Optimization kèm định nghĩa, họ từ, collocation và câu ví dụ."],
       analysis: ["Thuật ngữ Giải tích", "Thuật ngữ Giải tích toán học: dãy, liên tục, vi phân, tích phân, chuỗi."],
+      functional: ["Thuật ngữ Giải tích hàm", "Thuật ngữ Giải tích hàm: không gian Banach/Hilbert, toán tử, đối ngẫu, định lý nền tảng, toán tử đơn điệu."],
       symbols: ["Đọc ký hiệu", "Đọc công thức thành tiếng Anh: nghe, chọn và tự nói lại."],
       phrases: ["Mẫu câu viết paper", "Cụm câu dùng trong chứng minh và bài báo, kèm lỗi người Việt hay mắc."],
     },
-    unit: { terms: "thuật ngữ", analysis: "thuật ngữ", symbols: "ký hiệu", phrases: "mẫu câu" },
+    unit: { terms: "thuật ngữ", analysis: "thuật ngữ", functional: "thuật ngữ", symbols: "ký hiệu", phrases: "mẫu câu" },
     heroTitle: "MathFluent",
     heroText: "Học tiếng Anh chuyên ngành Toán ứng dụng theo bài ngắn. Mục đã học sẽ được nhắc lại đúng lúc sắp quên.",
     draftNote: "Nội dung đang là bản nháp do AI soạn, chưa được duyệt hết. Thấy chỗ nào sai thì bấm 🚩 để ghi chú.",
@@ -93,7 +94,7 @@ window.MF_LANG = {
   en: {
     htmlLang: "en",
     pageTitle: "MathFluent · English for Applied Mathematics",
-    tagline: "English for Applied Mathematics · Optimization & Analysis",
+    tagline: "English for Applied Mathematics · Optimization, Analysis & Functional Analysis",
     navHome: "Learn", navReview: "Review", navBook: "Notebook", navSearch: "Search", navSettings: "Settings",
     theme: "Light / dark", langBtn: "VI", langBtnTitle: "Chuyển sang tiếng Việt",
     lv: ["Not learned", "New", "Hazy", "Getting there", "Good", "Mastered"],
@@ -101,10 +102,11 @@ window.MF_LANG = {
     mods: {
       terms: ["Optimization terms", "Optimization terms with definitions, word families, collocations and examples."],
       analysis: ["Analysis terms", "Mathematical analysis terms: sequences, continuity, differentiation, integration, series."],
+      functional: ["Functional analysis terms", "Functional analysis terms: Banach and Hilbert spaces, operators, duality, fundamental theorems, monotone operators."],
       symbols: ["Reading notation", "Say formulas in English: listen, choose, and say them yourself."],
       phrases: ["Phrases for papers", "Phrases for proofs and papers, with the mistakes Vietnamese writers often make."],
     },
-    unit: { terms: "terms", analysis: "terms", symbols: "symbols", phrases: "phrases" },
+    unit: { terms: "terms", analysis: "terms", functional: "terms", symbols: "symbols", phrases: "phrases" },
     heroTitle: "MathFluent",
     heroText: "Learn the English of applied mathematics in short lessons. What you learn comes back for review just before you'd forget it.",
     draftNote: "The content is an AI-written draft that hasn't all been checked yet. If something is wrong, tap 🚩 to note it.",

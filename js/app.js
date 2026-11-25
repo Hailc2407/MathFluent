@@ -6,10 +6,11 @@
   const MODS = [
     { id: "terms", kind: "terms", field: "Optimization", file: "data/terms-optimization.json", emoji: "📖" },
     { id: "analysis", kind: "terms", field: "Analysis", file: "data/terms-analysis.json", emoji: "📐" },
+    { id: "functional", kind: "terms", field: "Functional Analysis", file: "data/terms-functional.json", emoji: "🌐" },
     { id: "symbols", file: "data/symbols.json", emoji: "∑" },
     { id: "phrases", file: "data/phrases.json", emoji: "✍️" },
   ];
-  const PREFIX = { terms: "t", analysis: "a", symbols: "s", phrases: "p" };
+  const PREFIX = { terms: "t", analysis: "a", functional: "f", symbols: "s", phrases: "p" };
   const MIN = 60000, DAY = 86400000;
   const INTERVAL = { 1: 10 * MIN, 2: DAY, 3: 3 * DAY, 4: 7 * DAY, 5: 15 * DAY };
   const MASTER = 30 * DAY;
